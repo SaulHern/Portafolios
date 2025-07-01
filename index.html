@@ -3,67 +3,209 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Portafolio Frontend Developer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <title>Portafolio de Saúl Hernández - Desarrollador Frontend</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #77aaff 3px solid;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            padding-bottom: 10px;
+            font-size: 2.5em;
+        }
+        header p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2em;
+            color: #333;
+            margin: 40px 0 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            height: 3px;
+            width: 60px;
+            background-color: #77aaff;
+            border-radius: 5px;
+        }
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 20px 0;
+        }
+        .project-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Alinea el contenido y el footer */
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        .project-card img {
+            width: 100%;
+            height: 200px; /* Altura fija para las imágenes */
+            object-fit: cover; /* Asegura que la imagen cubra el área sin distorsión */
+            display: block;
+            border-bottom: 1px solid #eee;
+        }
+        .project-content {
+            padding: 25px;
+            flex-grow: 1; /* Permite que el contenido ocupe el espacio disponible */
+        }
+        .project-content h3 {
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        .project-content p {
+            font-size: 0.95em;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        .project-links {
+            padding: 0 25px 25px; /* Padding en los lados y abajo */
+            display: flex;
+            justify-content: space-around;
+            border-top: 1px solid #eee;
+        }
+        .project-links a {
+            display: inline-block;
+            background: #77aaff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+        .project-links a:hover {
+            background: #5588cc;
+        }
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            background: #333;
+            color: #fff;
+            margin-top: 40px;
+        }
+        footer a {
+            color: #77aaff;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 10px;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-
-    <header class="portfolio-header">
+    <header>
         <div class="container">
-            <h1>¡Hola! Soy [Saúl h.]</h1>
+            <h1>¡Hola! Soy Saúl Hernández</h1>
             <p>Desarrollador Frontend apasionado por crear experiencias web interactivas y atractivas.</p>
         </div>
     </header>
 
-    <main class="portfolio-main">
-        <section class="projects-section container">
-            <h2>Mis Proyectos</h2>
-            <div class="project-grid">
-
-                <div class="project-card">
-                    <img src="https://via.placeholder.com/400x250?text=Mi+Restaurante+Demo" alt="Captura de pantalla de Mi Restaurante Demo">
+    <div class="container">
+        <h2 class="section-title">Mis Proyectos</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <img src="tu-imagen-restaurante-demo.jpg" alt="Captura de pantalla de Mi Restaurante Demo">
+                <div class="project-content">
                     <h3>Mi Restaurante Demo</h3>
-                    <p>Una aplicación web interactiva para pedidos de comida online, con gestión de carrito, navegación por categorías y simulación de funcionalidades de usuario y búsqueda.</p>
-                    <div class="project-links">
-                        <a href="https://candylul.github.io/Restaurante-Demo/" target="_blank" class="btn-live">Ver Demo en Vivo</a>
-                        <a href="https://github.com/candylul/Restaurante-Demo" target="_blank" class="btn-repo">Ver Repositorio</a>
-                    </div>
+                    <p>
+                        Una **aplicación web interactiva** diseñada para simular un sistema completo de
+                        pedidos de comida online. Los usuarios pueden explorar un menú con
+                        **productos ficticios**, utilizar un **sistema de búsqueda** avanzado, añadir
+                        productos a un **carrito de compras dinámico** y visualizar los "puntos del
+                        restaurante". Ideal para negocios de comida que buscan una plataforma
+                        eficiente y fácil de usar.
+                    </p>
                 </div>
-
-                <div class="project-card">
-                    <img src="https://via.placeholder.com/400x250?text=Dulce+Tentacion" alt="Captura de pantalla de Dulce Tentación">
-                    <h3>Dulce Tentación</h3>
-                    <p>Una página web enfocada en [describe brevemente de qué trata Dulce Tentación, ej: una tienda de postres, una pastelería online, etc.]. Destaca por su diseño visual y [menciona alguna característica clave].</p>
-                    <div class="project-links">
-                        <a href="https://candylul.github.io/dulce-tentacion/" target="_blank" class="btn-live">Ver Demo en Vivo</a>
-                        <a href="https://github.com/candylul/dulce-tentacion" target="_blank" class="btn-repo">Ver Repositorio</a>
-                    </div>
+                <div class="project-links">
+                    <a href="https://candylul.github.io/Restaurante-Demo/" target="_blank">Ver Demo en Vivo</a>
+                    <a href="https://github.com/candylul/Restaurante-Demo" target="_blank">Ver Repositorio</a>
                 </div>
-
-                <div class="project-card">
-                    <img src="https://via.placeholder.com/400x250?text=Guia+de+Estudio" alt="Captura de pantalla de Guía de Estudio">
-                    <h3>Guía de Estudio Interactiva</h3>
-                    <p>Un recurso online interactivo diseñado para [describe brevemente el propósito de la guía de estudio, ej: organizar temas, pruebas rápidas, etc.]. Facilita el aprendizaje con [menciona una característica clave].</p>
-                    <div class="project-links">
-                        <a href="https://candylul.github.io/Guia-de-estudio/" target="_blank" class="btn-live">Ver Demo en Vivo</a>
-                        <a href="https://github.com/candylul/Guia-de-estudio" target="_blank" class="btn-repo">Ver Repositorio</a>
-                    </div>
-                </div>
-
             </div>
-        </section>
-    </main>
 
-    <footer class="portfolio-footer">
-        <div class="container">
-            <p>&copy; 2025 [Tu Nombre]. Todos los derechos reservados.</p>
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/[TU_PERFIL_LINKEDIN]" target="_blank">LinkedIn</a>
-                <a href="https://github.com/[TU_USUARIO_GITHUB]" target="_blank">GitHub</a>
+            <div class="project-card">
+                <img src="tu-imagen-dulce-tentacion.jpg" alt="Captura de pantalla de Dulce Tentación">
+                <div class="project-content">
+                    <h3>Dulce Tentación</h3>
+                    <p>
+                        Una atractiva **página web de venta de dulces** diseñada para ofrecer una
+                        experiencia de compra deliciosa. Incluye un **carrito de compras funcional**,
+                        un catálogo de **productos bien presentados con imágenes**, y una sección de
+                        **reseñas de clientes** para generar confianza. Perfecta para cualquier
+                        negocio que desee vender productos dulces de forma online.
+                    </p>
                 </div>
-        </div>
-    </footer>
+                <div class="project-links">
+                    <a href="https://candylul.github.io/dulce-tentacion/" target="_blank">Ver Demo en Vivo</a>
+                    <a href="https://github.com/candylul/dulce-tentacion" target="_blank">Ver Repositorio</a>
+                </div>
+            </div>
 
+            <div class="project-card">
+                <img src="tu-imagen-guia-estudio.jpg" alt="Captura de pantalla de Guía de Estudio Interactiva">
+                <div class="project-content">
+                    <h3>Guía de Estudio Interactiva</h3>
+                    <p>
+                        Un **recurso online interactivo** creado para facilitar el aprendizaje y la
+                        preparación académica. Ofrece una **guía con diferentes materias**, un menú
+                        intuitivo para acceder a cada tema, y **dos simulacros de examen de opción
+                        múltiple**. Los usuarios pueden revisar sus respuestas, ver sus aciertos y
+                        reiniciar las pruebas, haciendo el estudio más eficiente y dinámico.
+                    </p>
+                </div>
+                <div class="project-links">
+                    <a href="https://candylul.github.io/Guia-de-estudio/" target="_blank">Ver Demo en Vivo</a>
+                    <a href="https://github.com/candylul/Guia-de-estudio" target="_blank">Ver Repositorio</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Saúl Hernández. Todos los derechos reservados.</p>
+        <p>Conéctate conmigo: <a href="https://github.com/CandyLuL" target="_blank">GitHub</a></p>
+    </footer>
 </body>
 </html>
