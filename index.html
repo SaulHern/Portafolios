@@ -3,75 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saul H. | Portafolio Frontend Developer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Saúl Alberto Hernandez | Portafolio de Desarrollo y Diseño Web</title>
+    <meta name="description" content="Portafolio de Saúl Alberto Hernandez, desarrollador frontend que transforma ideas en experiencias digitales interactivas y funcionales.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header class="portfolio-header">
-        <div class="container">
-            <h1>Hola, soy **Saul H.**</h1>
-            <p>Desarrollador Frontend apasionado por crear experiencias web intuitivas y elegantes, transformando ideas en interfaces de usuario funcionales y visualmente atractivas.</p>
+    <header class="main-header">
+        <div class="logo">
+            <a href="#">SAH.</a>
         </div>
+        <nav class="main-nav">
+            <a href="#servicios">Servicios</a>
+            <a href="#portafolio">Portafolio</a>
+            <a href="#sobre-mi">Sobre Mí</a>
+            <a href="#contacto" class="btn-contact">Contactar</a>
+        </nav>
     </header>
 
-    <main class="portfolio-main">
-        <section class="projects-section container">
-            <h2>Mis Proyectos</h2>
-            <div class="project-grid">
+    <main>
+        <section id="heroe" class="heroe-section">
+            <div class="heroe-content">
+                <h1 class="fade-in">Desarrollador Frontend<br><span id="typing-effect"></span></h1>
+                <p class="fade-in-delay">Hola, soy <strong>Saúl Alberto Hernandez</strong>. Convierto problemas complejos en interfaces web elegantes, intuitivas y eficientes. Explora mi trabajo y veamos cómo podemos colaborar.</p>
+                <a href="#portafolio" class="btn-main fade-in-delay">👇 Ver mis Proyectos</a>
+            </div>
+        </section>
 
-                <div class="project-card">
-                    <div class="project-icon-wrapper">
-                        <span class="material-icons">restaurant_menu</span>
-                    </div>
-                    <h3>Mi Restaurante Demo</h3>
-                    <p>Aplicación web interactiva para pedidos de comida online, con gestión de carrito dinámica, navegación fluida por categorías y simulación de funcionalidades clave.</p>
-                    <div class="project-links">
-                        <a href="https://candylul.github.io/Restaurante-Demo/" target="_blank" class="btn-primary">Ver Demo</a>
-                        <a href="https://github.com/candylul/Restaurante-Demo" target="_blank" class="btn-secondary">Código</a>
+        <section id="servicios" class="servicios-section">
+            <h2>Un Universo de Posibilidades</h2>
+            <div class="servicios-grid">
+                <div class="servicio-card">
+                    <i class="fas fa-palette"></i>
+                    <h3>Diseño de Interfaces (UI)</h3>
+                    <p>Creación de interfaces visualmente atractivas, modernas y funcionales que ofrecen una experiencia de usuario memorable.</p>
+                </div>
+                <div class="servicio-card">
+                    <i class="fas fa-code"></i>
+                    <h3>Desarrollo Frontend</h3>
+                    <p>Maquetación de diseños a código HTML, CSS y JavaScript. Creo sitios web responsivos, rápidos e interactivos.</p>
+                </div>
+                <div class="servicio-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Aplicaciones Web</h3>
+                    <p>Desarrollo de lógica del lado del cliente para aplicaciones web dinámicas, desde e-commerce hasta plataformas educativas.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="portafolio" class="portafolio-section">
+            <h2>Proyectos que Hablan por Sí Mismos</h2>
+            <div class="portafolio-grid">
+                <div class="proyecto-card">
+                    <img src="images/proyecto-guia.jpg" alt="Imagen del proyecto Guía de Estudio ECOEMS">
+                    <div class="proyecto-info">
+                        <h3>Guía Interactiva ECOEMS</h3>
+                        <p>Plataforma de estudio con simulador de examen de opción múltiple. Desarrollada con HTML, CSS y JavaScript para ofrecer una experiencia de aprendizaje interactiva.</p>
+                        <a href="https://candylul.github.io/Guia-de-estudio/" class="btn-secondary" target="_blank">Ver Proyecto</a>
                     </div>
                 </div>
-
-                <div class="project-card">
-                    <div class="project-icon-wrapper">
-                        <span class="material-icons">bakery_dining</span>
-                    </div>
-                    <h3>Dulce Tentación</h3>
-                    <p>Una página web vibrante y visualmente atractiva diseñada para una pastelería o tienda de postres. Destaca por su presentación de productos y navegación amigable.</p>
-                    <div class="project-links">
-                        <a href="https://candylul.github.io/dulce-tentacion/" target="_blank" class="btn-primary">Ver Demo</a>
-                        <a href="https://github.com/candylul/dulce-tentacion" target="_blank" class="btn-secondary">Código</a>
+                <div class="proyecto-card">
+                    <img src="images/proyecto-restaurante.jpg" alt="Imagen del proyecto Restaurante Demo">
+                    <div class="proyecto-info">
+                        <h3>Mi Restaurante Demo</h3>
+                        <p>Landing page para un restaurante ficticio, con menú, sistema de carrito de compras y una interfaz moderna. Un demo de mis habilidades para negocios locales.</p>
+                        <a href="https://candylul.github.io/Restaurante-Demo/" class="btn-secondary" target="_blank">Ver Proyecto</a>
                     </div>
                 </div>
-
-                <div class="project-card">
-                    <div class="project-icon-wrapper">
-                        <span class="material-icons">auto_stories</span>
-                    </div>
-                    <h3>Guía de Estudio Interactiva</h3>
-                    <p>Un recurso online creado para facilitar el aprendizaje y la organización de temas de estudio, incorporando elementos interactivos para una experiencia de usuario enriquecida.</p>
-                    <div class="project-links">
-                        <a href="https://candylul.github.io/Guia-de-estudio/" target="_blank" class="btn-primary">Ver Demo</a>
-                        <a href="https://github.com/candylul/Guia-de-estudio" target="_blank" class="btn-secondary">Código</a>
+                <div class="proyecto-card">
+                    <img src="images/proyecto-dulceria.jpg" alt="Imagen del proyecto Dulce Tentación">
+                    <div class="proyecto-info">
+                        <h3>Dulce Tentación</h3>
+                        <p>E-commerce simple para una tienda de dulces. Permite a los usuarios agregar productos al carrito y enviar su pedido directamente por WhatsApp.</p>
+                        <a href="https://candylul.github.io/dulce-tentacion/" class="btn-secondary" target="_blank">Ver Proyecto</a>
                     </div>
                 </div>
+            </div>
+        </section>
 
+        <section id="sobre-mi" class="sobre-mi-section">
+            <div class="sobre-mi-content">
+                <img src="images/foto-perfil.jpg" alt="Retrato de Saúl Alberto Hernandez" class="avatar">
+                <div class="sobre-mi-texto">
+                    <h2>Apasionado por la Creación Digital</h2>
+                    <p>Desde que descubrí que podía combinar mi amor por el diseño y la lógica de la programación, supe que había encontrado mi vocación. Mi objetivo es simple: <strong>resolver problemas a través de la tecnología y el diseño.</strong></p>
+                    <p>Soy un comunicador claro y un colaborador entusiasta. Creo que los mejores resultados provienen de una colaboración estrecha. ¡Hablemos!</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contacto" class="contacto-section">
+            <h2>¿Tienes una idea en mente?</h2>
+            <p>Hagámosla realidad. Estoy disponible para nuevos proyectos y colaboraciones.</p>
+            <a href="mailto:albertosaul341@gmail.com" class="btn-main">albertosaul341@gmail.com</a>
+            <div class="social-links">
+                <a href="https://github.com/CandyLuL" target="_blank" aria-label="GitHub" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://wa.me/525520708423" target="_blank" aria-label="WhatsApp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
             </div>
         </section>
     </main>
 
-    <footer class="portfolio-footer">
-        <div class="container">
-            <p>&copy; 2025 Saul H. Todos los derechos reservados.</p>
-            <div class="social-links">
-                <a href="https://github.com/CandyLuL" target="_blank" class="social-icon" aria-label="GitHub de Saul H.">
-                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/github.svg" alt="GitHub">
-                </a>
-                </div>
-        </div>
+    <footer class="main-footer">
+        <p>© 2025 Saúl Alberto Hernandez. Creado con pasión y código.</p>
     </footer>
 
+    <a id="scrollTopBtn" class="scroll-top-btn"><i class="fas fa-arrow-up"></i></a>
+
+    <script src="script.js"></script>
 </body>
 </html>
