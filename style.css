@@ -363,4 +363,50 @@ section {
         flex-direction: column;
         gap: 1rem;
     }
+    /* --- ESTILOS ADICIONALES PARA PORTAFOLIO PRINCIPAL --- */
+.portafolio-grid-principal {
+    max-width: 1000px;
+    margin: 0 auto 4rem auto; /* Centrado y con margen inferior */
+}
+
+.proyecto-card-principal {
+    background-color: var(--color-fondo);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    border: 1px solid var(--color-primario); /* Borde para destacar */
+}
+
+.proyecto-card-principal img {
+    width: 50%;
+    height: auto;
+    object-fit: cover;
+}
+
+.proyecto-info-principal {
+    padding: 2rem;
+    width: 50%;
+}
+
+.subtitulo-portafolio {
+    text-align: center;
+    color: var(--color-texto-secundario);
+    font-weight: 400;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+}
+
+/* Ajustes para responsive */
+@media (max-width: 768px) {
+    .proyecto-card-principal {
+        flex-direction: column;
+    }
+    .proyecto-card-principal img,
+    .proyecto-info-principal {
+        width: 100%;
+    }
+}
 }
