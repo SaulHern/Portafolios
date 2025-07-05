@@ -58,6 +58,46 @@ h1, h2, h3 {
     color: var(--text-muted);
 }
 
+/* Barra de Navegación Principal (nueva) */
+.main-nav-portfolio {
+    background-color: #1A1A1A;
+    padding: 15px 0;
+    position: sticky; /* Sticky o Fixed */
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.main-nav-portfolio .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-nav-portfolio ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap; /* Para que los enlaces se envuelvan en pantallas pequeñas */
+    justify-content: center;
+}
+
+.main-nav-portfolio a {
+    color: var(--text-light);
+    font-weight: 600;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+    white-space: nowrap; /* Evita que los nombres largos se rompan */
+}
+
+.main-nav-portfolio a:hover,
+.main-nav-portfolio a.active { /* Para un estado activo si se implementa con JS */
+    color: var(--accent-color);
+}
+
 /* Main Content - Projects Section */
 .projects-section {
     padding: 40px 20px;
@@ -245,130 +285,6 @@ h1, h2, h3 {
     margin: 0;
 }
 
-/* Sección de Paquetes de Diseño y Hosting */
-.design-packages-section,
-.hosting-domain-section {
-    padding: 80px 20px;
-    text-align: center;
-}
-
-.design-packages-section h2,
-.hosting-domain-section h2 {
-    font-size: 2.5em;
-    margin-bottom: 40px;
-    color: var(--text-light);
-}
-
-.hosting-domain-section .intro-text {
-    font-size: 1.1em;
-    color: var(--text-muted);
-    max-width: 800px;
-    margin: 0 auto 50px;
-    line-height: 1.7;
-}
-
-.packages-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.package-card {
-    background-color: var(--card-bg);
-    padding: 35px;
-    border-radius: 12px;
-    box-shadow: 0 8px 25px var(--shadow-color);
-    border: 1px solid var(--border-color);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-}
-
-.package-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9);
-    border-color: var(--accent-color);
-}
-
-.package-card.featured {
-    background: linear-gradient(145deg, var(--accent-color) 0%, var(--accent-hover) 100%);
-    color: var(--bg-dark); /* Texto oscuro para la tarjeta destacada */
-    transform: scale(1.03); /* Ligeramente más grande */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-    border-color: var(--accent-hover);
-}
-
-.package-card.featured h3,
-.package-card.featured .price,
-.package-card.featured ul li {
-    color: var(--bg-dark); /* Asegura que el texto sea oscuro en la destacada */
-}
-
-.package-card.featured .material-icons {
-    color: var(--bg-dark); /* Color de iconos en la destacada */
-}
-
-
-.package-card h3 {
-    font-size: 2em;
-    margin-bottom: 15px;
-    color: var(--text-light);
-}
-
-.package-card .price {
-    font-size: 2.5em;
-    font-weight: 700;
-    color: var(--accent-color);
-    margin-bottom: 25px;
-}
-
-.package-card ul {
-    text-align: left;
-    margin-bottom: 30px;
-    flex-grow: 1; /* Ocupa el espacio disponible */
-    width: 100%; /* Para que los items se alineen bien */
-}
-
-.package-card ul li {
-    font-size: 1em;
-    color: var(--text-muted);
-    margin-bottom: 10px;
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-}
-
-.package-card ul li .material-icons {
-    font-size: 1.3em;
-    color: var(--accent-color);
-    margin-top: 2px; /* Alineación del icono */
-}
-
-.package-card button {
-    background-color: var(--accent-color);
-    color: var(--bg-dark);
-    border: none;
-    padding: 12px 30px;
-    border-radius: 50px;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 1em;
-    transition: background-color 0.3s ease;
-    width: 80%; /* Botón más ancho */
-}
-
-.package-card.featured button {
-    background-color: var(--bg-dark);
-    color: var(--accent-color);
-}
-
-.package-card button:hover {
-    background-color: var(--accent-hover);
-    color: var(--bg-dark);
-}
-
 /* Sección de Video de Presentación */
 .presentation-video-section {
     background-color: var(--bg-dark);
@@ -485,6 +401,38 @@ h1, h2, h3 {
     transform: translateY(-5px) scale(1.1); /* Efecto al pasar el ratón */
 }
 
+/* Botón Flotante de WhatsApp */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25d366; /* Color de WhatsApp */
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-float img {
+    width: 35px; /* Tamaño del icono */
+    height: 35px;
+    filter: invert(100%); /* Hace el icono blanco */
+}
+
+.whatsapp-float:hover {
+    background-color: #128C7E; /* Tono más oscuro al hover */
+    transform: scale(1.05);
+}
+
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .portfolio-header h1 {
@@ -492,6 +440,14 @@ h1, h2, h3 {
     }
     .portfolio-header p {
         font-size: 1em;
+    }
+    .main-nav-portfolio ul {
+        flex-direction: column; /* Apilar enlaces en móviles */
+        gap: 10px;
+        padding: 10px 0;
+    }
+    .main-nav-portfolio a {
+        padding: 5px 0;
     }
     .projects-section h2,
     .value-proposition-section h2,
@@ -518,6 +474,16 @@ h1, h2, h3 {
     }
     .presentation-video-section p {
         font-size: 1em;
+    }
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+    }
+    .whatsapp-float img {
+        width: 30px;
+        height: 30px;
     }
 }
 
