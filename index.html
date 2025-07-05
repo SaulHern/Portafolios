@@ -3,130 +3,251 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saúl Alberto Hernandez | Portafolio de Desarrollo y Diseño Web</title>
-    <meta name="description" content="Portafolio de Saúl Alberto Hernandez, desarrollador frontend que transforma ideas en experiencias digitales interactivas y funcionales.">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    <title>Saul H. | Portafolio Frontend Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-icons-font@v12/font/simple-icons.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header class="main-header">
-        <div class="logo">
-            <a href="#">SAH.</a>
+    <header class="portfolio-header">
+        <div class="container">
+            <h1>Hola, soy **Saul H.**</h1>
+            <p>Desarrollador Frontend apasionado por crear experiencias web intuitivas y elegantes, transformando ideas en interfaces de usuario funcionales y visualmente atractivas.</p>
         </div>
-        <nav class="main-nav">
-            <a href="#servicios">Servicios</a>
-            <a href="#portafolio">Portafolio</a>
-            <a href="#sobre-mi">Sobre Mí</a>
-            <a href="#contacto" class="btn-contact">Contactar</a>
-        </nav>
     </header>
 
-    <main>
-        <section id="heroe" class="heroe-section">
-            <div class="heroe-content">
-                <h1 class="fade-in">Desarrollador Frontend<br><span id="typing-effect"></span></h1>
-                <p class="fade-in-delay">Hola, soy <strong>Saúl Alberto Hernandez</strong>. Convierto problemas complejos en interfaces web elegantes, intuitivas y eficientes. Explora mi trabajo y veamos cómo podemos colaborar.</p>
-                <a href="#portafolio" class="btn-main fade-in-delay">👇 Ver mis Proyectos</a>
+    <main class="portfolio-main">
+        <section class="projects-section container">
+            <h2>Mis Proyectos</h2>
+            <div class="project-grid">
+
+                <div class="project-card">
+                    <div class="project-icon-wrapper">
+                        <span class="material-icons">restaurant_menu</span>
+                    </div>
+                    <h3>Mi Restaurante Demo</h3>
+                    <p>Aplicación web interactiva para pedidos de comida online, con gestión de carrito dinámica, navegación fluida por categorías y simulación de funcionalidades clave.</p>
+                    <div class="project-links">
+                        <a href="https://candylul.github.io/Restaurante-Demo/" target="_blank" class="btn-primary">Ver Demo</a>
+                        <a href="https://github.com/CandyLuL/Restaurante-Demo" target="_blank" class="btn-secondary">Código</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon-wrapper">
+                        <span class="material-icons">bakery_dining</span>
+                    </div>
+                    <h3>Dulce Tentación</h3>
+                    <p>Una página web vibrante y visualmente atractiva diseñada para una pastelería o tienda de postres. Destaca por su presentación de productos y navegación amigable.</p>
+                    <div class="project-links">
+                        <a href="https://candylul.github.io/dulce-tentacion/" target="_blank" class="btn-primary">Ver Demo</a>
+                        <a href="https://github.com/CandyLuL/dulce-tentacion" target="_blank" class="btn-secondary">Código</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon-wrapper">
+                        <span class="material-icons">auto_stories</span>
+                    </div>
+                    <h3>Guía de Estudio Interactiva</h3>
+                    <p>Un recurso online creado para facilitar el aprendizaje y la organización de temas de estudio, incorporando elementos interactivos para una experiencia de usuario enriquecida.</p>
+                    <div class="project-links">
+                        <a href="https://candylul.github.io/Guia-de-estudio/" target="_blank" class="btn-primary">Ver Demo</a>
+                        <a href="https://github.com/CandyLuL/Guia-de-estudio" target="_blank" class="btn-secondary">Código</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon-wrapper">
+                        <span class="material-icons">cloud_queue</span>
+                    </div>
+                    <h3>App del Clima</h3>
+                    <p>Aplicación web que consume una API externa para mostrar el clima actual de cualquier ciudad, demostrando manejo de APIs y actualización dinámica de UI.</p>
+                    <div class="project-links">
+                        <a href="https://candylul.github.io/clima-app/" target="_blank" class="btn-primary">Ver Demo</a>
+                        <a href="https://github.com/CandyLuL/clima-app" target="_blank" class="btn-secondary">Código</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon-wrapper">
+                        <span class="material-icons">checklist</span>
+                    </div>
+                    <h3>Lista de Tareas (To-Do List)</h3>
+                    <p>Aplicación interactiva para gestionar tareas, con persistencia de datos usando LocalStorage y opciones de filtrado (todas, pendientes, completadas).</p>
+                    <div class="project-links">
+                        <a href="https://candylul.github.io/todo-list-app/" target="_blank" class="btn-primary">Ver Demo</a>
+                        <a href="https://github.com/CandyLuL/todo-list-app" target="_blank" class="btn-secondary">Código</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon-wrapper">
+                        <span class="material-icons">laptop_mac</span>
+                    </div>
+                    <h3>Landing Page Agencia Digital</h3>
+                    <p>Página de aterrizaje completa y profesional para una agencia digital, con secciones de servicios, premios, testimonios y formulario de contacto.</p>
+                    <div class="project-links">
+                        <a href="https://candylul.github.io/agencia-digital-landing/" target="_blank" class="btn-primary">Ver Demo</a>
+                        <a href="https://github.com/CandyLuL/agencia-digital-landing" target="_blank" class="btn-secondary">Código</a>
+                    </div>
+                </div>
+
             </div>
         </section>
 
-        <section id="servicios" class="servicios-section">
-            <h2>Un Universo de Posibilidades</h2>
-            <div class="servicios-grid">
-                <div class="servicio-card">
-                    <i class="fas fa-palette"></i>
-                    <h3>Diseño de Interfaces (UI)</h3>
-                    <p>Creación de interfaces visualmente atractivas, modernas y funcionales que ofrecen una experiencia de usuario memorable.</p>
+        <section class="value-proposition-section container">
+            <h2>Mi Propuesta de Valor</h2>
+            <p>En **Syntora**, transformo tus ideas en experiencias web funcionales y visualmente impactantes. Mi enfoque es crear soluciones digitales a medida que no solo lucen increíbles, sino que también impulsan tus objetivos de negocio.</p>
+        </section>
+
+        <section class="services-inclusion-section container">
+            <h2>¿Qué Incluyen Mis Servicios?</h2>
+            <div class="inclusions-grid">
+                <div class="inclusion-item">
+                    <span class="material-icons">check_circle_outline</span>
+                    <p>Diseño Web Personalizado</p>
                 </div>
-                <div class="servicio-card">
-                    <i class="fas fa-code"></i>
-                    <h3>Desarrollo Frontend</h3>
-                    <p>Maquetación de diseños a código HTML, CSS y JavaScript. Creo sitios web responsivos, rápidos e interactivos.</p>
+                <div class="inclusion-item">
+                    <span class="material-icons">check_circle_outline</span>
+                    <p>Desarrollo Frontend Responsivo</p>
                 </div>
-                <div class="servicio-card">
-                    <i class="fas fa-mobile-alt"></i>
-                    <h3>Aplicaciones Web</h3>
-                    <p>Desarrollo de lógica del lado del cliente para aplicaciones web dinámicas, desde e-commerce hasta plataformas educativas.</p>
+                <div class="inclusion-item">
+                    <span class="material-icons">check_circle_outline</span>
+                    <p>Integración de Contenido (textos, imágenes)</p>
+                </div>
+                <div class="inclusion-item">
+                    <span class="material-icons">check_circle_outline</span>
+                    <p>Optimización para Motores de Búsqueda (SEO Básico)</p>
+                </div>
+                <div class="inclusion-item">
+                    <span class="material-icons">check_circle_outline</span>
+                    <p>Formularios de Contacto Funcionales</p>
+                </div>
+                <div class="inclusion-item">
+                    <span class="material-icons">check_circle_outline</span>
+                    <p>Configuración Inicial en GitHub Pages (hosting gratuito)</p>
+                </div>
+                <div class="inclusion-item">
+                    <span class="material-icons">check_circle_outline</span>
+                    <p>Soporte Básico Post-Entrega</p>
+                </div>
+                <div class="inclusion-item">
+                    <span class="material-icons">check_circle_outline</span>
+                    <p>Manejo de API Key</p>
+                </div>
+                <div class="inclusion-item">
+                    <span class="material-icons">check_circle_outline</span>
+                    <p>Manejo de LocalStorage</p>
+                </div>
+                <div class="inclusion-item">
+                    <span class="material-icons">check_circle_outline</span>
+                    <p>Acordeones FAQ</p>
                 </div>
             </div>
         </section>
 
-        <section id="portafolio" class="portafolio-section">
-            <h2>Proyectos que Hablan por Sí Mismos</h2>
-            <div class="portafolio-grid-principal">
-                <div class="proyecto-card-principal">
-                    <img src="images/proyecto-agencia.jpg" alt="Imagen del proyecto Digital Agency">
-                    <div class="proyecto-info-principal">
-                        <h3>Digital Agency</h3>
-                        <p><strong>Mi proyecto más completo y mejor diseñado.</strong> Una landing page para una agencia digital, [Ficticia] creada con atención al detalle, animaciones suaves y un diseño totalmente responsivo. Incluye secciones de servicios, portafolio, equipo y contacto, demostrando un amplio conjunto de habilidades de maquetación y diseño frontend.</p>
-                        <a href="https://candylul.github.io/Digital-Agency_/index.html#home" class="btn-secondary" target="_blank">Ver Proyecto en Vivo</a>
-                    </div>
+        <section class="design-packages-section container">
+            <h2>Mis Paquetes de Diseño Web</h2>
+            <div class="packages-grid">
+                <div class="package-card">
+                    <h3>Básico</h3>
+                    <p class="price">$150 USD</p>
+                    <ul>
+                        <li><span class="material-icons">check</span> **1 Sección** (Landing Page simple o tarjeta de contacto digital)</li>
+                        <li><span class="material-icons">check</span> Diseño Adaptable a Móviles</li>
+                        <li><span class="material-icons">check</span> SEO Básico</li>
+                        <li><span class="material-icons">check</span> 1 Formulario de Contacto</li>
+                        <li><span class="material-icons">check</span> Hosting en GitHub Pages</li>
+                    </ul>
+                    <button class="btn-primary">Elegir Básico</button>
                 </div>
-            </div>
-            
-            <h3 class="subtitulo-portafolio">Otros Proyectos</h3>
-            <div class="portafolio-grid">
-                <div class="proyecto-card">
-                    <img src="images/proyecto-guia.jpg" alt="Imagen del proyecto Guía de Estudio ECOEMS">
-                    <div class="proyecto-info">
-                        <h3>Guía Interactiva ECOEMS</h3>
-                        <p>Plataforma de estudio con simulador de examen. Desarrollada con HTML, CSS y JavaScript para una experiencia de aprendizaje interactiva.</p>
-                        <a href="https://candylul.github.io/Guia-de-estudio/" class="btn-secondary" target="_blank">Ver Proyecto</a>
-                    </div>
+                <div class="package-card featured">
+                    <h3>Avanzado</h3>
+                    <p class="price">$350 USD</p>
+                    <ul>
+                        <li><span class="material-icons">check</span> Hasta **5 Secciones** estáticas</li>
+                        <li><span class="material-icons">check"></span> Diseño Responsivo y optimizado</li>
+                        <li><span class="material-icons">check"></span> Integración de contenido (texto, imágenes, videos)</li>
+                        <li><span class="material-icons">check"></span> 1 Formulario de Contacto funcional</li>
+                        <li><span class="material-icons">check"></span> Integración de iconos de redes sociales</li>
+                        <li><span class="material-icons">check"></span> Hosting Gratuito GitHub Pages</li>
+                    </ul>
+                    <button class="btn-primary">Elegir Avanzado</button>
                 </div>
-                <div class="proyecto-card">
-                    <img src="images/proyecto-restaurante.jpg" alt="Imagen del proyecto Restaurante Demo">
-                    <div class="proyecto-info">
-                        <h3>Mi Restaurante Demo</h3>
-                        <p>Landing page para un restaurante ficticio con menú y carrito de compras, demostrando habilidades para negocios locales.</p>
-                        <a href="https://candylul.github.io/Restaurante-Demo/" class="btn-secondary" target="_blank">Ver Proyecto</a>
-                    </div>
-                </div>
-                <div class="proyecto-card">
-                    <img src="images/proyecto-dulceria.jpg" alt="Imagen del proyecto Dulce Tentación">
-                    <div class="proyecto-info">
-                        <h3>Dulce Tentación</h3>
-                        <p>E-commerce simple para una tienda de dulces que permite a los usuarios enviar su pedido directamente por WhatsApp.</p>
-                        <a href="https://candylul.github.io/dulce-tentacion/" class="btn-secondary" target="_blank">Ver Proyecto</a>
-                    </div>
+                <div class="package-card">
+                    <h3>Premium</h3>
+                    <p class="price">$700 USD</p>
+                    <ul>
+                        <li><span class="material-icons">check"></span> Hasta **7 Secciones** o una App interactiva</li>
+                        <li><span class="material-icons">check"></span> Diseño UI/UX personalizado</li>
+                        <li><span class="material-icons">check"></span> Funcionalidades interactivas avanzadas (API, LocalStorage, Acordeones)</li>
+                        <li><span class="material-icons">check"></span> Optimización para SEO avanzada</li>
+                        <li><span class="material-icons">check"></span> Hosting Gratuito GitHub Pages</li>
+                        <li><span class="material-icons">check"></span> Soporte Básico Post-Entrega</li>
+                    </ul>
+                    <button class="btn-primary">Elegir Premium</button>
                 </div>
             </div>
         </section>
 
-        <section id="sobre-mi" class="sobre-mi-section">
-            <div class="sobre-mi-content">
-                <img src="images/foto-perfil.jpg" alt="Retrato de Saúl Alberto Hernandez" class="avatar">
-                <div class="sobre-mi-texto">
-                    <h2>Apasionado por la Creación Digital</h2>
-                    <p>Desde que descubrí que podía combinar mi amor por el diseño y la lógica de la programación, supe que había encontrado mi vocación. Mi objetivo es simple: <strong>resolver problemas a través de la tecnología y el diseño.</strong></p>
-                    <p>Soy un comunicador claro y un colaborador entusiasta. Creo que los mejores resultados provienen de una colaboración estrecha. ¡Hablemos!</p>
+        <section class="hosting-domain-section container">
+            <h2>Opciones de Hosting y Dominio (Extras al Paquete)</h2>
+            <p class="intro-text">Todos mis paquetes incluyen un hosting gratuito básico (GitHub Pages). Para un rendimiento superior, una presencia más profesional y funcionalidades avanzadas, recomiendo considerar estas opciones de hosting y dominio pagadas. Estos precios son estimados anuales y no incluyen una tarifa de gestión.</p>
+            <div class="packages-grid">
+                <div class="package-card">
+                    <h3>Hosting y Dominio Básico</h3>
+                    <p class="price">$100 USD/año</p>
+                    <ul>
+                        <li><span class="material-icons">check</span> Dominio .com/.net/.org (1 año)</li>
+                        <li><span class="material-icons">check</span> Hosting Compartido Estándar</li>
+                        <li><span class="material-icons">check</span> Certificado SSL Gratuito</li>
+                        <li><span class="material-icons">check</span> 1 Cuenta de Email Profesional</li>
+                    </ul>
+                    <button class="btn-primary">Elegir Básico</button>
+                </div>
+                <div class="package-card featured">
+                    <h3>Hosting y Dominio Avanzado</h3>
+                    <p class="price">$250 USD/año</p>
+                    <ul>
+                        <li><span class="material-icons">check</span> Dominio .com/.io (1 año)</li>
+                        <li><span class="material-icons">check"></span> Hosting Compartido Premium (más recursos)</li>
+                        <li><span class="material-icons">check"></span> Certificado SSL Gratuito</li>
+                        <li><span class="material-icons">check"></span> Cuentas de Email Ilimitadas</li>
+                        <li><span class="material-icons">check"></span> Caching Avanzado para Velocidad</li>
+                    </ul>
+                    <button class="btn-primary">Elegir Avanzado</button>
+                </div>
+                <div class="package-card">
+                    <h3>Hosting y Dominio Premium</h3>
+                    <p class="price">$600+ USD/año</p>
+                    <ul>
+                        <li><span class="material-icons">check"></span> Dominio a Elección (1 año, incluyendo .mx)</li>
+                        <li><span class="material-icons">check"></span> Hosting Gestionado (WordPress/Cloud)</li>
+                        <li><span class="material-icons">check"></span> Certificado SSL y CDN Integrado</li>
+                        <li><span class="material-icons">check"></span> Backups Diarios Automáticos</li>
+                        <li><span class="material-icons">check"></span> Soporte Técnico Prioritario 24/7</li>
+                    </ul>
+                    <button class="btn-primary">Elegir Premium</button>
                 </div>
             </div>
         </section>
-        
-        <section id="contacto" class="contacto-section">
-            <h2>¿Tienes una idea en mente?</h2>
-            <p>Hagámosla realidad. Estoy disponible para nuevos proyectos y colaboraciones.</p>
-            <a href="mailto:albertosaul341@gmail.com" class="btn-main">albertosaul341@gmail.com</a>
-            <div class="social-links">
-                <a href="https://github.com/CandyLuL" target="_blank" aria-label="GitHub" title="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://wa.me/525520708423" target="_blank" aria-label="WhatsApp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-            </div>
-        </section>
+
     </main>
 
-    <footer class="main-footer">
-        <p>© 2025 Saúl Alberto Hernandez. Creado con pasión y código.</p>
+    <footer class="portfolio-footer">
+        <div class="container">
+            <div class="footer-logo"><img src="images/syntora-logo.png" alt="Logo de Syntora"></div>
+            <p>&copy; 2025 Saul H. Todos los derechos reservados.</p>
+            <div class="social-links">
+                <a href="https://github.com/CandyLuL" target="_blank" class="social-icon" aria-label="GitHub de Saul H.">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/github.svg" alt="GitHub">
+                </a>
+                </div>
+        </div>
     </footer>
 
-    <a id="scrollTopBtn" class="scroll-top-btn"><i class="fas fa-arrow-up"></i></a>
-
-    <script src="script.js"></script>
 </body>
+</html>
