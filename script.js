@@ -1,77 +1,5 @@
-document.addEventListener('DOMContentLoaded', function() {
-
-    // --- Efecto de Escritura (Typing Effect) ---
-    const typingElement = document.getElementById('typing-effect');
-    const words = ["Creativo", "Funcional", "Moderno", "Eficiente"];
-    let wordIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-
-    function type() {
-        const currentWord = words[wordIndex];
-        if (isDeleting) {
-            // Borrando
-            typingElement.textContent = currentWord.substring(0, charIndex - 1);
-            charIndex--;
-            if (charIndex === 0) {
-                isDeleting = false;
-                wordIndex = (wordIndex + 1) % words.length;
-            }
-        } else {
-            // Escribiendo
-            typingElement.textContent = currentWord.substring(0, charIndex + 1);
-            charIndex++;
-            if (charIndex === currentWord.length) {
-                isDeleting = true;
-                // Pausa antes de borrar
-                setTimeout(type, 1500); 
-                return;
-            }
-        }
-        // Velocidad de escritura/borrado
-        setTimeout(type, isDeleting ? 100 : 200);
-    }
-    
-    // Iniciar el efecto después de una breve pausa
-    setTimeout(type, 500);
-
-
-    // --- Botón de Scroll hacia arriba ---
-    const scrollTopBtn = document.getElementById('scrollTopBtn');
-
-    window.onscroll = function() {
-        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-            scrollTopBtn.classList.add('show');
-        } else {
-
-            scrollTopBtn.classList.remove('show');
-        }
-    };
-
-    scrollTopBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-
-    // --- Ocultar/Mostrar header al hacer scroll ---
-    let lastScrollTop = 0;
-    const header = document.querySelector('.main-header');
-
-    window.addEventListener('scroll', function() {
-        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        if (scrollTop > lastScrollTop && scrollTop > header.offsetHeight) {
-            header.style.top = `-${header.offsetHeight}px`; // Ocultar
-        } else {
-            header.style.top = '0'; // Mostrar
-        }
-        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-    });
-
-});
 document.addEventListener('DOMContentLoaded', () => {
+    // Lógica para el Video de Presentación
     const videoPlayer = document.getElementById('presentation-player');
     const langButtons = document.querySelectorAll('.lang-button');
     const videoTitle = document.getElementById('video-title');
@@ -108,11 +36,20 @@ document.addEventListener('DOMContentLoaded', () => {
         videoDescription.textContent = videoContent[lang].description;
 
         // Actualizar fuente del video si es necesario
-        if (videoPlayer.src !== videoContent[lang].src) {
+        // Comprobar si la fuente actual es diferente para evitar recargas innecesarias
+        if (videoPlayer.querySelector('source') && videoPlayer.querySelector('source').src !== videoContent[lang].src) {
             const currentTime = videoPlayer.currentTime; // Guarda el tiempo actual
             const isPaused = videoPlayer.paused; // Guarda si estaba pausado
 
-            videoPlayer.src = videoContent[lang].src;
+            // Eliminar fuente existente y añadir la nueva
+            while (videoPlayer.firstChild) {
+                videoPlayer.removeChild(videoPlayer.firstChild);
+            }
+            const newSource = document.createElement('source');
+            newSource.src = videoContent[lang].src;
+            newSource.type = 'video/mp4'; // Asegura el tipo correcto
+            videoPlayer.appendChild(newSource);
+            
             videoPlayer.poster = videoContent[lang].poster; // Actualiza el póster
             
             // Recargar video para que el cambio de fuente surta efecto
@@ -121,9 +58,11 @@ document.addEventListener('DOMContentLoaded', () => {
             // Intentar mantener el tiempo y estado de reproducción
             videoPlayer.currentTime = currentTime;
             if (!isPaused) {
+                // Solo intentar reproducir si el video no estaba pausado
                 videoPlayer.play().catch(error => {
                     console.log('Error al intentar reproducir automáticamente el video:', error);
-                    // Aquí podrías mostrar un mensaje al usuario para que haga clic en play
+                    // Esto puede ocurrir si el navegador bloquea la reproducción automática.
+                    // Podrías mostrar un mensaje para que el usuario haga clic en play.
                 });
             }
         }
@@ -137,5 +76,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Establecer idioma inicial al cargar la página (por defecto español)
+    // Asegurarse de que el DOM esté listo antes de llamar a setLanguage
     setLanguage('es');
+
+    // Lógica para la Barra de Navegación Fija (Sticky Nav)
+    const mainNavPortfolio = document.getElementById('main-nav-portfolio');
+    const headerHeight = document.querySelector('.portfolio-header').offsetHeight; // Altura del header superior
+
+    function makeNavSticky() {
+        // La navegación se vuelve "sticky" después de que el header superior ha pasado
+        if (window.scrollY > headerHeight) {
+            mainNavPortfolio.classList.add('sticky-nav');
+        } else {
+            mainNavPortfolio.classList.remove('sticky-nav');
+        }
+    }
+
+    // Añadir estilos para .sticky-nav en tu CSS:
+    // .main-nav-portfolio.sticky-nav {
+    //     position: fixed;
+    //     top: 0;
+    //     left: 0;
+    //     width: 100%;
+    //     box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+    //     background-color: rgba(26, 26, 26, 0.95); /* Un poco transparente */
+    //     padding: 10px 0; /* Más compacto */
+    // }
+    // Puedes añadir window.addEventListener('scroll', makeNavSticky); si quieres este efecto.
+    // Para este diseño, la barra ya es sticky por defecto con position: sticky; en el CSS.
+    // La lógica JS es más útil si se quiere un efecto de cambio de tamaño/color al hacer scroll.
 });
