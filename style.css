@@ -1,412 +1,473 @@
-/* --- VARIABLES Y ESTILOS GLOBALES --- */
 :root {
-    --color-primario: #3498db; /* Un azul vibrante */
-    --color-secundario: #2ecc71; /* Un verde para acentos */
-    --color-fondo: #1C2833; /* Azul oscuro casi negro */
-    --color-superficie: #283747; /* Un poco más claro que el fondo */
-    --color-texto: #FDFEFE; /* Blanco */
-    --color-texto-secundario: #BDC3C7; /* Gris claro */
-    --color-whatsapp: #25D366;
-    --fuente-titulos: 'Inter', sans-serif;
-    --fuente-cuerpo: 'Roboto Slab', serif;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
+    /* Nueva paleta de colores */
+    --bg-dark: #121212; /* Fondo muy oscuro */
+    --card-bg: #1e1e1e; /* Fondo de tarjetas */
+    --text-light: #e0e0e0; /* Texto claro principal */
+    --text-muted: #b0b0b0; /* Texto secundario */
+    --accent-color: #64ffda; /* Verde azulado brillante como acento */
+    --accent-hover: #00bfa5; /* Tono más oscuro al pasar el ratón */
+    --border-color: #333333; /* Bordes sutiles */
+    --shadow-color: rgba(0, 0, 0, 0.7); /* Sombra más oscura */
 }
 
 body {
-    font-family: var(--fuente-cuerpo);
-    background-color: var(--color-fondo);
-    color: var(--color-texto);
+    font-family: 'Open Sans', sans-serif; /* Fuente para el texto general */
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
     line-height: 1.6;
+    -webkit-font-smoothing: antialiased; /* Suavizar fuentes en WebKit */
+    -moz-osx-font-smoothing: grayscale; /* Suavizar fuentes en Firefox */
 }
 
 h1, h2, h3 {
-    font-family: var(--fuente-titulos);
-    color: var(--color-primario);
+    font-family: 'Poppins', sans-serif; /* Fuente para títulos */
+    color: var(--text-light); /* Los títulos principales son claros */
+    margin-top: 0;
     font-weight: 700;
 }
 
-h1 { font-size: 3.2rem; margin-bottom: 1rem; font-weight: 900; line-height: 1.2; }
-h2 { font-size: 2.5rem; margin-bottom: 2rem; text-align: center; }
-p { color: var(--color-texto-secundario); margin-bottom: 1rem; }
-
-section {
-    padding: 6rem 2rem;
-    overflow: hidden; /* Evita barras de scroll por animaciones */
-}
-
-/* --- HEADER Y NAVEGACIÓN --- */
-.main-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background-color: rgba(28, 40, 51, 0.8);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
-    transition: top 0.3s;
-}
-
-.logo a {
-    font-family: var(--fuente-titulos);
-    font-size: 1.8rem;
-    font-weight: 900;
-    color: var(--color-primario);
-    text-decoration: none;
-}
-
-.main-nav a {
-    color: var(--color-texto);
-    text-decoration: none;
-    margin: 0 1rem;
-    font-weight: 700;
-    transition: color 0.3s;
-}
-
-.main-nav a:hover {
-    color: var(--color-primario);
-}
-
-.btn-contact {
-    background-color: var(--color-primario);
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-.btn-contact:hover {
-    background-color: #2980b9;
-    color: var(--color-texto);
-}
-
-/* --- SECCIÓN HÉROE --- */
-.heroe-section {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: linear-gradient(rgba(28, 40, 51, 0.9), rgba(28, 40, 51, 0.95)), url('https://www.transparenttextures.com/patterns/cubes.png');
-}
-
-.heroe-content {
-    max-width: 800px;
-}
-
-#typing-effect {
-    color: var(--color-secundario);
-    border-right: 3px solid var(--color-secundario);
-    animation: blink-caret 0.75s step-end infinite;
-}
-
-@keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: var(--color-secundario); }
-}
-
-.btn-main {
-    display: inline-block;
-    background-color: var(--color-primario);
-    color: #fff;
-    padding: 1rem 2rem;
-    text-decoration: none;
-    font-weight: 700;
-    border-radius: 5px;
-    margin-top: 1.5rem;
-    transition: transform 0.3s, background-color 0.3s;
-    border: none;
-}
-
-.btn-main:hover {
-    background-color: #2980b9;
-    transform: translateY(-3px);
-}
-
-/* --- SERVICIOS --- */
-.servicios-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
+.container {
+    max-width: 1000px;
     margin: 0 auto;
+    padding: 0 20px;
 }
 
-.servicio-card {
-    background-color: var(--color-superficie);
-    padding: 2.5rem;
-    border-radius: 10px;
+/* Header */
+.portfolio-header {
+    background: linear-gradient(135deg, #1f2833 0%, #0b0c10 100%); /* Un azul oscuro */
+    color: var(--text-light);
+    padding: 60px 0;
     text-align: center;
-    border-left: 5px solid transparent;
-    transition: transform 0.3s, border-color 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-.servicio-card:hover {
-    transform: translateY(-10px);
-    border-left-color: var(--color-primario);
+.portfolio-header h1 {
+    font-size: 2.8em;
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: var(--text-light); /* Color diferente para el nombre */
 }
 
-.servicio-card i {
-    font-size: 3rem;
-    color: var(--color-primario);
-    margin-bottom: 1rem;
-}
-
-.servicio-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: var(--color-texto);
-}
-
-/* --- PORTAFOLIO --- */
-.portafolio-section {
-    background-color: var(--color-superficie);
-}
-.portafolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
+.portfolio-header p {
+    font-size: 1.2em;
+    font-weight: 300;
+    max-width: 700px;
     margin: 0 auto;
+    color: var(--text-muted);
 }
 
-.proyecto-card {
-    background-color: var(--color-fondo);
+/* Main Content - Projects Section */
+.projects-section {
+    padding: 40px 20px;
+}
+
+.projects-section h2 {
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--text-light);
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.projects-section h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--accent-color);
+    border-radius: 2px;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background-color: var(--card-bg);
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    transition: transform 0.3s;
+    box-shadow: 0 6px 20px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     display: flex;
     flex-direction: column;
+    padding: 30px 25px;
+    text-align: center;
+    border: 1px solid var(--border-color);
 }
 
-.proyecto-card:hover {
-    transform: translateY(-5px) scale(1.02);
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.9);
+    border-color: var(--accent-color);
 }
 
-.proyecto-card img {
+.project-icon-wrapper {
+    font-size: 4.5em; /* Iconos más grandes */
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    height: 250px;
-    object-fit: cover;
-    display: block;
 }
 
-.proyecto-info {
-    padding: 1.5rem;
-    flex-grow: 1;
+.project-card h3 {
+    font-size: 1.8em;
+    padding: 0;
+    margin-bottom: 15px;
+    color: var(--text-light);
+}
+
+.project-card p {
+    font-size: 1em;
+    padding: 0;
+    color: var(--text-muted);
+    margin-bottom: 25px;
+    flex-grow: 1; /* Permite que el párrafo ocupe el espacio disponible */
+}
+
+.project-links {
+    padding: 0;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    gap: 15px;
+    justify-content: center;
+    margin-top: auto; /* Empuja los enlaces al final de la tarjeta */
 }
 
-.proyecto-info h3 {
-    color: var(--color-texto);
+.project-links a {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95em;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    white-space: nowrap;
+    border: 2px solid;
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    color: var(--bg-dark);
+    border-color: var(--accent-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-hover);
+    border-color: var(--accent-hover);
+    color: var(--bg-dark);
 }
 
 .btn-secondary {
-    display: inline-block;
     background-color: transparent;
-    color: var(--color-primario);
-    padding: 0.5rem 1.5rem;
-    text-decoration: none;
-    font-weight: 700;
-    border: 2px solid var(--color-primario);
-    border-radius: 5px;
-    margin-top: 1rem;
-    transition: background-color 0.3s, color 0.3s;
-    align-self: flex-start;
+    color: var(--accent-color);
+    border-color: var(--accent-color);
 }
 
 .btn-secondary:hover {
-    background-color: var(--color-primario);
-    color: var(--color-texto);
+    background-color: var(--accent-color);
+    color: var(--bg-dark);
 }
 
-/* --- SOBRE MÍ --- */
-.sobre-mi-section {
-    background-color: var(--color-fondo);
-    max-width: 900px;
+/* --- Nuevas Secciones del Portafolio --- */
+
+/* Sección de Propuesta de Valor */
+.value-proposition-section {
+    background-color: var(--card-bg);
+    padding: 60px 20px;
+    margin: 80px auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px var(--shadow-color);
+    text-align: center;
+    border: 1px solid var(--border-color);
+}
+
+.value-proposition-section h2 {
+    font-size: 2.2em;
+    margin-bottom: 25px;
+    color: var(--text-light);
+}
+
+.value-proposition-section p {
+    font-size: 1.15em;
+    color: var(--text-muted);
+    max-width: 700px;
     margin: 0 auto;
+    line-height: 1.8;
 }
 
-.sobre-mi-content {
+/* Sección de Servicios Incluidos */
+.services-inclusion-section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.services-inclusion-section h2 {
+    font-size: 2.2em;
+    margin-bottom: 40px;
+    color: var(--text-light);
+}
+
+.inclusions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    text-align: left;
+}
+
+.inclusion-item {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     display: flex;
     align-items: center;
-    gap: 3rem;
+    gap: 15px;
+    border: 1px solid var(--border-color);
 }
 
-.avatar {
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 5px solid var(--color-primario);
+.inclusion-item .material-icons {
+    font-size: 1.8em;
+    color: var(--accent-color);
 }
 
-/* --- CONTACTO --- */
-.contacto-section {
+.inclusion-item p {
+    font-size: 1em;
+    color: var(--text-light);
+    margin: 0;
+}
+
+/* Sección de Paquetes de Diseño y Hosting */
+.design-packages-section,
+.hosting-domain-section {
+    padding: 80px 20px;
     text-align: center;
-    background-color: var(--color-superficie);
 }
 
-.social-links {
-    margin-top: 2rem;
+.design-packages-section h2,
+.hosting-domain-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: var(--text-light);
 }
 
-.social-links a {
-    color: var(--color-texto-secundario);
-    font-size: 2.5rem;
-    margin: 0 1.2rem;
-    transition: color 0.3s, transform 0.3s;
-    display: inline-block;
+.hosting-domain-section .intro-text {
+    font-size: 1.1em;
+    color: var(--text-muted);
+    max-width: 800px;
+    margin: 0 auto 50px;
+    line-height: 1.7;
 }
 
-.social-links a:hover {
-    transform: translateY(-5px);
+.packages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
 }
 
-.social-links a[aria-label="GitHub"]:hover { color: #fff; }
-.social-links a[aria-label="WhatsApp"]:hover { color: var(--color-whatsapp); }
-
-
-/* --- FOOTER --- */
-.main-footer {
-    text-align: center;
-    padding: 2rem;
-    background-color: #17202A;
+.package-card {
+    background-color: var(--card-bg);
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px var(--shadow-color);
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-/* --- BOTÓN SCROLL TOP --- */
-.scroll-top-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: var(--color-primario);
-    color: white;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 50px;
-    font-size: 1.5rem;
+.package-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9);
+    border-color: var(--accent-color);
+}
+
+.package-card.featured {
+    background: linear-gradient(145deg, var(--accent-color) 0%, var(--accent-hover) 100%);
+    color: var(--bg-dark); /* Texto oscuro para la tarjeta destacada */
+    transform: scale(1.03); /* Ligeramente más grande */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    border-color: var(--accent-hover);
+}
+
+.package-card.featured h3,
+.package-card.featured .price,
+.package-card.featured ul li {
+    color: var(--bg-dark); /* Asegura que el texto sea oscuro en la destacada */
+}
+
+.package-card.featured .material-icons {
+    color: var(--bg-dark); /* Color de iconos en la destacada */
+}
+
+
+.package-card h3 {
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: var(--text-light);
+}
+
+.package-card .price {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 25px;
+}
+
+.package-card ul {
+    text-align: left;
+    margin-bottom: 30px;
+    flex-grow: 1; /* Ocupa el espacio disponible */
+    width: 100%; /* Para que los items se alineen bien */
+}
+
+.package-card ul li {
+    font-size: 1em;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.package-card ul li .material-icons {
+    font-size: 1.3em;
+    color: var(--accent-color);
+    margin-top: 2px; /* Alineación del icono */
+}
+
+.package-card button {
+    background-color: var(--accent-color);
+    color: var(--bg-dark);
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
     cursor: pointer;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+    font-weight: 600;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    width: 80%; /* Botón más ancho */
 }
 
-.scroll-top-btn.show {
-    opacity: 1;
-    visibility: visible;
+.package-card.featured button {
+    background-color: var(--bg-dark);
+    color: var(--accent-color);
 }
 
-.scroll-top-btn:hover {
-    transform: scale(1.1);
+.package-card button:hover {
+    background-color: var(--accent-hover);
+    color: var(--bg-dark);
 }
 
-/* --- ANIMACIONES --- */
-.fade-in, .fade-in-delay {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeIn 0.8s ease-out forwards;
-}
-.fade-in-delay {
-    animation-delay: 0.4s;
-}
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Footer */
+.portfolio-footer {
+    background-color: var(--card-bg);
+    color: var(--text-muted);
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.9em;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3);
+    margin-top: 50px;
+    border-top: 1px solid var(--border-color);
 }
 
+.portfolio-footer .footer-logo {
+    font-size: 1.5em; /* Tamaño si fuera texto, pero es una imagen ahora */
+    font-weight: 700;
+    color: var(--text-light);
+    margin-bottom: 10px;
+}
 
-/* --- RESPONSIVE DESIGN --- */
+.portfolio-footer .footer-logo img { /* Estilo para el logo de imagen en footer */
+    max-height: 30px; /* Un poco más pequeño que en el header */
+    width: auto;
+    vertical-align: middle;
+}
+
+.portfolio-footer .social-links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 25px; /* Espacio entre iconos sociales */
+}
+
+.portfolio-footer .social-links a .si {
+    font-size: 2em; /* Tamaño del icono */
+    color: var(--text-muted); /* Color inicial */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.portfolio-footer .social-links a:hover .si {
+    color: var(--accent-color); /* Color al pasar el ratón */
+    transform: translateY(-5px) scale(1.1); /* Efecto al pasar el ratón */
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
-    h1 { font-size: 2.5rem; }
-    h2 { font-size: 2rem; }
-
-    .main-header { 
-        padding: 1rem;
+    .portfolio-header h1 {
+        font-size: 2em;
     }
-    
-    .main-nav a {
-        margin: 0 0.5rem;
-        font-size: 0.9rem;
+    .portfolio-header p {
+        font-size: 1em;
     }
-    .main-nav .btn-contact {
-        padding: 0.4rem 0.8rem;
+    .projects-section h2,
+    .value-proposition-section h2,
+    .services-inclusion-section h2,
+    .design-packages-section h2,
+    .hosting-domain-section h2 {
+        font-size: 1.8em;
     }
-
-    .sobre-mi-content {
-        flex-direction: column;
-        text-align: center;
+    .project-grid,
+    .inclusions-grid,
+    .packages-grid {
+        grid-template-columns: 1fr; /* Una columna en tablets/móviles */
+        gap: 20px;
     }
-    .avatar {
-        width: 200px;
-        height: 200px;
+    .project-card,
+    .value-proposition-section,
+    .inclusion-item,
+    .package-card {
+        padding: 25px 20px;
+    }
+    .package-card.featured {
+        transform: scale(1); /* Deshacer el scale en móviles para que no se salga */
     }
 }
 
 @media (max-width: 480px) {
-    .main-header {
-        flex-direction: column;
-        gap: 1rem;
+    .portfolio-header h1 {
+        font-size: 1.8em;
     }
-    /* --- ESTILOS ADICIONALES PARA PORTAFOLIO PRINCIPAL --- */
-.portafolio-grid-principal {
-    max-width: 1000px;
-    margin: 0 auto 4rem auto; /* Centrado y con margen inferior */
-}
-
-.proyecto-card-principal {
-    background-color: var(--color-fondo);
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    border: 1px solid var(--color-primario); /* Borde para destacar */
-}
-
-.proyecto-card-principal img {
-    width: 50%;
-    height: auto;
-    object-fit: cover;
-}
-
-.proyecto-info-principal {
-    padding: 2rem;
-    width: 50%;
-}
-
-.subtitulo-portafolio {
-    text-align: center;
-    color: var(--color-texto-secundario);
-    font-weight: 400;
-    margin-top: 4rem;
-    margin-bottom: 2rem;
-}
-
-/* Ajustes para responsive */
-@media (max-width: 768px) {
-    .proyecto-card-principal {
-        flex-direction: column;
+    .portfolio-header p {
+        font-size: 0.9em;
     }
-    .proyecto-card-principal img,
-    .proyecto-info-principal {
-        width: 100%;
+    .project-card h3,
+    .package-card h3 {
+        font-size: 1.5em;
     }
-}
+    .project-card p,
+    .package-card p,
+    .inclusion-item p {
+        font-size: 0.9em;
+    }
+    .package-card .price {
+        font-size: 2em;
+    }
+    .package-card button {
+        font-size: 0.9em;
+        padding: 10px 20px;
+    }
+    .portfolio-footer .social-links a .si {
+        font-size: 1.8em;
+    }
 }
