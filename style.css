@@ -369,6 +369,79 @@ h1, h2, h3 {
     color: var(--bg-dark);
 }
 
+/* Sección de Video de Presentación */
+.presentation-video-section {
+    background-color: var(--bg-dark);
+    padding: 80px 0;
+    text-align: center;
+}
+
+.video-header {
+    margin-bottom: 40px;
+}
+
+.video-header h2 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    color: var(--text-light);
+}
+
+.language-selector {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.lang-button {
+    background-color: var(--card-bg);
+    color: var(--text-muted);
+    border: 1px solid var(--border-color);
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.lang-button.active,
+.lang-button:hover {
+    background-color: var(--accent-color);
+    color: var(--bg-dark);
+    border-color: var(--accent-color);
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px var(--shadow-color);
+    background-color: #000; /* Fondo negro para el video */
+}
+
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.presentation-video-section p {
+    font-size: 1.1em;
+    color: var(--text-muted);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+
 /* Footer */
 .portfolio-footer {
     background-color: var(--card-bg);
@@ -424,7 +497,8 @@ h1, h2, h3 {
     .value-proposition-section h2,
     .services-inclusion-section h2,
     .design-packages-section h2,
-    .hosting-domain-section h2 {
+    .hosting-domain-section h2,
+    .presentation-video-section h2 { /* Añadido h2 de video */
         font-size: 1.8em;
     }
     .project-grid,
@@ -441,6 +515,9 @@ h1, h2, h3 {
     }
     .package-card.featured {
         transform: scale(1); /* Deshacer el scale en móviles para que no se salga */
+    }
+    .presentation-video-section p {
+        font-size: 1em;
     }
 }
 
@@ -469,5 +546,11 @@ h1, h2, h3 {
     }
     .portfolio-footer .social-links a .si {
         font-size: 1.8em;
+    }
+    .video-header h2 {
+        font-size: 1.8em;
+    }
+    .presentation-video-section p {
+        font-size: 0.9em;
     }
 }
