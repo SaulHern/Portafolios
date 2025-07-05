@@ -168,7 +168,7 @@
                     <h3>Avanzado</h3>
                     <p class="price">$350 USD</p>
                     <ul>
-                        <li><span class="material-icons">check</span> Hasta **5 Secciones** estáticas</li>
+                        <li><span class="material-icons">check"></span> Hasta **5 Secciones** estáticas</li>
                         <li><span class="material-icons">check"></span> Diseño Responsivo y optimizado</li>
                         <li><span class="material-icons">check"></span> Integración de contenido (texto, imágenes, videos)</li>
                         <li><span class="material-icons">check"></span> 1 Formulario de Contacto funcional</li>
@@ -235,6 +235,25 @@
             </div>
         </section>
 
+        <section id="presentation-video" class="presentation-video-section">
+            <div class="container">
+                <div class="video-header">
+                    <h2 id="video-title">Conoce Mi Trabajo en Video</h2>
+                    <div class="language-selector">
+                        <button class="lang-button active" data-lang="es">Español</button>
+                        <button class="lang-button" data-lang="en">English</button>
+                    </div>
+                </div>
+                <div class="video-container">
+                    <video id="presentation-player" controls preload="metadata" poster="images/video-poster-es.jpg">
+                        <source src="videos/presentacion-es.mp4" type="video/mp4">
+                        Tu navegador no soporta el tag de video.
+                    </video>
+                </div>
+                <p id="video-description">Un breve video donde presento mis habilidades, mi proceso de trabajo y por qué soy la mejor opción para tu próximo proyecto web.</p>
+            </div>
+        </section>
+
     </main>
 
     <footer class="portfolio-footer">
@@ -249,5 +268,6 @@
         </div>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
