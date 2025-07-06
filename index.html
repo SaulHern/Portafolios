@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saul H. | Portafolio Frontend Developer</title>
+    <title data-es="Saul H. | Portafolio Frontend Developer" data-en="Saul H. | Frontend Developer Portfolio">Saul H. | Portafolio Frontend Developer</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-icons-font@v12/font/simple-icons.min.css">
@@ -14,6 +14,11 @@
     <button id="theme-toggle" class="theme-toggle-button">
         <span class="material-icons">dark_mode</span>
     </button>
+
+    <div class="language-selector-global">
+        <button class="lang-button active" data-lang="es">ES</button>
+        <button class="lang-button" data-lang="en">EN</button>
+    </div>
 
     <header class="portfolio-header">
         <div class="container">
@@ -168,7 +173,7 @@
                 <div class="video-header">
                     <h2 id="video-title" data-es="Conoce Mi Trabajo en Video" data-en="Learn About My Work in Video">Conoce Mi Trabajo en Video</h2>
                     <div class="language-selector">
-                        <button class="lang-button active" data-lang="es">Español</button>
+                        <button class="lang-button" data-lang="es">Español</button>
                         <button class="lang-button" data-lang="en">English</button>
                     </div>
                 </div>
@@ -193,7 +198,7 @@
     <footer class="portfolio-footer">
         <div class="container">
             <div class="footer-logo"><img src="images/syntora-logo.png" alt="Logo de Syntora"></div>
-            <p>&copy; 2025 Saul H. Todos los derechos reservados.</p>
+            <p>&copy; <span data-lang-key="footer_copyright">2025 Saul H. Todos los derechos reservados.</span></p>
             <div class="social-links">
                 <a href="https://github.com/SaulHern" target="_blank" class="social-icon" aria-label="GitHub de Saul H.">
                     <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/github.svg" alt="GitHub">
