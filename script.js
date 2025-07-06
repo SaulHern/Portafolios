@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "btn_bottom_packages": "Ver Paquetes de Diseño Web",
             "btn_bottom_services_contact": "Servicios y Contacto",
             "btn_bottom_schedule_appointment": "Agendar Cita",
+            "btn_bottom_home": "Volver al Inicio", // Nueva clave
             "footer_copyright": "2025 Saul H. Todos los derechos reservados.",
             // Textos para paquetes.html
             "packages_page_title": "Paquetes de Servicios - Saul H.",
@@ -117,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "premium_package": "Paquete Premium",
             "basic_hosting_domain": "Hosting y Dominio Básico",
             "advanced_hosting_domain": "Hosting y Dominio Avanzado",
-            "premium_hosting_domain": "Hosting y Dominio Premium",
+            "premium_hosting_domain": "Premium Hosting & Domain",
             "general_inquiry": "Consulta General",
             "describe_project_questions": "Describe brevemente tu proyecto o tus dudas:",
             "send_email": "Enviar por Email",
@@ -155,6 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "btn_bottom_packages": "View Web Design Packages",
             "btn_bottom_services_contact": "Services & Contact",
             "btn_bottom_schedule_appointment": "Schedule Appointment",
+            "btn_bottom_home": "Back to Home", // Nueva clave
             "footer_copyright": "2025 Saul H. All rights reserved.",
             // Textos para paquetes.html
             "packages_page_title": "Service Packages - Saul H.",
