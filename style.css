@@ -10,7 +10,7 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif; /* ¡Cambia esto por tu fuente preferida! */
+    font-family: 'Arial', sans-serif; /* Puedes cambiar tu fuente aquí */
     line-height: 1.6;
     color: #333; /* Color de texto general */
     background-color: #f4f4f4; /* Color de fondo de la página */
@@ -19,6 +19,7 @@ body {
 
 /* --- Contenedor Principal --- */
 /* Este contenedor ayuda a centrar y limitar el ancho del contenido */
+/* Lo puedes aplicar a un <div> que envuelva la mayoría de tus secciones */
 .container {
     width: 90%; /* Ocupa el 90% del ancho del viewport en móviles */
     margin: 0 auto; /* Centra el contenedor horizontalmente */
@@ -35,10 +36,10 @@ img {
 }
 
 /* ========================================================= */
-/* --- ESTILOS DEL ENCABEZADO (HEADER) ---                   */
-/* Ajusta estos estilos a tu header actual en HTML.          */
+/* --- ESTILOS DEL ENCABEZADO (#header) ---                  */
+/* Ahora usa tu ID #header directamente.                     */
 /* ========================================================= */
-.header {
+#header {
     background-color: #333; /* Color de fondo de tu header */
     color: #fff; /* Color del texto en tu header */
     padding: 15px 0;
@@ -46,17 +47,17 @@ img {
     box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Sutil sombra para el header */
 }
 
-.header h1 {
+#header h1 {
     font-size: 1.8em; /* Tamaño del título principal en móviles */
     margin-bottom: 10px;
 }
 
 /* ========================================================= */
-/* --- ESTILOS DE NAVEGACIÓN (NAV-MENU) ---                  */
-/* Adaptado para un menú de hamburguesa en móvil y full en PC. */
-/* ¡Asegúrate de que tu HTML tenga un elemento para el icono! */
+/* --- ESTILOS DE NAVEGACIÓN (#nav) ---                      */
+/* Adaptado para tu ID #nav y sus elementos <ul><li><a>      */
+/* Asumimos un menú de hamburguesa en móvil y full en PC.    */
 /* ========================================================= */
-.nav-menu {
+#nav ul { /* Selecciona la lista no ordenada dentro de #nav */
     list-style: none; /* Quita los puntos de la lista */
     padding: 0;
     margin: 0;
@@ -65,11 +66,11 @@ img {
     text-align: center;
 }
 
-.nav-menu li {
+#nav ul li {
     margin-bottom: 10px; /* Espacio entre ítems del menú en móvil */
 }
 
-.nav-menu a {
+#nav ul li a {
     color: #fff; /* Color de los enlaces del menú */
     text-decoration: none; /* Sin subrayado */
     font-weight: bold;
@@ -78,12 +79,14 @@ img {
     transition: background-color 0.3s ease; /* Transición suave al pasar el ratón */
 }
 
-.nav-menu a:hover {
+#nav ul li a:hover {
     background-color: #555; /* Color al pasar el ratón */
     border-radius: 5px;
 }
 
-/* Icono de hamburguesa (visible solo en móviles) */
+/* Icono de hamburguesa (si lo usas, para mostrar/ocultar el #nav ul) */
+/* ¡Necesitarías añadir este icono en tu HTML si no lo tienes! */
+/* Por ejemplo: <div class="hamburger-icon">☰</div> */
 .hamburger-icon {
     display: block; /* Visible en móvil */
     background-color: #555; /* Color de fondo del icono */
@@ -98,12 +101,14 @@ img {
 }
 
 /* Si usas JavaScript para mostrar/ocultar el menú */
-/* .nav-menu.active { display: flex; } */
+/* Si tu JS añade la clase 'active' a #nav ul */
+/* #nav ul.active { display: flex; } */
 
 
 /* ========================================================= */
 /* --- ESTILOS DE SECCIONES GENERALES ---                    */
-/* Aplica a tus secciones como "Acerca de mí", "Proyectos", "Contacto" */
+/* Esto aplica a tus etiquetas <section>. Si usas clases    */
+/* específicas para tus secciones, ajusta los selectores.    */
 /* ========================================================= */
 section {
     padding: 40px 0; /* Espaciado vertical para secciones en móviles */
@@ -128,16 +133,18 @@ section p {
 
 /* ========================================================= */
 /* --- ESTILOS PARA LA CUADRÍCULA DE PROYECTOS (PORTFOLIO) --- */
-/* Los proyectos se apilan en móvil y forman cuadrícula en PC.  */
-/* ¡Ajusta .portfolio-grid y .portfolio-item a tus clases!     */
+/* Si no tienes un <div> con la clase 'portfolio-grid'      */
+/* envolviendo tus proyectos, deberías añadirlo.             */
+/* Ej: <div class="portfolio-grid">...proyectos...</div>    */
 /* ========================================================= */
 .portfolio-grid {
     display: flex;
     flex-direction: column; /* Por defecto, los proyectos se apilan verticalmente */
     gap: 25px; /* Espacio entre cada proyecto */
+    /* Asegúrate de que tus elementos individuales de proyecto tengan una clase, ej: .project-item */
 }
 
-.portfolio-item {
+.project-item { /* Si cada proyecto individual tiene esta clase */
     background-color: #eee;
     padding: 20px;
     border-radius: 8px;
@@ -146,23 +153,23 @@ section p {
     transition: transform 0.3s ease; /* Efecto hover */
 }
 
-.portfolio-item:hover {
+.project-item:hover {
     transform: translateY(-5px); /* Pequeño levantamiento al pasar el ratón */
 }
 
-.portfolio-item h3 {
+.project-item h3 {
     margin-top: 15px;
     font-size: 1.4em;
     color: #007bff; /* Color del título del proyecto, ajusta a tu paleta */
 }
 
-.portfolio-item p {
+.project-item p {
     font-size: 0.95em;
     color: #666;
     margin-top: 10px;
 }
 
-.portfolio-item a {
+.project-item a {
     display: inline-block;
     margin-top: 15px;
     padding: 8px 15px;
@@ -173,15 +180,16 @@ section p {
     transition: background-color 0.3s ease;
 }
 
-.portfolio-item a:hover {
+.project-item a:hover {
     background-color: #0056b3;
 }
 
 
 /* ========================================================= */
-/* --- ESTILOS DEL PIE DE PÁGINA (FOOTER) ---                */
+/* --- ESTILOS DEL PIE DE PÁGINA (#footer) ---               */
+/* Ahora usa tu ID #footer directamente.                     */
 /* ========================================================= */
-.footer {
+#footer {
     background-color: #333;
     color: #fff;
     text-align: center;
@@ -202,7 +210,7 @@ section p {
     }
 
     /* Header */
-    .header h1 {
+    #header h1 {
         font-size: 2.5em; /* Tamaño más grande para el título del header */
     }
 
@@ -211,14 +219,14 @@ section p {
         display: none; /* Oculta el icono de hamburguesa en tabletas y PCs */
     }
 
-    .nav-menu {
-        display: flex; /* Muestra el menú de navegación completo */
+    #nav ul { /* Muestra el menú de navegación completo */
+        display: flex;
         flex-direction: row; /* Vuelve a un menú horizontal */
         justify-content: center; /* Centra los ítems del menú */
         margin-top: 0;
     }
 
-    .nav-menu li {
+    #nav ul li {
         margin: 0 15px; /* Espacio horizontal entre los ítems del menú */
     }
 
@@ -258,21 +266,22 @@ section p {
     }
 
     /* Header: Alinea el título y la navegación */
-    .header {
+    #header {
         text-align: left; /* Alinea el texto del header a la izquierda */
     }
-    .header .container { /* Asume que tienes un .container dentro de .header */
+    /* Si tienes un .container dentro de #header (como te sugerí) */
+    #header .container {
         display: flex;
         justify-content: space-between; /* Espacia el título y el menú */
         align-items: center; /* Centra verticalmente ambos elementos */
     }
 
     /* Navegación: Alinea el menú a la derecha en PC */
-    .nav-menu {
+    #nav ul {
         justify-content: flex-end; /* Alinea el menú a la derecha */
     }
 
-    .nav-menu li {
+    #nav ul li {
         margin: 0 20px; /* Más espacio horizontal en el menú */
     }
 
@@ -292,14 +301,15 @@ section p {
     }
 
     /* Ejemplo de layout en dos columnas para secciones como "Acerca de mí" o "Contacto" */
-    /* Asegúrate de que tu HTML tenga contenedores para estos */
-    .about-section-content, .contact-section-content { /* ¡Ajusta estas clases a tu HTML! */
+    /* Si tienes divs específicos para el contenido de estas secciones */
+    .about-section-content, .contact-section-content {
         display: flex;
         align-items: flex-start; /* Alinea el contenido al inicio */
         gap: 50px; /* Espacio entre las dos columnas */
     }
 
-    .about-text, .contact-info, .about-image-wrapper { /* ¡Ajusta estas clases a tu HTML! */
+    /* Si tienes divs con clases como .about-text, .contact-info, .about-image-wrapper */
+    .about-text, .contact-info, .about-image-wrapper {
         flex: 1; /* Hace que ambas columnas ocupen el mismo espacio */
     }
 }
@@ -313,5 +323,4 @@ section p {
         max-width: 1400px; /* Permite que el contenedor sea más ancho en pantallas gigantes */
     }
     /* Puedes añadir aquí ajustes muy específicos para pantallas de altísima resolución */
-        }
-    
+}
