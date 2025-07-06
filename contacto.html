@@ -3,19 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto y Servicios - Saul H.</title>
+    <title data-es="Contacto y Servicios - Saul H." data-en="Contact & Services - Saul H.">Contacto y Servicios - Saul H.</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-icons-font@v12/font/simple-icons.min.css">
     <link rel="stylesheet" href="style.css"> </head>
 <body>
 
+    <button id="theme-toggle" class="theme-toggle-button">
+        <span class="material-icons">dark_mode</span>
+    </button>
+
     <header class="portfolio-header">
         <div class="container">
             <div class="hero-header-content">
                 <div class="hero-text-side">
-                    <h1>Hola, soy Saul Hernández</h1>
-                    <p class="hero-tagline">Creador de Páginas Web, Convierte tus Ideas en una Realidad.</p>
+                    <h1 data-es="Hola, soy Saul Hernández" data-en="Hi, I'm Saul Hernández">Hola, soy Saul Hernández</h1>
+                    <p class="hero-tagline" data-es="Creador de Páginas Web, Convierte tus Ideas en una Realidad." data-en="Web Page Creator, Turn Your Ideas into Reality.">Creador de Páginas Web, Convierte tus Ideas en una Realidad.</p>
                 </div>
                 <div class="hero-image-side">
                     <img src="images/saul-hernandez.jpg" alt="Saul Hernández - Desarrollador Frontend">
@@ -26,86 +30,94 @@
 
     <nav class="main-nav-portfolio" id="main-nav-portfolio">
         <div class="container">
-            <ul>
-                <li><a href="index.html#top">Inicio</a></li>
-                <li><a href="index.html#about-me">Sobre Mí</a></li>
-                <li><a href="index.html#projects">Proyectos</a></li>
-                <li><a href="index.html#value-proposition-section">Valor</a></li>
-                <li><a href="paquetes.html">Paquetes</a></li>
-                <li><a href="index.html#presentation-video">Video</a></li>
-                <li><a href="#top">Contacto</a></li> </ul>
+            <div class="nav-logo-wrapper">
+                <a href="index.html#top" aria-label="Inicio"><img src="images/syntora-logo.png" alt="Logo de Syntora"></a>
+            </div>
+            <button class="hamburger-menu" id="hamburger-menu">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html#top" data-lang-key="nav_inicio">Inicio</a></li>
+                <li><a href="index.html#about-me" data-lang-key="nav_sobre_mi">Sobre Mí</a></li>
+                <li><a href="index.html#projects" data-lang-key="nav_proyectos">Proyectos</a></li>
+                <li><a href="index.html#value-proposition-section" data-lang-key="nav_valor">Valor</a></li>
+                <li><a href="paquetes.html" data-lang-key="nav_paquetes">Paquetes</a></li>
+                <li><a href="index.html#presentation-video" data-lang-key="nav_video">Video</a></li>
+                <li><a href="#top" data-lang-key="nav_contacto">Contacto</a></li> </ul>
         </div>
     </nav>
 
     <main class="portfolio-main">
 
         <section id="services-inclusion-section" class="services-inclusion-section container">
-            <h2>¿Qué Incluyen Mis Servicios?</h2>
-            <p class="section-description-centered">Descubre la gama completa de funcionalidades y características que te ofrezco en cada proyecto, diseñadas para asegurar el éxito de tu presencia digital.</p>
+            <h2 data-es="¿Qué Incluyen Mis Servicios?" data-en="What Do My Services Include?">¿Qué Incluyen Mis Servicios?</h2>
+            <p class="section-description-centered" data-es="Descubre la gama completa de funcionalidades y características que te ofrezco en cada proyecto, diseñadas para asegurar el éxito de tu presencia digital." data-en="Discover the full range of features and functionalities I offer in each project, designed to ensure the success of your digital presence."></p>
             <div class="inclusions-grid">
                 <div class="inclusion-item">
                     <span class="material-icons">check_circle_outline</span>
-                    <p>Diseño Web Personalizado</p>
+                    <p data-es="Diseño Web Personalizado" data-en="Custom Web Design">Diseño Web Personalizado</p>
                 </div>
                 <div class="inclusion-item">
                     <span class="material-icons">check_circle_outline</span>
-                    <p>Desarrollo Frontend Responsivo</p>
+                    <p data-es="Desarrollo Frontend Responsivo" data-en="Responsive Frontend Development">Desarrollo Frontend Responsivo</p>
                 </div>
                 <div class="inclusion-item">
                     <span class="material-icons">check_circle_outline</span>
-                    <p>Integración de Contenido (textos, imágenes)</p>
+                    <p data-es="Integración de Contenido (textos, imágenes)" data-en="Content Integration (text, images)">Integración de Contenido (textos, imágenes)</p>
                 </div>
                 <div class="inclusion-item">
                     <span class="material-icons">check_circle_outline</span>
-                    <p>Optimización para Motores de Búsqueda (SEO Básico)</p>
+                    <p data-es="Optimización para Motores de Búsqueda (SEO Básico)" data-en="Basic SEO Optimization">Optimización para Motores de Búsqueda (SEO Básico)</p>
                 </div>
                 <div class="inclusion-item">
                     <span class="material-icons">check_circle_outline</span>
-                    <p>Formularios de Contacto Funcionales</p>
+                    <p data-es="Formularios de Contacto Funcionales" data-en="Functional Contact Forms">Formularios de Contacto Funcionales</p>
                 </div>
                 <div class="inclusion-item">
                     <span class="material-icons">check_circle_outline</span>
-                    <p>Configuración Inicial en GitHub Pages (hosting gratuito)</p>
+                    <p data-es="Configuración Inicial en GitHub Pages (hosting gratuito)" data-en="Initial GitHub Pages Setup (free hosting)">Configuración Inicial en GitHub Pages (hosting gratuito)</p>
                 </div>
                 <div class="inclusion-item">
                     <span class="material-icons">check_circle_outline</span>
-                    <p>Soporte Básico Post-Entrega</p>
+                    <p data-es="Soporte Básico Post-Entrega" data-en="Basic Post-Delivery Support">Soporte Básico Post-Entrega</p>
                 </div>
                 <div class="inclusion-item">
                     <span class="material-icons">check_circle_outline</span>
-                    <p>Manejo de API Key</p>
+                    <p data-es="Manejo de API Key" data-en="API Key Handling">Manejo de API Key</p>
                 </div>
                 <div class="inclusion-item">
                     <span class="material-icons">check_circle_outline</span>
-                    <p>Manejo de LocalStorage</p>
+                    <p data-es="Manejo de LocalStorage" data-en="LocalStorage Management">Manejo de LocalStorage</p>
                 </div>
                 <div class="inclusion-item">
                     <span class="material-icons">check_circle_outline</span>
-                    <p>Acordeones FAQ</p>
+                    <p data-es="Acordeones FAQ" data-en="FAQ Accordions">Acordeones FAQ</p>
                 </div>
             </div>
         </section>
 
         <section id="contact-details-section" class="contact-details-section container">
-            <h2>Información de Contacto</h2>
-            <p class="section-description-centered">Estoy listo para escuchar tus ideas y transformar tu visión en una realidad digital. Contáctame a través de los siguientes medios.</p>
+            <h2 data-es="Información de Contacto" data-en="Contact Information">Información de Contacto</h2>
+            <p class="section-description-centered" data-es="Estoy listo para escuchar tus ideas y transformar tu visión en una realidad digital. Contáctame a través de los siguientes medios." data-en="I'm ready to hear your ideas and transform your vision into a digital reality. Contact me through the following channels."></p>
             
             <div class="contact-info-grid">
                 <div class="contact-item">
                     <span class="material-icons contact-icon">person</span>
-                    <h3>Saul Hernández</h3>
+                    <h3 data-es="Saul Hernández" data-en="Saul Hernández">Saul Hernández</h3>
                 </div>
                 <div class="contact-item">
                     <span class="material-icons contact-icon">phone</span>
-                    <h3>+52 55 2070 8423</h3>
+                    <h3 data-es="+52 55 2070 8423" data-en="+52 55 2070 8423">+52 55 2070 8423</h3>
                 </div>
                 <div class="contact-item">
                     <span class="material-icons contact-icon">email</span>
-                    <h3>albertosaul341@gmail.com</h3>
+                    <h3 data-es="albertosaul341@gmail.com" data-en="albertosaul341@gmail.com">albertosaul341@gmail.com</h3>
                 </div>
                 <div class="contact-item">
                     <span class="material-icons contact-icon">code</span>
-                    <h3><a href="https://github.com/SaulHern" target="_blank">Mi GitHub</a></h3>
+                    <h3><a href="https://github.com/SaulHern" target="_blank" data-es="Mi GitHub" data-en="My GitHub">Mi GitHub</a></h3>
                 </div>
             </div>
 
@@ -117,7 +129,7 @@
                 <a href="#" aria-label="Instagram"><i class="si si-instagram"></i></a>
             </div>
 
-            <p class="section-description-centered cta-contact">¿Listo para empezar? <a href="agendar-cita.html" class="btn-primary">Agenda una Cita</a></p>
+            <p class="section-description-centered cta-contact" data-es="¿Listo para empezar? " data-en="Ready to start? ">¿Listo para empezar? <a href="agendar-cita.html" class="btn-primary" data-es="Agenda una Cita" data-en="Schedule an Appointment">Agenda una Cita</a></p>
         </section>
 
     </main>
@@ -125,7 +137,7 @@
     <footer class="portfolio-footer">
         <div class="container">
             <div class="footer-logo"><img src="images/syntora-logo.png" alt="Logo de Syntora"></div>
-            <p>&copy; 2025 Saul H. Todos los derechos reservados.</p>
+            <p>&copy; <span data-lang-key="footer_copyright">2025 Saul H. Todos los derechos reservados.</span></p>
             <div class="social-links">
                 <a href="https://github.com/SaulHern" target="_blank" class="social-icon" aria-label="GitHub de Saul H.">
                     <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/github.svg" alt="GitHub">
