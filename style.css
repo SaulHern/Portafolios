@@ -560,7 +560,7 @@ h2::after {
     display: flex;
     align-items: center;
     gap: 15px;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border-color-main);
 }
 
 .inclusion-item .material-icons {
@@ -743,7 +743,7 @@ h2::after {
 .lang-button.active,
 .lang-button:hover {
     background-color: var(--accent-color);
-    color: var(--bg-dark); /* Color del texto al activarse o hover */
+    color: var(--text-color); /* Color del texto al activarse o hover */
     border-color: var(--accent-color);
 }
 
@@ -1054,4 +1054,235 @@ h2::after {
 .appointment-form input[type="tel"]:focus,
 .appointment-form textarea:focus,
 .appointment-form select:focus {
-    border-color
+    border-color: var(--accent-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2); /* Sombra de enfoque */
+}
+
+.appointment-form textarea {
+    resize: vertical;
+}
+
+.appointment-form select {
+    appearance: none; /* Quita la flecha por defecto en algunos navegadores */
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg fill="%23333333" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>'); /* Color de flecha para fondo claro */
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+}
+
+.appointment-form .form-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.appointment-form .btn-primary,
+.appointment-form .btn-secondary {
+    padding: 15px 35px;
+    font-size: 1.1em;
+}
+
+.appointment-form .btn-secondary { /* Estilo específico para el botón secundario */
+    background-color: var(--bg-primary); /* Fondo claro */
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.appointment-form .btn-secondary:hover {
+    background-color: var(--accent-color);
+    color: #FFFFFF;
+}
+
+.appointment-form .btn-secondary:hover { /* Estilo para el botón secundario al pasar el ratón */
+    background-color: var(--accent-color); /* Fondo primario */
+    color: #FFFFFF; /* Texto blanco */
+}
+
+.appointment-form .form-note-bottom {
+    font-size: 0.9em;
+    color: var(--text-color-muted);
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Responsive para paquetería y citas */
+@media (max-width: 992px) {
+    .portfolio-header .hero-header-content {
+        gap: 20px;
+    }
+    .hero-text-side {
+        flex-basis: 100%;
+        text-align: center;
+    }
+    .hero-image-side {
+        flex-basis: 100%;
+        margin-bottom: 20px;
+    }
+    .portfolio-header h1 {
+        font-size: 2.5em;
+    }
+    .hero-tagline {
+        font-size: 1.1em;
+    }
+    .main-nav-portfolio .container {
+        flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+        justify-content: space-between; /* Espacio entre logo y hamburguesa */
+        padding: 10px 20px;
+    }
+    .nav-logo-wrapper {
+        margin-right: auto; /* Empuja el logo a la izquierda */
+    }
+    .main-nav-portfolio ul.nav-links {
+        display: none; /* Oculta los enlaces en pantallas pequeñas por defecto */
+        flex-direction: column;
+        width: 70%; /* Ancho del menú lateral */
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        right: -70%; /* Oculto fuera de pantalla */
+        background-color: var(--card-background); /* Fondo del menú lateral */
+        box-shadow: -5px 0 15px var(--shadow-dark);
+        padding-top: 80px; /* Espacio desde arriba */
+        gap: 25px;
+        transition: right 0.3s ease-in-out;
+        z-index: 99; /* Por debajo del botón de hamburguesa */
+    }
+
+    .main-nav-portfolio ul.nav-links.active {
+        right: 0; /* Se muestra */
+    }
+
+    .main-nav-portfolio ul.nav-links li {
+        width: 100%;
+        text-align: left;
+        padding: 10px 30px; /* Padding para items de menú */
+    }
+    .main-nav-portfolio ul.nav-links li a {
+        display: block; /* Para que el padding y el click ocupen todo el ancho */
+        padding: 10px 0;
+        border-bottom: 1px solid var(--border-color-main); /* Separador de items */
+    }
+    .main-nav-portfolio ul.nav-links li:last-child a {
+        border-bottom: none; /* Elimina el borde del último item */
+    }
+
+    .hamburger-menu {
+        display: flex; /* Muestra el icono de hamburguesa */
+        z-index: 101; /* Asegura que esté por encima del menú lateral */
+    }
+    .projects-section h2,
+    .value-proposition-section h2,
+    .services-inclusion-section h2,
+    .design-packages-section h2,
+    .hosting-domain-section h2,
+    .presentation-video-section h2,
+    .contact-details-section h2, /* Ajuste de h2 */
+    .schedule-appointment-section h2 {
+        font-size: 2em; /* Títulos más pequeños en tablets */
+    }
+    .project-grid,
+    .inclusions-grid,
+    .packages-grid {
+        grid-template-columns: 1fr; /* Una columna en tablets/móviles */
+        gap: 20px;
+    }
+    .project-card,
+    .value-proposition-section,
+    .inclusion-item,
+    .package-card {
+        padding: 25px 20px;
+    }
+    .package-card.featured {
+        transform: scale(1);
+    }
+    .presentation-video-section p,
+    .contact-details-section .section-description-centered,
+    .schedule-appointment-section .section-description-centered {
+        font-size: 1em;
+    }
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+    }
+    .whatsapp-float img {
+        width: 30px;
+        height: 30px;
+    }
+    .bottom-cta-buttons {
+        flex-direction: column; /* Apilar botones */
+        gap: 15px;
+    }
+    .btn-bottom {
+        width: 100%;
+        max-width: 300px; /* Ancho máximo para botón apilado */
+    }
+    .contact-details-section .contact-item {
+        padding: 20px;
+    }
+    .contact-info-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Más compacto en móvil */
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolio-header h1 {
+        font-size: 1.8em;
+    }
+    .portfolio-header p {
+        font-size: 0.9em;
+    }
+    .project-card h3,
+    .package-card h3 {
+        font-size: 1.5em;
+    }
+    .project-card p,
+    .package-card p,
+    .inclusion-item p {
+        font-size: 0.9em;
+    }
+    .package-card .price {
+        font-size: 2em;
+    }
+    .package-card button {
+        font-size: 0.9em;
+        padding: 10px 20px;
+    }
+    .portfolio-footer .social-links a .si {
+        font-size: 1.8em;
+    }
+    .video-header h2 {
+        font-size: 1.8em;
+    }
+    .presentation-video-section p {
+        font-size: 0.9em;
+    }
+    .contact-cta-section .btn-primary {
+        font-size: 1em;
+        padding: 12px 25px;
+    }
+    .appointment-form .form-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .appointment-form .btn-primary,
+    .appointment-form .btn-secondary {
+        width: 100%;
+        font-size: 1em;
+    }
+    .contact-info-grid {
+        grid-template-columns: 1fr;
+    }
+    .contact-item h3 {
+        font-size: 1.2em;
+    }
+    .contact-item .contact-icon {
+        font-size: 1.8em;
+    }
+    .contact-item p {
+        font-size: 0.9em;
+    }
+}
