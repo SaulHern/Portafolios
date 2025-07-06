@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-
     // --- Mapeo de Textos para la Traducción de Idioma (GLOBAL) ---
     // Asegúrate de que todos los textos que quieras traducir en CUALQUIER PÁGINA
     // estén aquí con su 'data-lang-key' correspondiente en el HTML.
@@ -298,7 +297,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const currentTime = videoPlayer.currentTime;
                 const isPaused = videoPlayer.paused;
 
-                // Eliminar fuente existente
+                // Eliminar fuente existente y añadir la nueva
                 while (videoPlayer.firstChild) {
                     videoPlayer.removeChild(videoPlayer.firstChild);
                 }
@@ -328,12 +327,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     setVideoSpecificContent(lang); // Solo contenido específico del video
                 });
             });
-            // Establecer idioma inicial del video al cargar la página
+            // Establecer idioma inicial del video al cargar la página (por defecto español)
             setVideoSpecificContent(localStorage.getItem('language') || 'es');
         }
     }
 
-    // --- Lógica de la Barra de Navegación Fija (Sticky Nav) ---
+    // Lógica para la Barra de Navegación Fija (Sticky Nav)
     const mainNavPortfolio = document.getElementById('main-nav-portfolio');
     const portfolioHeader = document.querySelector('.portfolio-header');
 
@@ -352,7 +351,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // --- Lógica para Autorellenar Campo de Interés en agendar-cita.html ---
+    // Lógica para Autorellenar Campo de Interés en agendar-cita.html
     const interesSelect = document.getElementById('interes');
     if (interesSelect) { // Solo si estamos en la página de agendar-cita.html
         const urlParams = new URLSearchParams(window.location.search);
@@ -366,7 +365,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- Lógica para los botones de Email y WhatsApp en el formulario de agendar-cita.html ---
+    // Lógica para los botones de Email y WhatsApp en el formulario de agendar-cita.html
     const appointmentForm = document.getElementById('appointment-form');
     if (appointmentForm) { // Solo si estamos en la página de agendar-cita.html
         const sendEmailButton = document.getElementById('send-email');
@@ -414,7 +413,7 @@ document.addEventListener('DOMContentLoaded', () => {
         animatedHeading.classList.add('fade-in-up'); // Se activa la animación CSS
     }
 
-    // --- Lógica del Menú Hamburguesa para Móvil ---
+    // Lógica del menú hamburguesa para móvil
     const hamburgerMenu = document.getElementById('hamburger-menu');
     const navLinks = document.getElementById('nav-links'); // El <ul> con los enlaces
     const allNavLinks = document.querySelectorAll('.nav-links a'); // Todos los <a> dentro del menú
@@ -426,7 +425,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.classList.toggle('no-scroll'); // Previene scroll del body
         });
 
-        // Cerrar menú al hacer clic en un enlace
+        // Opcional: Cerrar el menú si se hace clic en un enlace
         allNavLinks.forEach(link => {
             link.addEventListener('click', () => {
                 if (navLinks.classList.contains('active')) {
@@ -438,7 +437,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Lógica para el Botón de Modo Oscuro/Claro (GLOBAL) ---
+    // Lógica para el botón de modo oscuro/claro (se aplica a todas las páginas)
     const themeToggleButton = document.getElementById('theme-toggle');
     if (themeToggleButton) {
         // Cargar preferencia del usuario o establecer modo claro por defecto
@@ -467,7 +466,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Lógica para el Selector de Idioma (GLOBAL) ---
+    // Lógica para el Selector de Idioma (GLOBAL)
     const globalLangButtons = document.querySelectorAll('.language-selector-global .lang-button');
     // Cargar preferencia de idioma del usuario o establecer español por defecto
     const currentLanguage = localStorage.getItem('language') || 'es';
