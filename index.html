@@ -15,7 +15,7 @@
         <div class="container">
             <div class="hero-header-content">
                 <div class="hero-text-side">
-                    <h1>Hola, soy **Saul Hernández**</h1>
+                    <h1 class="animated-text" id="animated-heading">Hola, soy Saul Hernández</h1>
                     <p class="hero-tagline">Creador de Páginas Web, Convierte tus Ideas en una Realidad.</p>
                 </div>
                 <div class="hero-image-side">
@@ -27,11 +27,14 @@
 
     <nav class="main-nav-portfolio" id="main-nav-portfolio">
         <div class="container">
+            <div class="nav-logo-wrapper">
+                <a href="#top" aria-label="Inicio"><img src="images/syntora-logo.png" alt="Logo de Syntora"></a>
+            </div>
             <ul>
                 <li><a href="#top">Inicio</a></li>
+                <li><a href="#about-me">Sobre Mí</a></li>
                 <li><a href="#projects">Proyectos</a></li>
                 <li><a href="#value-proposition-section">Valor</a></li>
-                <li><a href="#services-inclusion-section">Servicios</a></li>
                 <li><a href="paquetes.html">Paquetes</a></li> <li><a href="#presentation-video">Video</a></li>
                 <li><a href="agencia-digital-landing/index.html#contact">Contacto</a></li>
             </ul>
@@ -39,6 +42,51 @@
     </nav>
 
     <main class="portfolio-main">
+
+        <section id="about-me" class="about-me-section">
+            <div class="container">
+                <h2>Sobre Mí</h2>
+                <img src="images/saul-hernandez.jpg" alt="Saul Hernández - Foto de Perfil" class="profile-photo">
+                <p>Soy Saul Hernández, un apasionado desarrollador frontend con un ojo para el diseño y una mente orientada a la funcionalidad. Mi objetivo es construir experiencias web intuitivas, eficientes y visualmente atractivas que no solo cumplan, sino que superen las expectativas de mis clientes. Con Syntora, transformo ideas en soluciones digitales robustas, aplicando las últimas tecnologías y las mejores prácticas de la industria.</p>
+                
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <span class="material-icons">html</span>
+                        <p>HTML5</p>
+                    </div>
+                    <div class="skill-item">
+                        <span class="material-icons">css</span>
+                        <p>CSS3</p>
+                    </div>
+                    <div class="skill-item">
+                        <span class="material-icons">javascript</span>
+                        <p>JavaScript</p>
+                    </div>
+                    <div class="skill-item">
+                        <span class="material-icons">widgets</span>
+                        <p>Diseño Responsivo</p>
+                    </div>
+                    <div class="skill-item">
+                        <span class="material-icons">api</span>
+                        <p>Consumo de APIs</p>
+                    </div>
+                    <div class="skill-item">
+                        <span class="material-icons">data_object</span>
+                        <p>LocalStorage</p>
+                    </div>
+                    <div class="skill-item">
+                        <span class="material-icons">web_asset</span>
+                        <p>Landing Pages</p>
+                    </div>
+                    <div class="skill-item">
+                        <span class="material-icons">design_services</span>
+                        <p>UI/UX Básico</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
         <section id="projects" class="projects-section container">
             <h2>Mis Proyectos</h2>
             <div class="project-grid">
@@ -50,8 +98,8 @@
                     <h3>Mi Restaurante Demo</h3>
                     <p>Aplicación web interactiva para pedidos de comida online, con gestión de carrito dinámica, navegación fluida por categorías y simulación de funcionalidades clave.</p>
                     <div class="project-links">
-                        <a href="https://candylul.github.io/Restaurante-Demo/" target="_blank" class="btn-primary">Ver Demo</a>
-                        <a href="https://github.com/CandyLuL/Restaurante-Demo" target="_blank" class="btn-secondary">Código</a>
+                        <a href="https://saulhern.github.io/Restaurante-Demo/" target="_blank" class="btn-primary">Ver Demo</a>
+                        <a href="https://github.com/SaulHern/Restaurante-Demo" target="_blank" class="btn-secondary">Código</a>
                     </div>
                 </div>
 
@@ -62,8 +110,8 @@
                     <h3>Dulce Tentación</h3>
                     <p>Una página web vibrante y visualmente atractiva diseñada para una pastelería o tienda de postres. Destaca por su presentación de productos y navegación amigable.</p>
                     <div class="project-links">
-                        <a href="https://candylul.github.io/dulce-tentacion/" target="_blank" class="btn-primary">Ver Demo</a>
-                        <a href="https://github.com/CandyLuL/dulce-tentacion" target="_blank" class="btn-secondary">Código</a>
+                        <a href="https://saulhern.github.io/dulce-tentacion/" target="_blank" class="btn-primary">Ver Demo</a>
+                        <a href="https://github.com/SaulHern/dulce-tentacion" target="_blank" class="btn-secondary">Código</a>
                     </div>
                 </div>
 
@@ -74,8 +122,8 @@
                     <h3>Guía de Estudio Interactiva</h3>
                     <p>Un recurso online creado para facilitar el aprendizaje y la organización de temas de estudio, incorporando elementos interactivos para una experiencia de usuario enriquecida.</p>
                     <div class="project-links">
-                        <a href="https://candylul.github.io/Guia-de-estudio/" target="_blank" class="btn-primary">Ver Demo</a>
-                        <a href="https://github.com/CandyLuL/Guia-de-estudio" target="_blank" class="btn-secondary">Código</a>
+                        <a href="https://saulhern.github.io/Guia-de-estudio/" target="_blank" class="btn-primary">Ver Demo</a>
+                        <a href="https://github.com/SaulHern/Guia-de-estudio" target="_blank" class="btn-secondary">Código</a>
                     </div>
                 </div>
 
@@ -84,10 +132,10 @@
                         <span class="material-icons">laptop_mac</span>
                     </div>
                     <h3>Landing Page Agencia Digital</h3>
-                    <p>Página de aterrizaje completa y profesional para una agencia digital, con secciones de servicios, premios, testimonios y formulario de contacto. **¡Este es nuestro proyecto estrella!**</p>
+                    <p>Página de aterrizaje completa y profesional para una agencia digital, con secciones de servicios, premios, testimonios y formulario de contacto. ¡Este es mi proyecto estrella!</p>
                     <div class="project-links">
-                        <a href="https://candylul.github.io/Digital-Agency_/" target="_blank" class="btn-primary">Ver Demo</a>
-                        <a href="https://github.com/CandyLuL/Digital-Agency_" target="_blank" class="btn-secondary">Código</a>
+                        <a href="https://saulhern.github.io/Digital-Agency_/" target="_blank" class="btn-primary">Ver Demo</a>
+                        <a href="https://github.com/SaulHern/Digital-Agency_" target="_blank" class="btn-secondary">Código</a>
                     </div>
                 </div>
 
@@ -96,7 +144,7 @@
 
         <section id="value-proposition-section" class="value-proposition-section container">
             <h2>Mi Propuesta de Valor</h2>
-            <p>En **Syntora**, transformo tus ideas en experiencias web funcionales y visualmente impactantes. Mi enfoque es crear soluciones digitales a medida que no solo lucen increíbles, sino que también impulsan tus objetivos de negocio.</p>
+            <p>En Syntora, transformo tus ideas en experiencias web funcionales y visualmente impactantes. Mi enfoque es crear soluciones digitales a medida que no solo lucen increíbles, sino que también impulsan tus objetivos de negocio.</p>
         </section>
 
         <section id="services-inclusion-section" class="services-inclusion-section container">
@@ -164,6 +212,12 @@
             </div>
         </section>
 
+        <section class="bottom-cta-buttons container">
+            <a href="paquetes.html" class="btn-primary">Ver Paquetes de Diseño Web</a>
+            <a href="contacto.html" class="btn-secondary">Servicios y Contacto</a>
+            <a href="agendar-cita.html" class="btn-primary">Agendar Cita</a>
+        </section>
+
     </main>
 
     <footer class="portfolio-footer">
@@ -171,7 +225,7 @@
             <div class="footer-logo"><img src="images/syntora-logo.png" alt="Logo de Syntora"></div>
             <p>&copy; 2025 Saul H. Todos los derechos reservados.</p>
             <div class="social-links">
-                <a href="https://github.com/CandyLuL" target="_blank" class="social-icon" aria-label="GitHub de Saul H.">
+                <a href="https://github.com/SaulHern" target="_blank" class="social-icon" aria-label="GitHub de Saul H.">
                     <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/github.svg" alt="GitHub">
                 </a>
             </div>
