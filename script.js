@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "premium_package_feature6": "Basic Post-Delivery Support",
             "choose_premium": "Choose Premium",
             "hosting_options_title": "Hosting & Domain Options (Package Extras)",
-            "hosting_intro_text": "All my packages include basic free hosting (GitHub Pages). For superior performance, a more professional presence, and advanced features, I recommend considering these paid hosting and domain options. These prices are annual estimates and not include a management fee.",
+            "hosting_intro_text": "All my packages include basic free hosting (GitHub Pages). For superior performance, a more professional presence, and advanced features, I recommend considering these paid hosting and domain options. These prices are annual estimates and do not include a management fee.",
             "basic_hosting_title": "Basic Hosting & Domain",
             "basic_hosting_feature1": ".com/.net/.org Domain (1 year)",
             "basic_hosting_feature2": "Standard Shared Hosting",
@@ -247,6 +247,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    // Contenido específico del video para cada idioma
+    const videoContent = {
+        es: {
+            src: "videos/presentacion-es.mp4",
+            poster: "images/video-poster-es.jpg"
+        },
+        en: {
+            src: "videos/presentacion-en.mp4", // Asegúrate de tener este archivo
+            poster: "images/video-poster-en.jpg" // Asegúrate de tener este archivo
+        }
+    };
+
     // Función global para aplicar la traducción
     function applyTranslation(lang) {
         document.querySelectorAll('[data-es], [data-en], [data-lang-key]').forEach(element => {
@@ -293,7 +305,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const currentSource = videoPlayer.querySelector('source');
             const currentSrc = currentSource ? currentSource.src : '';
 
-            if (currentSrc !== videoContent[lang].src) { // Evitar recargas si ya es el mismo idioma
+            // Solo recargar el video si la fuente es diferente para evitar parpadeos innecesarios
+            if (currentSrc.indexOf(videoContent[lang].src) === -1) { 
                 const currentTime = videoPlayer.currentTime;
                 const isPaused = videoPlayer.paused;
 
@@ -328,6 +341,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             });
             // Establecer idioma inicial del video al cargar la página (por defecto español)
+            // Esto lo maneja el selector global de idioma ahora, pero lo mantenemos para el póster inicial
             setVideoSpecificContent(localStorage.getItem('language') || 'es');
         }
     }
@@ -503,7 +517,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const currentSource = videoPlayer.querySelector('source');
                     const currentSrc = currentSource ? currentSource.src : '';
 
-                    if (currentSrc !== videoContent[newLang].src) { // Cambiar video si la fuente es diferente
+                    if (currentSrc.indexOf(videoContent[newLang].src) === -1) { // Cambiar video si la fuente es diferente
                          const currentTime = videoPlayer.currentTime;
                          const isPaused = videoPlayer.paused;
                          while (videoPlayer.firstChild) { videoPlayer.removeChild(videoPlayer.firstChild); }
