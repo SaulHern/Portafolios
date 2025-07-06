@@ -980,6 +980,7 @@ h2::after {
 .schedule-appointment-section {
     background-color: var(--bg-primary);
     padding: 80px 0;
+    text-align: center;
 }
 
 .schedule-appointment-section h2 {
@@ -1135,7 +1136,8 @@ h2::after {
         margin-right: auto; /* Empuja el logo a la izquierda */
     }
     .main-nav-portfolio ul.nav-links {
-        display: none; /* Oculta los enlaces en pantallas pequeñas por defecto */
+        /* *** CAMBIO APLICADO AQUÍ *** */
+        /* Eliminado 'display: none;' para permitir transiciones de 'right' */
         flex-direction: column;
         width: 70%; /* Ancho del menú lateral */
         height: 100vh;
