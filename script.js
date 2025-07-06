@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Lógica para el Video de Presentación
+    // Lógica para el Video de Presentación (si existe en la página)
     const videoPlayer = document.getElementById('presentation-player');
     const langButtons = document.querySelectorAll('.lang-button');
     const videoTitle = document.getElementById('video-title');
@@ -32,8 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Actualizar contenido de texto
-        videoTitle.textContent = videoContent[lang].title;
-        videoDescription.textContent = videoContent[lang].description;
+        if (videoTitle) videoTitle.textContent = videoContent[lang].title;
+        if (videoDescription) videoDescription.textContent = videoContent[lang].description;
 
         // Actualizar fuente del video si es necesario
         // Comprobar si la fuente actual es diferente para evitar recargas innecesarias
@@ -56,11 +56,15 @@ document.addEventListener('DOMContentLoaded', () => {
             videoPlayer.load();
 
             // Intentar mantener el tiempo y estado de reproducción
-            videoPlayer.play().catch(error => {
-                console.log('Error al intentar reproducir automáticamente el video:', error);
-                // Esto puede ocurrir si el navegador bloquea la reproducción automática.
-                // Podrías mostrar un mensaje para que el usuario haga clic en play.
-            });
+            videoPlayer.currentTime = currentTime;
+            if (!isPaused) {
+                // Solo intentar reproducir si el video no estaba pausado
+                videoPlayer.play().catch(error => {
+                    console.log('Error al intentar reproducir automáticamente el video:', error);
+                    // Esto puede ocurrir si el navegador bloquea la reproducción automática.
+                    // Podrías mostrar un mensaje para que el usuario haga clic en play.
+                });
+            }
         }
     }
 
@@ -159,20 +163,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Lógica del menú hamburguesa para móvil
     const hamburgerMenu = document.getElementById('hamburger-menu');
-    const navLinks = document.getElementById('nav-links');
+    const navLinks = document.getElementById('nav-links'); // Las ul con los enlaces
 
     if (hamburgerMenu && navLinks) {
         hamburgerMenu.addEventListener('click', () => {
             navLinks.classList.toggle('active'); // Activa/desactiva el menú
             hamburgerMenu.classList.toggle('open'); // Activa/desactiva la animación del icono
+            document.body.classList.toggle('no-scroll'); // Opcional: Evitar scroll del body
         });
 
-        // Opcional: Cerrar el menú si se hace clic en un enlace (para SPAs)
+        // Opcional: Cerrar el menú si se hace clic en un enlace
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 if (navLinks.classList.contains('active')) {
                     navLinks.classList.remove('active');
                     hamburgerMenu.classList.remove('open');
+                    document.body.classList.remove('no-scroll');
                 }
             });
         });
