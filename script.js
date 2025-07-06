@@ -56,15 +56,11 @@ document.addEventListener('DOMContentLoaded', () => {
             videoPlayer.load();
 
             // Intentar mantener el tiempo y estado de reproducción
-            videoPlayer.currentTime = currentTime;
-            if (!isPaused) {
-                // Solo intentar reproducir si el video no estaba pausado
-                videoPlayer.play().catch(error => {
-                    console.log('Error al intentar reproducir automáticamente el video:', error);
-                    // Esto puede ocurrir si el navegador bloquea la reproducción automática.
-                    // Podrías mostrar un mensaje para que el usuario haga clic en play.
-                });
-            }
+            videoPlayer.play().catch(error => {
+                console.log('Error al intentar reproducir automáticamente el video:', error);
+                // Esto puede ocurrir si el navegador bloquea la reproducción automática.
+                // Podrías mostrar un mensaje para que el usuario haga clic en play.
+            });
         }
     }
 
@@ -181,6 +177,29 @@ document.addEventListener('DOMContentLoaded', () => {
                     document.body.classList.remove('no-scroll');
                 }
             });
+        });
+    }
+
+    // Lógica para el botón de modo oscuro/claro
+    const themeToggleButton = document.getElementById('theme-toggle');
+    if (themeToggleButton) {
+        // Cargar preferencia del usuario o establecer modo claro por defecto
+        const currentTheme = localStorage.getItem('theme') || 'light-mode';
+        document.body.classList.add(currentTheme);
+        themeToggleButton.innerHTML = currentTheme === 'dark-mode' ? '<span class="material-icons">light_mode</span>' : '<span class="material-icons">dark_mode</span>';
+
+        themeToggleButton.addEventListener('click', () => {
+            if (document.body.classList.contains('light-mode')) {
+                document.body.classList.remove('light-mode');
+                document.body.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark-mode');
+                themeToggleButton.innerHTML = '<span class="material-icons">light_mode</span>';
+            } else {
+                document.body.classList.remove('dark-mode');
+                document.body.classList.add('light-mode');
+                localStorage.setItem('theme', 'light-mode');
+                themeToggleButton.innerHTML = '<span class="material-icons">dark_mode</span>';
+            }
         });
     }
 });
