@@ -3,19 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agendar Cita - Saul H.</title>
+    <title data-es="Agendar Cita - Saul H." data-en="Schedule Appointment - Saul H.">Agendar Cita - Saul H.</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-icons-font@v12/font/simple-icons.min.css">
     <link rel="stylesheet" href="style.css"> </head>
 <body>
 
+    <button id="theme-toggle" class="theme-toggle-button">
+        <span class="material-icons">dark_mode</span>
+    </button>
+
     <header class="portfolio-header">
         <div class="container">
             <div class="hero-header-content">
                 <div class="hero-text-side">
-                    <h1>Hola, soy Saul Hernández</h1>
-                    <p class="hero-tagline">Creador de Páginas Web, Convierte tus Ideas en una Realidad.</p>
+                    <h1 data-es="Hola, soy Saul Hernández" data-en="Hi, I'm Saul Hernández">Hola, soy Saul Hernández</h1>
+                    <p class="hero-tagline" data-es="Creador de Páginas Web, Convierte tus Ideas en una Realidad." data-en="Web Page Creator, Turn Your Ideas into Reality.">Creador de Páginas Web, Convierte tus Ideas en una Realidad.</p>
                 </div>
                 <div class="hero-image-side">
                     <img src="images/saul-hernandez.jpg" alt="Saul Hernández - Desarrollador Frontend">
@@ -26,14 +30,22 @@
 
     <nav class="main-nav-portfolio" id="main-nav-portfolio">
         <div class="container">
-            <ul>
-                <li><a href="index.html#top">Inicio</a></li>
-                <li><a href="index.html#about-me">Sobre Mí</a></li>
-                <li><a href="index.html#projects">Proyectos</a></li>
-                <li><a href="index.html#value-proposition-section">Valor</a></li>
-                <li><a href="paquetes.html">Paquetes</a></li>
-                <li><a href="index.html#presentation-video">Video</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
+            <div class="nav-logo-wrapper">
+                <a href="index.html#top" aria-label="Inicio"><img src="images/syntora-logo.png" alt="Logo de Syntora"></a>
+            </div>
+            <button class="hamburger-menu" id="hamburger-menu">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html#top" data-lang-key="nav_inicio">Inicio</a></li>
+                <li><a href="index.html#about-me" data-lang-key="nav_sobre_mi">Sobre Mí</a></li>
+                <li><a href="index.html#projects" data-lang-key="nav_proyectos">Proyectos</a></li>
+                <li><a href="index.html#value-proposition-section" data-lang-key="nav_valor">Valor</a></li>
+                <li><a href="paquetes.html" data-lang-key="nav_paquetes">Paquetes</a></li>
+                <li><a href="index.html#presentation-video" data-lang-key="nav_video">Video</a></li>
+                <li><a href="contacto.html" data-lang-key="nav_contacto">Contacto</a></li>
             </ul>
         </div>
     </nav>
@@ -41,47 +53,47 @@
     <main class="portfolio-main">
 
         <section class="schedule-appointment-section container">
-            <h2>Agendar una Cita</h2>
-            <p class="section-description-centered">¡Gracias por tu interés en mis servicios! Por favor, completa este formulario para agendar una consulta gratuita. Me pondré en contacto contigo a la brevedad.</p>
+            <h2 data-es="Agendar una Cita" data-en="Schedule an Appointment">Agendar una Cita</h2>
+            <p class="section-description-centered" data-es="¡Gracias por tu interés en mis servicios! Por favor, completa este formulario para agendar una consulta gratuita. Me pondré en contacto contigo a la brevedad." data-en="Thank you for your interest in my services! Please complete this form to schedule a free consultation. I will contact you shortly."></p>
 
             <form id="appointment-form" class="appointment-form">
                 <div class="form-grid">
                     <div class="form-group">
-                        <label for="nombre">Tu Nombre Completo:</label>
+                        <label for="nombre" data-es="Tu Nombre Completo:" data-en="Your Full Name:">Tu Nombre Completo:</label>
                         <input type="text" id="nombre" name="nombre" required>
                     </div>
                     <div class="form-group">
-                        <label for="email">Tu Email:</label>
+                        <label for="email" data-es="Tu Email:" data-en="Your Email:">Tu Email:</label>
                         <input type="email" id="email" name="email" required>
                     </div>
                     <div class="form-group">
-                        <label for="telefono">Tu Teléfono (opcional):</label>
+                        <label for="telefono" data-es="Tu Teléfono (opcional):" data-en="Your Phone (optional):">Tu Teléfono (opcional):</label>
                         <input type="tel" id="telefono" name="telefono">
                     </div>
                     <div class="form-group">
-                        <label for="interes">Estoy interesado en:</label>
+                        <label for="interes" data-es="Estoy interesado en:" data-en="I am interested in:">Estoy interesado en:</label>
                         <select id="interes" name="interes" required>
-                            <option value="">Selecciona una opción</option>
-                            <option value="paquete-basico">Paquete Básico</option>
-                            <option value="paquete-avanzado">Paquete Avanzado</option>
-                            <option value="paquete-premium">Paquete Premium</option>
-                            <option value="hosting-basico">Hosting y Dominio Básico</option>
-                            <option value="hosting-avanzado">Hosting y Dominio Avanzado</option>
-                            <option value="hosting-premium">Hosting y Dominio Premium</option>
-                            <option value="consulta-general">Consulta General</option>
+                            <option value="" data-es="Selecciona una opción" data-en="Select an option">Selecciona una opción</option>
+                            <option value="paquete-basico" data-es="Paquete Básico" data-en="Basic Package">Paquete Básico</option>
+                            <option value="paquete-avanzado" data-es="Paquete Avanzado" data-en="Advanced Package">Paquete Avanzado</option>
+                            <option value="paquete-premium" data-es="Paquete Premium" data-en="Premium Package">Paquete Premium</option>
+                            <option value="hosting-basico" data-es="Hosting y Dominio Básico" data-en="Basic Hosting & Domain">Hosting y Dominio Básico</option>
+                            <option value="hosting-avanzado" data-es="Hosting y Dominio Avanzado" data-en="Advanced Hosting & Domain">Hosting y Dominio Avanzado</option>
+                            <option value="hosting-premium" data-es="Hosting y Dominio Premium" data-en="Premium Hosting & Domain">Hosting y Dominio Premium</option>
+                            <option value="consulta-general" data-es="Consulta General" data-en="General Inquiry">Consulta General</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-group full-width">
-                    <label for="mensaje">Describe brevemente tu proyecto o tus dudas:</label>
+                    <label for="mensaje" data-es="Describe brevemente tu proyecto o tus dudas:" data-en="Briefly describe your project or questions:">Describe brevemente tu proyecto o tus dudas:</label>
                     <textarea id="mensaje" name="mensaje" rows="6" placeholder="Cuéntame sobre tus necesidades, lo que buscas en tu web o tus preguntas específicas."></textarea>
                 </div>
                 <div class="form-buttons">
-                    <button type="button" id="send-email" class="btn-primary">Enviar por Email</button>
-                    <button type="button" id="send-whatsapp" class="btn-secondary">Enviar por WhatsApp</button>
+                    <button type="button" id="send-email" class="btn-primary" data-es="Enviar por Email" data-en="Send via Email">Enviar por Email</button>
+                    <button type="button" id="send-whatsapp" class="btn-secondary" data-es="Enviar por WhatsApp" data-en="Send via WhatsApp">Enviar por WhatsApp</button>
                 </div>
             </form>
-            <p class="form-note-bottom">También puedes contactarme directamente vía WhatsApp con el botón flotante.</p>
+            <p class="form-note-bottom" data-es="También puedes contactarme directamente vía WhatsApp con el botón flotante." data-en="You can also contact me directly via WhatsApp using the floating button."></p>
         </section>
 
     </main>
@@ -89,7 +101,7 @@
     <footer class="portfolio-footer">
         <div class="container">
             <div class="footer-logo"><img src="images/syntora-logo.png" alt="Logo de Syntora"></div>
-            <p>&copy; 2025 Saul H. Todos los derechos reservados.</p>
+            <p>&copy; <span data-lang-key="footer_copyright">2025 Saul H. Todos los derechos reservados.</span></p>
             <div class="social-links">
                 <a href="https://github.com/SaulHern" target="_blank" class="social-icon" aria-label="GitHub de Saul H.">
                     <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/github.svg" alt="GitHub">
