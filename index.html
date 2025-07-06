@@ -11,12 +11,16 @@
 </head>
 <body>
 
+    <button id="theme-toggle" class="theme-toggle-button">
+        <span class="material-icons">dark_mode</span>
+    </button>
+
     <header class="portfolio-header">
         <div class="container">
             <div class="hero-header-content">
                 <div class="hero-text-side">
-                    <h1 class="animated-text" id="animated-heading">Hola, soy Saul Hernández</h1>
-                    <p class="hero-tagline">Creador de Páginas Web, Convierte tus Ideas en una Realidad.</p>
+                    <h1 class="animated-text" id="animated-heading" data-es="Hola, soy Saul Hernández" data-en="Hi, I'm Saul Hernández">Hola, soy Saul Hernández</h1>
+                    <p class="hero-tagline" data-es="Creador de Páginas Web, Convierte tus Ideas en una Realidad." data-en="Web Page Creator, Turn Your Ideas into Reality.">Creador de Páginas Web, Convierte tus Ideas en una Realidad.</p>
                 </div>
                 <div class="hero-image-side">
                     <img src="images/saul-hernandez.jpg" alt="Saul Hernández - Desarrollador Frontend">
@@ -36,13 +40,14 @@
                 <span class="line"></span>
             </button>
             <ul class="nav-links" id="nav-links">
-                <li><a href="#top">Inicio</a></li>
-                <li><a href="#about-me">Sobre Mí</a></li>
-                <li><a href="#projects">Proyectos</a></li>
-                <li><a href="#value-proposition-section">Valor</a></li>
-                <li><a href="paquetes.html">Paquetes</a></li>
-                <li><a href="#presentation-video">Video</a></li>
-                <li><a href="contacto.html">Contacto</a></li> </ul>
+                <li><a href="#top" data-lang-key="nav_inicio">Inicio</a></li>
+                <li><a href="#about-me" data-lang-key="nav_sobre_mi">Sobre Mí</a></li>
+                <li><a href="#projects" data-lang-key="nav_proyectos">Proyectos</a></li>
+                <li><a href="#value-proposition-section" data-lang-key="nav_valor">Valor</a></li>
+                <li><a href="paquetes.html" data-lang-key="nav_paquetes">Paquetes</a></li>
+                <li><a href="#presentation-video" data-lang-key="nav_video">Video</a></li>
+                <li><a href="contacto.html" data-lang-key="nav_contacto">Contacto</a></li>
+            </ul>
         </div>
     </nav>
 
@@ -50,13 +55,13 @@
 
         <section id="about-me" class="about-me-section">
             <div class="container">
-                <h2 class="section-title">Sobre Mí</h2>
+                <h2 class="section-title" data-lang-key="about_me_title">Sobre Mí</h2>
                 <div class="about-me-content-flex">
                     <div class="profile-photo-container">
                         <img src="images/saul-hernandez2.jpg" alt="Saul Hernández - Foto de Perfil" class="profile-photo-small">
                     </div>
                     <div class="about-me-text">
-                        <p>Soy Saul Hernández, un apasionado desarrollador frontend con un ojo para el diseño y una mente orientada a la funcionalidad. Mi objetivo es construir experiencias web intuitivas, eficientes y visualmente atractivas que no solo cumplan, sino que superen las expectativas de mis clientes. Con Syntora, transformo ideas en soluciones digitales robustas, aplicando las últimas tecnologías y las mejores prácticas de la industria.</p>
+                        <p data-lang-key="about_me_text">Soy Saul Hernández, un apasionado desarrollador frontend con un ojo para el diseño y una mente orientada a la funcionalidad. Mi objetivo es construir experiencias web intuitivas, eficientes y visualmente atractivas que no solo cumplan, sino que superen las expectativas de mis clientes. Con Syntora, transformo ideas en soluciones digitales robustas, aplicando las últimas tecnologías y las mejores prácticas de la industria.</p>
                     </div>
                 </div>
                 
@@ -99,23 +104,23 @@
 
 
         <section id="value-proposition-section" class="value-proposition-section container">
-            <h2>Mi Propuesta de Valor</h2>
-            <p>En Syntora, transformo tus ideas en experiencias web funcionales y visualmente impactantes. Mi enfoque es crear soluciones digitales a medida que no solo lucen increíbles, sino que también impulsan tus objetivos de negocio.</p>
+            <h2 data-lang-key="value_prop_title">Mi Propuesta de Valor</h2>
+            <p data-lang-key="value_prop_text">En Syntora, transformo tus ideas en experiencias web funcionales y visualmente impactantes. Mi enfoque es crear soluciones digitales a medida que no solo lucen increíbles, sino que también impulsan tus objetivos de negocio.</p>
         </section>
 
         <section id="projects" class="projects-section container">
-            <h2>Mis Proyectos</h2>
+            <h2 data-lang-key="projects_title">Mis Proyectos</h2>
             <div class="project-grid">
 
                 <div class="project-card featured-big">
                     <div class="project-icon-wrapper">
                         <span class="material-icons">laptop_mac</span>
                     </div>
-                    <h3>Landing Page Agencia Digital</h3>
-                    <p>Página de aterrizaje completa y profesional para una agencia digital, con secciones de servicios, premios, testimonios y formulario de contacto. ¡Este es mi proyecto estrella!</p>
+                    <h3 data-lang-key="project_agency_title">Landing Page Agencia Digital</h3>
+                    <p data-lang-key="project_agency_desc">Página de aterrizaje completa y profesional para una agencia digital, con secciones de servicios, premios, testimonios y formulario de contacto. ¡Este es mi proyecto estrella!</p>
                     <div class="project-links">
-                        <a href="https://saulhern.github.io/Digital-Agency_/" target="_blank" class="btn-primary">Ver Demo</a>
-                        <a href="https://github.com/SaulHern/Digital-Agency_" target="_blank" class="btn-secondary">Código</a>
+                        <a href="https://saulhern.github.io/Digital-Agency_/" target="_blank" class="btn-primary" data-lang-key="btn_view_demo">Ver Demo</a>
+                        <a href="https://github.com/SaulHern/Digital-Agency_" target="_blank" class="btn-secondary" data-lang-key="btn_code">Código</a>
                     </div>
                 </div>
 
@@ -123,11 +128,11 @@
                     <div class="project-icon-wrapper">
                         <span class="material-icons">restaurant_menu</span>
                     </div>
-                    <h3>Mi Restaurante Demo</h3>
-                    <p>Aplicación web interactiva para pedidos de comida online, con gestión de carrito dinámica, navegación fluida por categorías y simulación de funcionalidades clave.</p>
+                    <h3 data-lang-key="project_restaurant_title">Mi Restaurante Demo</h3>
+                    <p data-lang-key="project_restaurant_desc">Aplicación web interactiva para pedidos de comida online, con gestión de carrito dinámica, navegación fluida por categorías y simulación de funcionalidades clave.</p>
                     <div class="project-links">
-                        <a href="https://saulhern.github.io/Restaurante-Demo/" target="_blank" class="btn-primary">Ver Demo</a>
-                        <a href="https://github.com/SaulHern/Restaurante-Demo" target="_blank" class="btn-secondary">Código</a>
+                        <a href="https://saulhern.github.io/Restaurante-Demo/" target="_blank" class="btn-primary" data-lang-key="btn_view_demo">Ver Demo</a>
+                        <a href="https://github.com/SaulHern/Restaurante-Demo" target="_blank" class="btn-secondary" data-lang-key="btn_code">Código</a>
                     </div>
                 </div>
 
@@ -135,11 +140,11 @@
                     <div class="project-icon-wrapper">
                         <span class="material-icons">bakery_dining</span>
                     </div>
-                    <h3>Dulce Tentación</h3>
-                    <p>Una página web vibrante y visualmente atractiva diseñada para una pastelería o tienda de postres. Destaca por su presentación de productos y navegación amigable.</p>
+                    <h3 data-lang-key="project_sweet_title">Dulce Tentación</h3>
+                    <p data-lang-key="project_sweet_desc">Una página web vibrante y visualmente atractiva diseñada para una pastelería o tienda de postres. Destaca por su presentación de productos y navegación amigable.</p>
                     <div class="project-links">
-                        <a href="https://saulhern.github.io/dulce-tentacion/" target="_blank" class="btn-primary">Ver Demo</a>
-                        <a href="https://github.com/SaulHern/dulce-tentacion" target="_blank" class="btn-secondary">Código</a>
+                        <a href="https://saulhern.github.io/dulce-tentacion/" target="_blank" class="btn-primary" data-lang-key="btn_view_demo">Ver Demo</a>
+                        <a href="https://github.com/SaulHern/dulce-tentacion" target="_blank" class="btn-secondary" data-lang-key="btn_code">Código</a>
                     </div>
                 </div>
 
@@ -147,11 +152,11 @@
                     <div class="project-icon-wrapper">
                         <span class="material-icons">auto_stories</span>
                     </div>
-                    <h3>Guía de Estudio Interactiva</h3>
-                    <p>Un recurso online creado para facilitar el aprendizaje y la organización de temas de estudio, incorporando elementos interactivos para una experiencia de usuario enriquecida.</p>
+                    <h3 data-lang-key="project_guide_title">Guía de Estudio Interactiva</h3>
+                    <p data-lang-key="project_guide_desc">Un recurso online creado para facilitar el aprendizaje y la organización de temas de estudio, incorporando elementos interactivos para una experiencia de usuario enriquecida.</p>
                     <div class="project-links">
-                        <a href="https://saulhern.github.io/Guia-de-estudio/" target="_blank" class="btn-primary">Ver Demo</a>
-                        <a href="https://github.com/SaulHern/Guia-de-estudio" target="_blank" class="btn-secondary">Código</a>
+                        <a href="https://saulhern.github.io/Guia-de-estudio/" target="_blank" class="btn-primary" data-lang-key="btn_view_demo">Ver Demo</a>
+                        <a href="https://github.com/SaulHern/Guia-de-estudio" target="_blank" class="btn-secondary" data-lang-key="btn_code">Código</a>
                     </div>
                 </div>
 
@@ -161,7 +166,7 @@
         <section id="presentation-video" class="presentation-video-section">
             <div class="container">
                 <div class="video-header">
-                    <h2 id="video-title">Conoce Mi Trabajo en Video</h2>
+                    <h2 id="video-title" data-es="Conoce Mi Trabajo en Video" data-en="Learn About My Work in Video">Conoce Mi Trabajo en Video</h2>
                     <div class="language-selector">
                         <button class="lang-button active" data-lang="es">Español</button>
                         <button class="lang-button" data-lang="en">English</button>
@@ -173,14 +178,14 @@
                         Tu navegador no soporta el tag de video.
                     </video>
                 </div>
-                <p id="video-description">Un breve video donde presento mis habilidades, mi proceso de trabajo y por qué soy la mejor opción para tu próximo proyecto web.</p>
+                <p id="video-description" data-es="Un breve video donde presento mis habilidades, mi proceso de trabajo y por qué soy la mejor opción para tu próximo proyecto web." data-en="A brief video where I present my skills, my work process, and why I am the best choice for your next web project."></p>
             </div>
         </section>
 
         <section class="bottom-cta-buttons container">
-            <a href="paquetes.html" class="btn-bottom">Ver Paquetes de Diseño Web</a>
-            <a href="contacto.html" class="btn-bottom">Servicios y Contacto</a>
-            <a href="agendar-cita.html" class="btn-bottom">Agendar Cita</a>
+            <a href="paquetes.html" class="btn-bottom" data-lang-key="btn_bottom_packages">Ver Paquetes de Diseño Web</a>
+            <a href="contacto.html" class="btn-bottom" data-lang-key="btn_bottom_services_contact">Servicios y Contacto</a>
+            <a href="agendar-cita.html" class="btn-bottom" data-lang-key="btn_bottom_schedule_appointment">Agendar Cita</a>
         </section>
 
     </main>
