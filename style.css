@@ -220,7 +220,7 @@ h1, h2, h3 {
     font-weight: 600;
     padding: 5px 0;
     transition: color 0.3s ease, transform 0.2s ease;
-    white-space: nowrap;
+    white-space: nowrap; /* Evita que los nombres largos se rompan */
 }
 
 .main-nav-portfolio a:hover,
@@ -510,7 +510,7 @@ h2::after {
 
 /* Sección de Propuesta de Valor */
 .value-proposition-section {
-    background-color: var(--card-background); /* Fondo de tarjeta */
+    background-color: var(--card-background);
     padding: 60px 20px;
     margin: 80px auto;
     border-radius: 12px;
@@ -553,14 +553,14 @@ h2::after {
 }
 
 .inclusion-item {
-    background-color: var(--card-background); /* Fondo de tarjeta */
+    background-color: var(--card-background);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 15px var(--shadow-base-light);
     display: flex;
     align-items: center;
     gap: 15px;
-    border: 1px solid var(--border-color-main);
+    border: 1px solid var(--border-color);
 }
 
 .inclusion-item .material-icons {
@@ -672,7 +672,7 @@ h2::after {
 .package-card ul li .material-icons {
     font-size: 1.3em;
     color: var(--accent-color);
-    margin-top: 2px;
+    margin-top: 2px; /* Alineación del icono */
 }
 
 .package-card button {
@@ -1151,7 +1151,7 @@ h2::after {
     }
 
     .main-nav-portfolio ul.nav-links.active {
-        right: 0; /* Muestra el menú */
+        right: 0; /* Se muestra */
     }
 
     .main-nav-portfolio ul.nav-links li {
@@ -1191,14 +1191,11 @@ h2::after {
     .project-card,
     .value-proposition-section,
     .inclusion-item,
-    .package-card,
-    .contact-details-section,
-    .appointment-form,
-    .bottom-cta-buttons { /* Ajuste de padding */
+    .package-card {
         padding: 25px 20px;
     }
     .package-card.featured {
-        transform: scale(1);
+        transform: scale(1); /* Deshacer el scale en móviles */
     }
     .presentation-video-section p,
     .contact-details-section .section-description-centered,
@@ -1214,6 +1211,20 @@ h2::after {
     .whatsapp-float img {
         width: 30px;
         height: 30px;
+    }
+    .bottom-cta-buttons {
+        flex-direction: column; /* Apilar botones */
+        gap: 15px;
+    }
+    .btn-bottom {
+        width: 100%;
+        max-width: 300px; /* Ancho máximo para botón apilado */
+    }
+    .contact-details-section .contact-item {
+        padding: 20px;
+    }
+    .contact-info-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Más compacto en móvil */
     }
 }
 
