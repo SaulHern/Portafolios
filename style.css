@@ -252,13 +252,13 @@ h1, h2, h3 {
 }
 
 /* Animación de hamburguesa */
-.main-nav-portfolio.open .line:nth-child(1) {
+.hamburger-menu.open .line:nth-child(1) { /* MODIFICADO: Aplicar a .hamburger-menu.open */
     transform: translateY(11px) rotate(45deg);
 }
-.main-nav-portfolio.open .line:nth-child(2) {
+.hamburger-menu.open .line:nth-child(2) { /* MODIFICADO: Aplicar a .hamburger-menu.open */
     opacity: 0;
 }
-.main-nav-portfolio.open .line:nth-child(3) {
+.hamburger-menu.open .line:nth-child(3) { /* MODIFICADO: Aplicar a .hamburger-menu.open */
     transform: translateY(-11px) rotate(-45deg);
 }
 
@@ -1152,20 +1152,6 @@ h2::after {
 
     .main-nav-portfolio ul.nav-links.active {
         right: 0; /* Se muestra */
-    }
-
-    .main-nav-portfolio ul.nav-links li {
-        width: 100%;
-        text-align: left;
-        padding: 10px 30px; /* Padding para items de menú */
-    }
-    .main-nav-portfolio ul.nav-links li a {
-        display: block; /* Para que el padding y el click ocupen todo el ancho */
-        padding: 10px 0;
-        border-bottom: 1px solid var(--border-color-main); /* Separador de items */
-    }
-    .main-nav-portfolio ul.nav-links li:last-child a {
-        border-bottom: none; /* Elimina el borde del último item */
     }
 
     .hamburger-menu {
