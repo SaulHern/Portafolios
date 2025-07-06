@@ -1,326 +1,704 @@
-/* ========================================================= */
-/* --- RESET BÁSICO Y ESTILOS GLOBALES ---                   */
-/* Estos estilos se aplican a todo el documento y son la     */
-/* base para el enfoque "Mobile-First".                      */
-/* ========================================================= */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box; /* Incluye padding y border en el ancho/alto del elemento */
+:root {
+    /* Nueva paleta de colores */
+    --bg-dark: #121212; /* Fondo muy oscuro */
+    --card-bg: #1e1e1e; /* Fondo de tarjetas */
+    --text-light: #e0e0e0; /* Texto claro principal */
+    --text-muted: #b0b0b0; /* Texto secundario */
+    --accent-color: #64ffda; /* Verde azulado brillante como acento */
+    --accent-hover: #00bfa5; /* Tono más oscuro al pasar el ratón */
+    --border-color: #333333; /* Bordes sutiles */
+    --shadow-color: rgba(0, 0, 0, 0.7); /* Sombra más oscura */
 }
 
 body {
-    font-family: 'Arial', sans-serif; /* Puedes cambiar tu fuente aquí */
+    font-family: 'Open Sans', sans-serif; /* Fuente para el texto general */
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
     line-height: 1.6;
-    color: #333; /* Color de texto general */
-    background-color: #f4f4f4; /* Color de fondo de la página */
-    font-size: 16px; /* Tamaño de fuente base para dispositivos móviles */
+    -webkit-font-smoothing: antialiased; /* Suavizar fuentes en WebKit */
+    -moz-osx-font-smoothing: grayscale; /* Suavizar fuentes en Firefox */
 }
 
-/* --- Contenedor Principal --- */
-/* Este contenedor ayuda a centrar y limitar el ancho del contenido */
-/* Lo puedes aplicar a un <div> que envuelva la mayoría de tus secciones */
+h1, h2, h3 {
+    font-family: 'Poppins', sans-serif; /* Fuente para títulos */
+    color: var(--text-light); /* Los títulos principales son claros */
+    margin-top: 0;
+    font-weight: 700;
+}
+
 .container {
-    width: 90%; /* Ocupa el 90% del ancho del viewport en móviles */
-    margin: 0 auto; /* Centra el contenedor horizontalmente */
-    padding: 20px 0; /* Espaciado interno vertical */
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-/* --- Imágenes --- */
-/* Asegura que las imágenes sean responsivas y no desborden sus contenedores */
-img {
-    max-width: 100%; /* La imagen nunca será más ancha que su contenedor */
-    height: auto;    /* Mantiene la proporción de la imagen al escalarse */
-    display: block;  /* Elimina el espacio extra que a veces aparece debajo de las imágenes */
-    border-radius: 5px; /* Bordes ligeramente redondeados, ajusta si es necesario */
+/* Header */
+.portfolio-header {
+    background: linear-gradient(135deg, #1f2833 0%, #0b0c10 100%); /* Un azul oscuro */
+    color: var(--text-light);
+    padding: 60px 0;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* ========================================================= */
-/* --- ESTILOS DEL ENCABEZADO (#header) ---                  */
-/* Ahora usa tu ID #header directamente.                     */
-/* ========================================================= */
-#header {
-    background-color: #333; /* Color de fondo de tu header */
-    color: #fff; /* Color del texto en tu header */
+.portfolio-header .hero-header-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px; /* Espacio entre el texto y la imagen */
+    flex-wrap: wrap; /* Permite que se envuelvan en pantallas pequeñas */
+}
+
+.hero-text-side {
+    text-align: left; /* Alinea el texto a la izquierda */
+    flex-basis: 50%; /* Ocupa la mitad del espacio */
+    min-width: 300px; /* Ancho mínimo para que no se vea aplastado */
+}
+
+.portfolio-header h1 {
+    font-size: 2.8em;
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: var(--text-light); /* Color diferente para el nombre */
+}
+
+.hero-tagline {
+    font-size: 1.2em;
+    font-weight: 300;
+    color: var(--text-muted);
+    line-height: 1.8;
+}
+
+.hero-image-side {
+    flex-basis: 40%; /* Ocupa un poco menos de la mitad */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image-side img {
+    max-width: 100%;
+    height: auto;
+    width: 250px; /* Tamaño base para la imagen */
+    height: 250px; /* Para que sea cuadrada */
+    object-fit: cover;
+    border-radius: 50%; /* Para hacerla circular */
+    border: 3px solid var(--accent-color); /* Borde de acento */
+    box-shadow: 0 0 0 8px rgba(100, 255, 218, 0.2), 0 0 20px var(--shadow-color); /* Sombra externa */
+}
+
+
+/* Barra de Navegación Principal */
+.main-nav-portfolio {
+    background-color: #1A1A1A;
     padding: 15px 0;
-    text-align: center; /* Alineación del texto en móviles */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Sutil sombra para el header */
+    position: sticky; /* O 'fixed' si quieres que siempre esté pegada arriba del todo */
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-#header h1 {
-    font-size: 1.8em; /* Tamaño del título principal en móviles */
+.main-nav-portfolio .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-nav-portfolio ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap; /* Para que los enlaces se envuelvan en pantallas pequeñas */
+    justify-content: center;
+}
+
+.main-nav-portfolio a {
+    color: var(--text-light);
+    font-weight: 600;
+    padding: 5px 0;
+    transition: color 0.3s ease, transform 0.2s ease; /* Añadida transición a transform */
+    white-space: nowrap; /* Evita que los nombres largos se rompan */
+}
+
+.main-nav-portfolio a:hover,
+.main-nav-portfolio a.active { /* Para un estado activo si se implementa con JS */
+    color: var(--accent-color);
+    transform: translateY(-3px); /* Pequeña elevación al pasar el ratón */
+}
+
+/* Main Content - Projects Section */
+.projects-section {
+    padding: 40px 20px;
+}
+
+.projects-section h2 {
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--text-light);
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.projects-section h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--accent-color);
+    border-radius: 2px;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 25px;
+    text-align: center;
+    border: 1px solid var(--border-color);
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.9);
+    border-color: var(--accent-color);
+}
+
+/* ESTILO PARA LA TARJETA GRANDE DE AGENCIA DIGITAL */
+.project-card.featured-big {
+    grid-column: span 2; /* Ocupa 2 columnas */
+    /* Para ocupar 3 columnas si la grid lo permite: grid-column: span 3; */
+}
+
+/* En pantallas pequeñas, no ocupará más de una columna */
+@media (max-width: 992px) {
+    .project-card.featured-big {
+        grid-column: span 1; /* En móviles, vuelve a una columna */
+    }
+}
+
+
+.project-icon-wrapper {
+    font-size: 4.5em; /* Iconos más grandes */
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.project-card h3 {
+    font-size: 1.8em;
+    padding: 0;
+    margin-bottom: 15px;
+    color: var(--text-light);
+}
+
+.project-card p {
+    font-size: 1em;
+    padding: 0;
+    color: var(--text-muted);
+    margin-bottom: 25px;
+    flex-grow: 1; /* Permite que el párrafo ocupe el espacio disponible */
+}
+
+.project-links {
+    padding: 0;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: auto; /* Empuja los enlaces al final de la tarjeta */
+}
+
+.project-links a {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95em;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    white-space: nowrap;
+    border: 2px solid;
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    color: var(--bg-dark);
+    border-color: var(--accent-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-hover);
+    border-color: var(--accent-hover);
+    color: var(--bg-dark);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--accent-color);
+    color: var(--bg-dark);
+}
+
+/* --- Nuevas Secciones del Portafolio --- */
+
+/* Sección de Propuesta de Valor */
+.value-proposition-section {
+    background-color: var(--card-bg);
+    padding: 60px 20px;
+    margin: 80px auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px var(--shadow-color);
+    text-align: center;
+    border: 1px solid var(--border-color);
+}
+
+.value-proposition-section h2 {
+    font-size: 2.2em;
+    margin-bottom: 25px;
+    color: var(--text-light);
+}
+
+.value-proposition-section p {
+    font-size: 1.15em;
+    color: var(--text-muted);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* Sección de Servicios Incluidos */
+.services-inclusion-section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.services-inclusion-section h2 {
+    font-size: 2.2em;
+    margin-bottom: 40px;
+    color: var(--text-light);
+}
+
+.inclusions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    text-align: left;
+}
+
+.inclusion-item {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border: 1px solid var(--border-color);
+}
+
+.inclusion-item .material-icons {
+    font-size: 1.8em;
+    color: var(--accent-color);
+}
+
+.inclusion-item p {
+    font-size: 1em;
+    color: var(--text-light);
+    margin: 0;
+}
+
+/* Sección de Paquetes de Diseño y Hosting */
+.design-packages-section,
+.hosting-domain-section {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.design-packages-section h2,
+.hosting-domain-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: var(--text-light);
+}
+
+.hosting-domain-section .intro-text {
+    font-size: 1.1em;
+    color: var(--text-muted);
+    max-width: 800px;
+    margin: 0 auto 50px;
+    line-height: 1.7;
+}
+
+.packages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.package-card {
+    background-color: var(--card-bg);
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px var(--shadow-color);
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.package-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9);
+    border-color: var(--accent-color);
+}
+
+.package-card.featured {
+    background: linear-gradient(145deg, var(--accent-color) 0%, var(--accent-hover) 100%);
+    color: var(--bg-dark); /* Texto oscuro para la tarjeta destacada */
+    transform: scale(1.03); /* Ligeramente más grande */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    border-color: var(--accent-hover);
+}
+
+.package-card.featured h3,
+.package-card.featured .price,
+.package-card.featured ul li {
+    color: var(--bg-dark); /* Asegura que el texto sea oscuro en la destacada */
+}
+
+.package-card.featured .material-icons {
+    color: var(--bg-dark); /* Color de iconos en la destacada */
+}
+
+
+.package-card h3 {
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: var(--text-light);
+}
+
+.package-card .price {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 25px;
+}
+
+.package-card ul {
+    text-align: left;
+    margin-bottom: 30px;
+    flex-grow: 1; /* Ocupa el espacio disponible */
+    width: 100%; /* Para que los items se alineen bien */
+}
+
+.package-card ul li {
+    font-size: 1em;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.package-card ul li .material-icons {
+    font-size: 1.3em;
+    color: var(--accent-color);
+    margin-top: 2px; /* Alineación del icono */
+}
+
+.package-card button {
+    background-color: var(--accent-color);
+    color: var(--bg-dark);
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    width: 80%; /* Botón más ancho */
+}
+
+.package-card.featured button {
+    background-color: var(--bg-dark);
+    color: var(--accent-color);
+}
+
+.package-card button:hover {
+    background-color: var(--accent-hover);
+    color: var(--bg-dark);
+}
+
+/* Sección de Video de Presentación */
+.presentation-video-section {
+    background-color: var(--bg-dark);
+    padding: 80px 0;
+    text-align: center;
+}
+
+.video-header {
+    margin-bottom: 40px;
+}
+
+.video-header h2 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    color: var(--text-light);
+}
+
+.language-selector {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.lang-button {
+    background-color: var(--card-bg);
+    color: var(--text-muted);
+    border: 1px solid var(--border-color);
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.lang-button.active,
+.lang-button:hover {
+    background-color: var(--accent-color);
+    color: var(--bg-dark);
+    border-color: var(--accent-color);
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px var(--shadow-color);
+    background-color: #000; /* Fondo negro para el video */
+}
+
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.presentation-video-section p {
+    font-size: 1.1em;
+    color: var(--text-muted);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+
+/* Footer */
+.portfolio-footer {
+    background-color: var(--card-bg);
+    color: var(--text-muted);
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.9em;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3);
+    margin-top: 50px;
+    border-top: 1px solid var(--border-color);
+}
+
+.portfolio-footer .footer-logo {
+    font-size: 1.5em; /* Tamaño si fuera texto, pero es una imagen ahora */
+    font-weight: 700;
+    color: var(--text-light);
     margin-bottom: 10px;
 }
 
-/* ========================================================= */
-/* --- ESTILOS DE NAVEGACIÓN (#nav) ---                      */
-/* Adaptado para tu ID #nav y sus elementos <ul><li><a>      */
-/* Asumimos un menú de hamburguesa en móvil y full en PC.    */
-/* ========================================================= */
-#nav ul { /* Selecciona la lista no ordenada dentro de #nav */
-    list-style: none; /* Quita los puntos de la lista */
-    padding: 0;
-    margin: 0;
-    display: none; /* Por defecto oculto en móvil (asumiendo que se mostrará con JS o un icono) */
-    flex-direction: column; /* Menú vertical en móvil */
-    text-align: center;
+.portfolio-footer .footer-logo img { /* Estilo para el logo de imagen en footer */
+    max-height: 30px; /* Un poco más pequeño que en el header */
+    width: auto;
+    vertical-align: middle;
 }
 
-#nav ul li {
-    margin-bottom: 10px; /* Espacio entre ítems del menú en móvil */
-}
-
-#nav ul li a {
-    color: #fff; /* Color de los enlaces del menú */
-    text-decoration: none; /* Sin subrayado */
-    font-weight: bold;
-    padding: 8px 15px;
-    display: block; /* Hace que el área clicable sea más grande */
-    transition: background-color 0.3s ease; /* Transición suave al pasar el ratón */
-}
-
-#nav ul li a:hover {
-    background-color: #555; /* Color al pasar el ratón */
-    border-radius: 5px;
-}
-
-/* Icono de hamburguesa (si lo usas, para mostrar/ocultar el #nav ul) */
-/* ¡Necesitarías añadir este icono en tu HTML si no lo tienes! */
-/* Por ejemplo: <div class="hamburger-icon">☰</div> */
-.hamburger-icon {
-    display: block; /* Visible en móvil */
-    background-color: #555; /* Color de fondo del icono */
-    color: #fff;
-    padding: 10px;
-    cursor: pointer;
-    text-align: center;
-    font-size: 1.5em; /* Tamaño del icono */
-    border-radius: 5px;
-    margin: 10px auto; /* Centra el icono */
-    width: fit-content; /* El ancho se ajusta al contenido */
-}
-
-/* Si usas JavaScript para mostrar/ocultar el menú */
-/* Si tu JS añade la clase 'active' a #nav ul */
-/* #nav ul.active { display: flex; } */
-
-
-/* ========================================================= */
-/* --- ESTILOS DE SECCIONES GENERALES ---                    */
-/* Esto aplica a tus etiquetas <section>. Si usas clases    */
-/* específicas para tus secciones, ajusta los selectores.    */
-/* ========================================================= */
-section {
-    padding: 40px 0; /* Espaciado vertical para secciones en móviles */
-    margin-bottom: 25px; /* Espacio entre secciones */
-    background-color: #fff; /* Color de fondo de las secciones */
-    border-radius: 8px; /* Bordes redondeados para las secciones */
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Sombra para las secciones */
-}
-
-section h2 {
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 2em; /* Tamaño de los títulos de sección en móviles */
-    color: #333;
-}
-
-section p {
-    margin-bottom: 15px; /* Espacio entre párrafos */
-    text-align: justify; /* Justifica el texto, o puedes usar 'left' */
-}
-
-
-/* ========================================================= */
-/* --- ESTILOS PARA LA CUADRÍCULA DE PROYECTOS (PORTFOLIO) --- */
-/* Si no tienes un <div> con la clase 'portfolio-grid'      */
-/* envolviendo tus proyectos, deberías añadirlo.             */
-/* Ej: <div class="portfolio-grid">...proyectos...</div>    */
-/* ========================================================= */
-.portfolio-grid {
+.portfolio-footer .social-links {
+    margin-top: 20px;
     display: flex;
-    flex-direction: column; /* Por defecto, los proyectos se apilan verticalmente */
-    gap: 25px; /* Espacio entre cada proyecto */
-    /* Asegúrate de que tus elementos individuales de proyecto tengan una clase, ej: .project-item */
+    justify-content: center;
+    gap: 25px; /* Espacio entre iconos sociales */
 }
 
-.project-item { /* Si cada proyecto individual tiene esta clase */
-    background-color: #eee;
-    padding: 20px;
-    border-radius: 8px;
+.portfolio-footer .social-links a .si {
+    font-size: 2em; /* Tamaño del icono */
+    color: var(--text-muted); /* Color inicial */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.portfolio-footer .social-links a:hover .si {
+    color: var(--accent-color); /* Color al pasar el ratón */
+    transform: translateY(-5px) scale(1.1); /* Efecto al pasar el ratón */
+}
+
+/* Botón Flotante de WhatsApp */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25d366; /* Color de WhatsApp */
+    color: #FFF;
+    border-radius: 50px;
     text-align: center;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease; /* Efecto hover */
+    font-size: 30px;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
 }
 
-.project-item:hover {
-    transform: translateY(-5px); /* Pequeño levantamiento al pasar el ratón */
+.whatsapp-float img {
+    width: 35px; /* Tamaño del icono */
+    height: 35px;
+    filter: invert(100%); /* Hace el icono blanco */
 }
 
-.project-item h3 {
-    margin-top: 15px;
-    font-size: 1.4em;
-    color: #007bff; /* Color del título del proyecto, ajusta a tu paleta */
-}
-
-.project-item p {
-    font-size: 0.95em;
-    color: #666;
-    margin-top: 10px;
-}
-
-.project-item a {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 8px 15px;
-    background-color: #007bff;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.project-item a:hover {
-    background-color: #0056b3;
+.whatsapp-float:hover {
+    background-color: #128C7E; /* Tono más oscuro al hover */
+    transform: scale(1.05);
 }
 
 
-/* ========================================================= */
-/* --- ESTILOS DEL PIE DE PÁGINA (#footer) ---               */
-/* Ahora usa tu ID #footer directamente.                     */
-/* ========================================================= */
-#footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 25px 0;
-    margin-top: 50px;
-    font-size: 0.9em;
-}
-
-
-/* ========================================================= */
-/* --- MEDIA QUERY PARA TABLETAS Y PANTALLAS MEDIANAS ---    */
-/* Se aplica cuando el ancho de la pantalla es de 768px o más. */
-/* ========================================================= */
-@media (min-width: 768px) {
-    .container {
-        width: 85%; /* Un poco más ancho en tabletas */
-        padding: 30px 0;
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .portfolio-header h1 {
+        font-size: 2em;
     }
-
-    /* Header */
-    #header h1 {
-        font-size: 2.5em; /* Tamaño más grande para el título del header */
+    .portfolio-header p {
+        font-size: 1em;
     }
-
-    /* Navegación */
-    .hamburger-icon {
-        display: none; /* Oculta el icono de hamburguesa en tabletas y PCs */
+    .hero-header-content { /* Ajuste para el nuevo hero en móviles */
+        flex-direction: column;
+        text-align: center;
     }
-
-    #nav ul { /* Muestra el menú de navegación completo */
-        display: flex;
-        flex-direction: row; /* Vuelve a un menú horizontal */
-        justify-content: center; /* Centra los ítems del menú */
-        margin-top: 0;
+    .hero-text-side {
+        order: 2; /* Texto debajo de la imagen */
     }
-
-    #nav ul li {
-        margin: 0 15px; /* Espacio horizontal entre los ítems del menú */
+    .hero-image-side {
+        order: 1; /* Imagen arriba */
+        margin-bottom: 30px;
     }
-
-    /* Secciones */
-    section {
-        padding: 60px 0; /* Más espaciado vertical en tabletas */
+    .main-nav-portfolio ul {
+        flex-direction: column; /* Apilar enlaces en móviles */
+        gap: 10px;
+        padding: 10px 0;
     }
-
-    section h2 {
-        font-size: 2.5em; /* Títulos de sección más grandes */
+    .main-nav-portfolio a {
+        padding: 5px 0;
     }
-
-    /* Cuadrícula de Proyectos: Dos columnas en tabletas */
-    .portfolio-grid {
-        display: grid; /* Cambia a CSS Grid para una cuadrícula */
-        grid-template-columns: repeat(2, 1fr); /* Crea 2 columnas de igual ancho */
-        gap: 30px; /* Espacio entre los proyectos */
+    .projects-section h2,
+    .value-proposition-section h2,
+    .services-inclusion-section h2,
+    .design-packages-section h2,
+    .hosting-domain-section h2,
+    .presentation-video-section h2 { /* Añadido h2 de video */
+        font-size: 1.8em;
     }
-
-    /* Puedes añadir más reglas específicas aquí para tu layout de tableta */
-}
-
-
-/* ========================================================= */
-/* --- MEDIA QUERY PARA PCS Y PANTALLAS GRANDES ---          */
-/* Se aplica cuando el ancho de la pantalla es de 1024px o más. */
-/* ========================================================= */
-@media (min-width: 1024px) {
-    body {
-        font-size: 18px; /* Tamaño de fuente base ligeramente más grande para PC */
+    .project-grid,
+    .inclusions-grid,
+    .packages-grid {
+        grid-template-columns: 1fr; /* Una columna en tablets/móviles */
+        gap: 20px;
     }
-
-    .container {
-        width: 80%; /* Ancho óptimo para PC */
-        max-width: 1200px; /* Evita que el contenedor sea demasiado ancho en monitores muy grandes */
-        padding: 40px 0;
+    .project-card,
+    .value-proposition-section,
+    .inclusion-item,
+    .package-card {
+        padding: 25px 20px;
     }
-
-    /* Header: Alinea el título y la navegación */
-    #header {
-        text-align: left; /* Alinea el texto del header a la izquierda */
+    .package-card.featured {
+        transform: scale(1); /* Deshacer el scale en móviles para que no se salga */
     }
-    /* Si tienes un .container dentro de #header (como te sugerí) */
-    #header .container {
-        display: flex;
-        justify-content: space-between; /* Espacia el título y el menú */
-        align-items: center; /* Centra verticalmente ambos elementos */
+    .presentation-video-section p {
+        font-size: 1em;
     }
-
-    /* Navegación: Alinea el menú a la derecha en PC */
-    #nav ul {
-        justify-content: flex-end; /* Alinea el menú a la derecha */
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
     }
-
-    #nav ul li {
-        margin: 0 20px; /* Más espacio horizontal en el menú */
-    }
-
-    /* Secciones */
-    section {
-        padding: 80px 0; /* Mayor espacio vertical en PC */
-    }
-
-    section h2 {
-        font-size: 3em; /* Títulos de sección aún más grandes */
-    }
-
-    /* Cuadrícula de Proyectos: Tres columnas en PC */
-    .portfolio-grid {
-        grid-template-columns: repeat(3, 1fr); /* Crea 3 columnas de igual ancho */
-        gap: 40px; /* Más espacio entre los proyectos */
-    }
-
-    /* Ejemplo de layout en dos columnas para secciones como "Acerca de mí" o "Contacto" */
-    /* Si tienes divs específicos para el contenido de estas secciones */
-    .about-section-content, .contact-section-content {
-        display: flex;
-        align-items: flex-start; /* Alinea el contenido al inicio */
-        gap: 50px; /* Espacio entre las dos columnas */
-    }
-
-    /* Si tienes divs con clases como .about-text, .contact-info, .about-image-wrapper */
-    .about-text, .contact-info, .about-image-wrapper {
-        flex: 1; /* Hace que ambas columnas ocupen el mismo espacio */
+    .whatsapp-float img {
+        width: 30px;
+        height: 30px;
     }
 }
 
-/* ========================================================= */
-/* --- MEDIA QUERY OPCIONAL PARA PANTALLAS MUY GRANDES ---   */
-/* Para monitores con ancho de 1440px o más.                 */
-/* ========================================================= */
-@media (min-width: 1440px) {
-    .container {
-        max-width: 1400px; /* Permite que el contenedor sea más ancho en pantallas gigantes */
+@media (max-width: 480px) {
+    .portfolio-header h1 {
+        font-size: 1.8em;
     }
-    /* Puedes añadir aquí ajustes muy específicos para pantallas de altísima resolución */
+    .portfolio-header p {
+        font-size: 0.9em;
+    }
+    .project-card h3,
+    .package-card h3 {
+        font-size: 1.5em;
+    }
+    .project-card p,
+    .package-card p,
+    .inclusion-item p {
+        font-size: 0.9em;
+    }
+    .package-card .price {
+        font-size: 2em;
+    }
+    .package-card button {
+        font-size: 0.9em;
+        padding: 10px 20px;
+    }
+    .portfolio-footer .social-links a .si {
+        font-size: 1.8em;
+    }
+    .video-header h2 {
+        font-size: 1.8em;
+    }
+    .presentation-video-section p {
+        font-size: 0.9em;
+    }
 }
