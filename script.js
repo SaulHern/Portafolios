@@ -1,13 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Lógica para el Video de Presentación (si existe en la página)
-    const videoPlayer = document.getElementById('presentation-player');
-    const langButtons = document.querySelectorAll('.lang-button');
-    const videoTitle = document.getElementById('video-title');
-    const videoDescription = document.getElementById('video-description');
 
-    // Mapeo de textos para la traducción de idioma
+    // --- Mapeo de Textos para la Traducción de Idioma (GLOBAL) ---
+    // Asegúrate de que todos los textos que quieras traducir en CUALQUIER PÁGINA
+    // estén aquí con su 'data-lang-key' correspondiente en el HTML.
     const translations = {
         es: {
+            "main_title": "Saul H. | Portafolio Frontend Developer",
             "animated_heading": "Hola, soy Saul Hernández",
             "hero_tagline": "Creador de Páginas Web, Convierte tus Ideas en una Realidad.",
             "nav_inicio": "Inicio",
@@ -38,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "btn_bottom_services_contact": "Servicios y Contacto",
             "btn_bottom_schedule_appointment": "Agendar Cita",
             "footer_copyright": "2025 Saul H. Todos los derechos reservados.",
+            // Textos para paquetes.html
             "packages_page_title": "Paquetes de Servicios - Saul H.",
             "packages_intro_text": "Precios ajustados para ayudarte a obtener una presencia web profesional y atractiva, diseñada para impulsar tus objetivos.",
             "basic_package_title": "Básico",
@@ -50,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "advanced_package_title": "Avanzado",
             "advanced_package_feature1": "Hasta 5 Secciones estáticas",
             "advanced_package_feature2": "Diseño Responsivo y optimizado",
-            "advanced_package_feature3": "Integración de contenido (texto, imágenes, videos)",
+            "advanced_package_feature3": "Integración de contenido (textos, imágenes, videos)",
             "advanced_package_feature4": "1 Formulario de Contacto funcional",
             "advanced_package_feature5": "Integración de iconos de redes sociales",
             "advanced_package_feature6": "Hosting Gratuito GitHub Pages",
@@ -85,6 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "premium_hosting_feature4": "Backups Diarios Automáticos",
             "premium_hosting_feature5": "Soporte Técnico Prioritario 24/7",
             "choose_premium_hosting": "Elegir Premium",
+            // Textos para contacto.html
             "contact_page_title": "Contacto y Servicios - Saul H.",
             "contact_services_title": "¿Qué Incluyen Mis Servicios?",
             "contact_services_desc": "Descubre la gama completa de funcionalidades y características que te ofrezco en cada proyecto, diseñadas para asegurar el éxito de tu presencia digital.",
@@ -104,6 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "my_github": "Mi GitHub",
             "ready_to_start": "¿Listo para empezar? ",
             "schedule_appointment_cta": "Agenda una Cita",
+            // Textos para agendar-cita.html
             "schedule_appointment_page_title": "Agendar Cita - Saul H.",
             "schedule_appointment_main_title": "Agendar una Cita",
             "schedule_appointment_main_desc": "¡Gracias por tu interés en mis servicios! Por favor, completa este formulario para agendar una consulta gratuita. Me pondré en contacto contigo a la brevedad.",
@@ -125,6 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "contact_note_bottom": "También puedes contactarme directamente vía WhatsApp con el botón flotante."
         },
         en: {
+            "main_title": "Saul H. | Frontend Developer Portfolio",
             "animated_heading": "Hi, I'm Saul Hernández",
             "hero_tagline": "Web Page Creator, Turn Your Ideas into Reality.",
             "nav_inicio": "Home",
@@ -155,6 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "btn_bottom_services_contact": "Services & Contact",
             "btn_bottom_schedule_appointment": "Schedule Appointment",
             "footer_copyright": "2025 Saul H. All rights reserved.",
+            // Textos para paquetes.html
             "packages_page_title": "Service Packages - Saul H.",
             "packages_intro_text": "Adjusted prices to help you get a professional and attractive web presence, designed to boost your goals.",
             "basic_package_title": "Basic",
@@ -181,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "premium_package_feature6": "Basic Post-Delivery Support",
             "choose_premium": "Choose Premium",
             "hosting_options_title": "Hosting & Domain Options (Package Extras)",
-            "hosting_intro_text": "All my packages include basic free hosting (GitHub Pages). For superior performance, a more professional presence, and advanced features, I recommend considering these paid hosting and domain options. These prices are annual estimates and do not include a management fee.",
+            "hosting_intro_text": "All my packages include basic free hosting (GitHub Pages). For superior performance, a more professional presence, and advanced features, I recommend considering these paid hosting and domain options. These prices are annual estimates and not include a management fee.",
             "basic_hosting_title": "Basic Hosting & Domain",
             "basic_hosting_feature1": ".com/.net/.org Domain (1 year)",
             "basic_hosting_feature2": "Standard Shared Hosting",
@@ -202,6 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "premium_hosting_feature4": "Automatic Daily Backups",
             "premium_hosting_feature5": "24/7 Priority Technical Support",
             "choose_premium_hosting": "Choose Premium",
+            // Textos para contacto.html
             "contact_page_title": "Contact & Services - Saul H.",
             "contact_services_title": "What Do My Services Include?",
             "contact_services_desc": "Discover the full range of features and functionalities I offer in each project, designed to ensure the success of your digital presence.",
@@ -221,6 +225,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "my_github": "My GitHub",
             "ready_to_start": "Ready to start? ",
             "schedule_appointment_cta": "Schedule an Appointment",
+            // Textos para agendar-cita.html
             "schedule_appointment_page_title": "Schedule Appointment - Saul H.",
             "schedule_appointment_main_title": "Schedule an Appointment",
             "schedule_appointment_main_desc": "Thank you for your interest in my services! Please complete this form to schedule a free consultation. I will contact you shortly.",
@@ -243,7 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Función para aplicar la traducción
+    // Función global para aplicar la traducción
     function applyTranslation(lang) {
         document.querySelectorAll('[data-es], [data-en], [data-lang-key]').forEach(element => {
             let key;
@@ -257,12 +262,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Actualizar el título de la página
+        // Actualizar el título de la página (ya es global, lo ajustamos para cada página)
         const pageTitleElement = document.querySelector('head title');
         if (pageTitleElement) {
             const currentPath = window.location.pathname.split('/').pop();
             if (currentPath === 'index.html' || currentPath === '') {
-                pageTitleElement.textContent = `Saul H. | Portafolio Frontend Developer`;
+                pageTitleElement.textContent = translations[lang].main_title;
             } else if (currentPath === 'paquetes.html') {
                 pageTitleElement.textContent = translations[lang].packages_page_title;
             } else if (currentPath === 'agendar-cita.html') {
@@ -275,12 +280,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // Lógica para el Video de Presentación (si existe en la página)
+    const videoPlayer = document.getElementById('presentation-player');
+    const langButtonsVideo = document.querySelectorAll('.presentation-video-section .lang-button'); // Solo los botones del video
+
     if (videoPlayer) { // Asegurarse de que el videoPlayer exista en la página
-        // Los langButtons y videoTitle/videoDescription ya son globales
-        const videoPosterEs = videoContent.es.poster;
-        const videoPosterEn = videoContent.en.poster;
+        const videoTitle = document.getElementById('video-title');
+        const videoDescription = document.getElementById('video-description');
         
-        function setVideoLanguage(lang) {
+        function setVideoSpecificContent(lang) {
+            videoTitle.textContent = translations[lang].video_title;
+            videoDescription.textContent = translations[lang].video_description;
+
             const currentSource = videoPlayer.querySelector('source');
             const currentSrc = currentSource ? currentSource.src : '';
 
@@ -304,26 +314,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 videoPlayer.load();
                 videoPlayer.currentTime = currentTime;
                 if (!isPaused) {
-                    videoPlayer.play().catch(error => { console.log('Error al intentar reproducir video:', error); });
+                    videoPlayer.play().catch(error => { console.log('Video autoplay blocked:', error); });
                 }
             }
         }
         
         // Event listeners para los botones de idioma del video
-        if (langButtons.length > 0) { // Asegura que los botones existan en la página
-            langButtons.forEach(button => {
+        if (langButtonsVideo.length > 0) {
+            langButtonsVideo.forEach(button => {
                 button.addEventListener('click', () => {
                     const lang = button.dataset.lang;
-                    setLanguage(lang); // Aplica la traducción a los textos
-                    setVideoLanguage(lang); // Cambia el video
+                    // No llamamos a applyTranslation global aquí si ya lo hace el global selector
+                    setVideoSpecificContent(lang); // Solo contenido específico del video
                 });
             });
-            // Establecer idioma inicial del video al cargar la página (por defecto español)
-            setVideoLanguage('es');
+            // Establecer idioma inicial del video al cargar la página
+            setVideoSpecificContent(localStorage.getItem('language') || 'es');
         }
     }
 
-    // Lógica para la Barra de Navegación Fija (Sticky Nav)
+    // --- Lógica de la Barra de Navegación Fija (Sticky Nav) ---
     const mainNavPortfolio = document.getElementById('main-nav-portfolio');
     const portfolioHeader = document.querySelector('.portfolio-header');
 
@@ -342,7 +352,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // Lógica para Autorellenar Campo de Interés en agendar-cita.html
+    // --- Lógica para Autorellenar Campo de Interés en agendar-cita.html ---
     const interesSelect = document.getElementById('interes');
     if (interesSelect) { // Solo si estamos en la página de agendar-cita.html
         const urlParams = new URLSearchParams(window.location.search);
@@ -356,7 +366,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Lógica para los botones de Email y WhatsApp en el formulario de agendar-cita.html
+    // --- Lógica para los botones de Email y WhatsApp en el formulario de agendar-cita.html ---
     const appointmentForm = document.getElementById('appointment-form');
     if (appointmentForm) { // Solo si estamos en la página de agendar-cita.html
         const sendEmailButton = document.getElementById('send-email');
@@ -375,7 +385,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            const subject = `Solicitud de Cita - ${nombre} (${interes})`; // Incluye el interés en el asunto
+            const subject = `Solicitud de Cita - ${nombre} (${interes})`;
             const body = `Nombre: ${nombre}\nEmail: ${email}\nTeléfono: ${telefono || 'No proporcionado'}\nInteresado en: ${interes}\n\nMensaje:\n${mensaje || 'Sin mensaje adicional'}`;
 
             window.location.href = `mailto:albertosaul341@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
@@ -387,7 +397,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const mensaje = document.getElementById('mensaje').value;
 
             // Simple validación para campos obligatorios
-            if (!nombre || !interes) { // Email no es necesario para WhatsApp
+            if (!nombre || !interes) {
                 alert('Por favor, completa los campos de Nombre e Interés.');
                 return;
             }
@@ -404,19 +414,20 @@ document.addEventListener('DOMContentLoaded', () => {
         animatedHeading.classList.add('fade-in-up'); // Se activa la animación CSS
     }
 
-    // Lógica del menú hamburguesa para móvil
+    // --- Lógica del Menú Hamburguesa para Móvil ---
     const hamburgerMenu = document.getElementById('hamburger-menu');
-    const navLinks = document.getElementById('nav-links'); // Las ul con los enlaces
-
+    const navLinks = document.getElementById('nav-links'); // El <ul> con los enlaces
+    const allNavLinks = document.querySelectorAll('.nav-links a'); // Todos los <a> dentro del menú
+    
     if (hamburgerMenu && navLinks) {
         hamburgerMenu.addEventListener('click', () => {
-            navLinks.classList.toggle('active'); // Activa/desactiva el menú
-            hamburgerMenu.classList.toggle('open'); // Activa/desactiva la animación del icono
-            document.body.classList.toggle('no-scroll'); // Opcional: Evitar scroll del body
+            navLinks.classList.toggle('active'); // Muestra/oculta el menú lateral
+            hamburgerMenu.classList.toggle('open'); // Anima el icono de hamburguesa
+            document.body.classList.toggle('no-scroll'); // Previene scroll del body
         });
 
-        // Opcional: Cerrar el menú si se hace clic en un enlace
-        navLinks.querySelectorAll('a').forEach(link => {
+        // Cerrar menú al hacer clic en un enlace
+        allNavLinks.forEach(link => {
             link.addEventListener('click', () => {
                 if (navLinks.classList.contains('active')) {
                     navLinks.classList.remove('active');
@@ -427,7 +438,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Lógica para el botón de modo oscuro/claro (se aplica a todas las páginas)
+    // --- Lógica para el Botón de Modo Oscuro/Claro (GLOBAL) ---
     const themeToggleButton = document.getElementById('theme-toggle');
     if (themeToggleButton) {
         // Cargar preferencia del usuario o establecer modo claro por defecto
@@ -456,9 +467,58 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Aplica traducción inicial al cargar la página
-    applyTranslation(localStorage.getItem('language') || 'es');
-    // Guarda la preferencia de idioma en localStorage
-    localStorage.setItem('language', localStorage.getItem('language') || 'es');
+    // --- Lógica para el Selector de Idioma (GLOBAL) ---
+    const globalLangButtons = document.querySelectorAll('.language-selector-global .lang-button');
+    // Cargar preferencia de idioma del usuario o establecer español por defecto
+    const currentLanguage = localStorage.getItem('language') || 'es';
+    
+    // Aplicar traducción inicial y activar el botón correcto
+    applyTranslation(currentLanguage); // Llama a la función global de traducción
+    globalLangButtons.forEach(button => {
+        if (button.dataset.lang === currentLanguage) {
+            button.classList.add('active');
+        } else {
+            button.classList.remove('active');
+        }
+    });
 
+    globalLangButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const newLang = button.dataset.lang;
+            if (newLang !== localStorage.getItem('language')) { // Solo si el idioma es diferente
+                localStorage.setItem('language', newLang);
+                applyTranslation(newLang); // Aplica la traducción a todos los elementos marcados
+                
+                // Actualiza los botones activos
+                globalLangButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                // Si hay un reproductor de video en la página, también actualiza su idioma específico
+                if (videoPlayer) {
+                    const videoTitle = document.getElementById('video-title');
+                    const videoDescription = document.getElementById('video-description');
+                    // Actualiza el texto específico del video
+                    videoTitle.textContent = translations[newLang].video_title;
+                    videoDescription.textContent = translations[newLang].video_description;
+                    
+                    const currentSource = videoPlayer.querySelector('source');
+                    const currentSrc = currentSource ? currentSource.src : '';
+
+                    if (currentSrc !== videoContent[newLang].src) { // Cambiar video si la fuente es diferente
+                         const currentTime = videoPlayer.currentTime;
+                         const isPaused = videoPlayer.paused;
+                         while (videoPlayer.firstChild) { videoPlayer.removeChild(videoPlayer.firstChild); }
+                         const newSource = document.createElement('source');
+                         newSource.src = videoContent[newLang].src;
+                         newSource.type = 'video/mp4';
+                         videoPlayer.appendChild(newSource);
+                         videoPlayer.poster = videoContent[newLang].poster;
+                         videoPlayer.load();
+                         videoPlayer.currentTime = currentTime;
+                         if (!isPaused) { videoPlayer.play().catch(e => console.log("Video autoplay blocked:", e)); }
+                    }
+                }
+            }
+        });
+    });
 });
