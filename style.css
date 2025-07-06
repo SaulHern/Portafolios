@@ -252,13 +252,13 @@ h1, h2, h3 {
 }
 
 /* Animación de hamburguesa */
-.hamburger-menu.open .line:nth-child(1) { /* MODIFICADO: Aplicar a .hamburger-menu.open */
+.hamburger-menu.open .line:nth-child(1) { 
     transform: translateY(11px) rotate(45deg);
 }
-.hamburger-menu.open .line:nth-child(2) { /* MODIFICADO: Aplicar a .hamburger-menu.open */
+.hamburger-menu.open .line:nth-child(2) { 
     opacity: 0;
 }
-.hamburger-menu.open .line:nth-child(3) { /* MODIFICADO: Aplicar a .hamburger-menu.open */
+.hamburger-menu.open .line:nth-child(3) { 
     transform: translateY(-11px) rotate(-45deg);
 }
 
@@ -1136,24 +1136,25 @@ h2::after {
         margin-right: auto; /* Empuja el logo a la izquierda */
     }
     .main-nav-portfolio ul.nav-links {
-        /* *** CAMBIO APLICADO AQUÍ *** */
-        /* Eliminado 'display: none;' para permitir transiciones de 'right' */
         flex-direction: column;
         width: 70%; /* Ancho del menú lateral */
         height: 100vh;
         position: fixed;
         top: 0;
-        right: -70%; /* Oculto fuera de pantalla */
+        /* *** CAMBIO APLICADO AQUÍ: right a left *** */
+        left: -70%; /* Oculto fuera de pantalla */
         background-color: var(--card-background); /* Fondo del menú lateral */
-        box-shadow: -5px 0 15px var(--shadow-dark);
+        /* *** CAMBIO APLICADO AQUÍ: Sombra para deslizarse de izquierda *** */
+        box-shadow: 5px 0 15px var(--shadow-dark); 
         padding-top: 80px; /* Espacio desde arriba */
         gap: 25px;
-        transition: right 0.3s ease-in-out;
+        transition: left 0.3s ease-in-out; /* *** CAMBIO APLICADO AQUÍ: 'right' a 'left' *** */
         z-index: 99; /* Por debajo del botón de hamburguesa */
     }
 
     .main-nav-portfolio ul.nav-links.active {
-        right: 0; /* Se muestra */
+        /* *** CAMBIO APLICADO AQUÍ: right a left *** */
+        left: 0; /* Se muestra */
     }
 
     .hamburger-menu {
