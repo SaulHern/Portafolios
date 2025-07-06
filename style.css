@@ -1,31 +1,58 @@
 /* Paleta de Colores - Opción 1: Profesional, minimalista */
 :root {
-    --bg-primary: #f5f5f5; /* Fondo principal (Blanco humo) */
-    --card-bg: #e0e0e0; /* Fondo de tarjetas/secciones (Gris claro) */
-    --text-dark: #333333; /* Color de texto principal (Gris oscuro) */
-    --accent-color: #4A90E2; /* Color de acento (Azul suave) */
-    --accent-hover: #2C3E50; /* Color de hover/botones (Azul oscuro) */
+    --bg-primary-light: #f5f5f5; /* Fondo principal claro */
+    --card-bg-light: #ffffff;    /* Fondo de tarjetas claro (blanco puro) */
+    --text-dark-light: #333333;  /* Texto oscuro para modo claro */
+    --text-muted-light: #6c757d; /* Texto gris claro para modo claro */
     --border-color-light: #cccccc; /* Bordes claros para elementos */
-    --shadow-light: rgba(0, 0, 0, 0.1); /* Sombra suave */
-    --shadow-medium: rgba(0, 0, 0, 0.2); /* Sombra media */
-    --shadow-dark: rgba(0, 0, 0, 0.4); /* Sombra más oscura */
+    
+    --bg-primary-dark: #121212;  /* Fondo principal oscuro */
+    --card-bg-dark: #1e1e1e;     /* Fondo de tarjetas oscuro */
+    --text-dark-dark: #e0e0e0;   /* Texto claro para modo oscuro */
+    --text-muted-dark: #b0b0b0;  /* Texto gris oscuro para modo oscuro */
+    --border-color-dark: #333333; /* Bordes oscuros para elementos */
+
+    --accent-color: #4A90E2;    /* Color de acento (Azul suave) - Se mantiene igual */
+    --accent-hover: #2C3E50;    /* Color de hover/botones (Azul oscuro) - Se mantiene igual */
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-medium: rgba(0, 0, 0, 0.2);
+    --shadow-dark: rgba(0, 0, 0, 0.4);
+
+    /* Variables por defecto (modo claro) */
+    --bg-color: var(--bg-primary-light);
+    --card-background: var(--card-bg-light);
+    --text-color: var(--text-dark-light);
+    --text-color-muted: var(--text-muted-light);
+    --border-color-main: var(--border-color-light);
+    --shadow-base: var(--shadow-light);
 }
 
-/* Base y Tipografía */
+/* Modo Oscuro */
+body.dark-mode {
+    --bg-color: var(--bg-primary-dark);
+    --card-background: var(--card-bg-dark);
+    --text-color: var(--text-dark-dark);
+    --text-color-muted: var(--text-muted-dark);
+    --border-color-main: var(--border-color-dark);
+    --shadow-base: var(--shadow-dark);
+}
+
+/* Estilos Generales */
 body {
-    font-family: 'Open Sans', sans-serif; /* Fuente para el texto general */
+    font-family: 'Open Sans', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: var(--bg-primary); /* Fondo principal */
-    color: var(--text-dark); /* Texto principal */
+    background-color: var(--bg-color); /* Usa la variable de modo */
+    color: var(--text-color); /* Usa la variable de modo */
     line-height: 1.6;
-    -webkit-font-smoothing: antialiased; /* Suavizar fuentes en WebKit */
-    -moz-osx-font-smoothing: grayscale; /* Suavizar fuentes en Firefox */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición para el cambio de tema */
 }
 
 h1, h2, h3 {
-    font-family: 'Poppins', sans-serif; /* Fuente para títulos */
-    color: var(--text-dark); /* Títulos también en gris oscuro */
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color); /* Usa la variable de modo */
     margin-top: 0;
     font-weight: 700;
 }
@@ -36,40 +63,66 @@ h1, h2, h3 {
     padding: 0 20px;
 }
 
+/* Botón de Modo Oscuro/Claro */
+.theme-toggle-button {
+    background-color: var(--card-background);
+    color: var(--text-color);
+    border: 1px solid var(--border-color-main);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.5em;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    box-shadow: 0 2px 5px var(--shadow-light);
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.theme-toggle-button:hover {
+    background-color: var(--accent-color);
+    color: #FFFFFF;
+}
+
 /* Header */
 .portfolio-header {
-    background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%); /* Gradiente sutil, más claro */
-    color: var(--text-dark);
+    background: linear-gradient(135deg, var(--bg-color) 0%, var(--card-background) 100%); /* Gradiente basado en tema */
+    color: var(--text-color);
     padding: 60px 0;
     text-align: center;
-    box-shadow: 0 5px 15px var(--shadow-light); /* Sombra más suave */
+    box-shadow: 0 5px 15px var(--shadow-light);
 }
 
 .portfolio-header .hero-header-content {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 40px; /* Espacio entre el texto y la imagen */
-    flex-wrap: wrap; /* Permite que se envuelvan en pantallas pequeñas */
+    gap: 40px;
+    flex-wrap: wrap;
 }
 
 .hero-text-side {
-    text-align: left; /* Alinea el texto a la izquierda */
-    flex-basis: 50%; /* Ocupa la mitad del espacio */
-    min-width: 300px; /* Ancho mínimo para que no se vea aplastado */
+    text-align: left;
+    flex-basis: 50%;
+    min-width: 300px;
 }
 
 .portfolio-header h1 {
     font-size: 2.8em;
     margin-bottom: 10px;
     font-weight: 700;
-    color: var(--text-dark); /* Color diferente para el nombre */
+    color: var(--text-color);
 }
 
 .hero-tagline {
     font-size: 1.2em;
     font-weight: 400;
-    color: var(--text-dark); /* Texto en gris oscuro */
+    color: var(--text-color-muted);
     line-height: 1.8;
 }
 
@@ -83,12 +136,12 @@ h1, h2, h3 {
 .hero-image-side img {
     max-width: 100%;
     height: auto;
-    width: 250px; /* Tamaño base para la imagen */
-    height: 250px; /* Para que sea cuadrada */
+    width: 250px;
+    height: 250px;
     object-fit: cover;
-    border-radius: 50%; /* Para hacerla circular */
-    border: 5px solid var(--accent-color); /* Borde de acento */
-    box-shadow: 0 8px 20px var(--shadow-medium); /* Sombra más prominente */
+    border-radius: 50%;
+    border: 5px solid var(--accent-color);
+    box-shadow: 0 8px 20px var(--shadow-medium);
 }
 
 /* Animación para el texto del H1 en Hero */
@@ -110,7 +163,7 @@ h1, h2, h3 {
 
 /* Barra de Navegación Principal */
 .main-nav-portfolio {
-    background-color: var(--card-bg); /* Fondo de la barra de navegación */
+    background-color: var(--card-background); /* Fondo de la barra de navegación */
     padding: 15px 0;
     position: sticky;
     top: 0;
@@ -131,7 +184,7 @@ h1, h2, h3 {
 }
 
 .nav-logo-wrapper img {
-    max-height: 40px; /* Altura del logo en la nav bar */
+    max-height: 40px;
     width: auto;
     vertical-align: middle;
     transition: transform 0.3s ease;
@@ -153,11 +206,11 @@ h1, h2, h3 {
 }
 
 .main-nav-portfolio a {
-    color: var(--text-dark); /* Enlaces en gris oscuro */
+    color: var(--text-color); /* Enlaces en gris oscuro */
     font-weight: 600;
     padding: 5px 0;
     transition: color 0.3s ease, transform 0.2s ease;
-    white-space: nowrap; /* Evita que los nombres largos se rompan */
+    white-space: nowrap;
 }
 
 .main-nav-portfolio a:hover,
@@ -183,7 +236,7 @@ h1, h2, h3 {
 .hamburger-menu .line {
     width: 100%;
     height: 3px;
-    background-color: var(--text-dark);
+    background-color: var(--text-color);
     border-radius: 5px;
     transition: all 0.3s ease-in-out;
 }
@@ -199,10 +252,10 @@ h1, h2, h3 {
     transform: translateY(-11px) rotate(-45deg);
 }
 
-/* Main Content - Projects Section */
+/* Main Content - General Section Styles */
 section {
     padding: 80px 0; /* Espaciado uniforme para todas las secciones */
-    background-color: var(--bg-primary); /* Fondo principal por defecto */
+    background-color: var(--bg-color); /* Fondo principal por defecto */
 }
 
 section:nth-child(even) { /* Para un fondo ligeramente diferente en secciones alternas si se desea */
@@ -214,7 +267,7 @@ h2 {
     font-size: 2.5em;
     text-align: center;
     margin-bottom: 40px;
-    color: var(--text-dark);
+    color: var(--text-color);
     position: relative;
     padding-bottom: 10px;
 }
@@ -233,7 +286,7 @@ h2::after {
 
 /* Sección "Sobre Mí" */
 .about-me-section {
-    background-color: var(--bg-primary);
+    background-color: var(--bg-color);
     padding: 80px 0;
     text-align: center;
 }
@@ -277,7 +330,7 @@ h2::after {
 
 .about-me-text p {
     font-size: 1.1em;
-    color: var(--text-dark);
+    color: var(--text-color); /* Color de texto actualizado */
     line-height: 1.7;
     margin-bottom: 0; /* Remover margen inferior si es el último p */
 }
@@ -294,11 +347,11 @@ h2::after {
 }
 
 .skill-item {
-    background-color: var(--card-bg);
+    background-color: var(--card-background); /* Fondo de tarjeta */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 10px var(--shadow-light);
-    border: 1px solid var(--border-color-light);
+    border: 1px solid var(--border-color-main);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -318,7 +371,7 @@ h2::after {
 
 .skill-item p {
     font-weight: 600;
-    color: var(--text-dark);
+    color: var(--text-color);
     margin: 0;
 }
 
@@ -335,21 +388,21 @@ h2::after {
 }
 
 .project-card {
-    background-color: var(--card-bg);
+    background-color: var(--card-background); /* Fondo de tarjeta */
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 6px 20px var(--shadow-light); /* Sombra más suave */
+    box-shadow: 0 6px 20px var(--shadow-light);
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     display: flex;
     flex-direction: column;
     padding: 30px 25px;
     text-align: center;
-    border: 1px solid var(--border-color-light); /* Borde más claro */
+    border: 1px solid var(--border-color-main);
 }
 
 .project-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 12px 25px var(--shadow-medium); /* Sombra al hover */
+    box-shadow: 0 12px 25px var(--shadow-medium);
     border-color: var(--accent-color);
 }
 
@@ -380,13 +433,13 @@ h2::after {
     font-size: 1.8em;
     padding: 0;
     margin-bottom: 15px;
-    color: var(--text-dark);
+    color: var(--text-color);
 }
 
 .project-card p {
     font-size: 1em;
     padding: 0;
-    color: var(--text-dark);
+    color: var(--text-color-muted);
     margin-bottom: 25px;
     flex-grow: 1;
 }
@@ -447,24 +500,24 @@ h2::after {
 
 /* Sección de Propuesta de Valor */
 .value-proposition-section {
-    background-color: var(--card-bg);
+    background-color: var(--card-background); /* Fondo de tarjeta */
     padding: 60px 20px;
     margin: 80px auto;
     border-radius: 12px;
     box-shadow: 0 8px 25px var(--shadow-light);
     text-align: center;
-    border: 1px solid var(--border-color-light);
+    border: 1px solid var(--border-color-main);
 }
 
 .value-proposition-section h2 {
     font-size: 2.2em;
     margin-bottom: 25px;
-    color: var(--text-dark);
+    color: var(--text-color);
 }
 
 .value-proposition-section p {
     font-size: 1.15em;
-    color: var(--text-dark); /* Color de texto actualizado */
+    color: var(--text-color-muted);
     max-width: 700px;
     margin: 0 auto;
     line-height: 1.8;
@@ -479,7 +532,7 @@ h2::after {
 .services-inclusion-section h2 {
     font-size: 2.2em;
     margin-bottom: 40px;
-    color: var(--text-dark);
+    color: var(--text-color);
 }
 
 .inclusions-grid {
@@ -490,14 +543,14 @@ h2::after {
 }
 
 .inclusion-item {
-    background-color: var(--card-bg);
+    background-color: var(--card-background); /* Fondo de tarjeta */
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 15px var(--shadow-light);
     display: flex;
     align-items: center;
     gap: 15px;
-    border: 1px solid var(--border-color-light);
+    border: 1px solid var(--border-color-main);
 }
 
 .inclusion-item .material-icons {
@@ -507,9 +560,139 @@ h2::after {
 
 .inclusion-item p {
     font-size: 1em;
-    color: var(--text-dark);
+    color: var(--text-color);
     margin: 0;
 }
+
+/* Sección de Paquetes de Diseño y Hosting */
+.design-packages-section,
+.hosting-domain-section {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.design-packages-section h2,
+.hosting-domain-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: var(--text-color);
+}
+
+.hosting-domain-section .intro-text {
+    font-size: 1.1em;
+    color: var(--text-color-muted);
+    max-width: 800px;
+    margin: 0 auto 50px;
+    line-height: 1.7;
+}
+
+.packages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.package-card {
+    background-color: var(--card-background); /* Fondo de tarjeta */
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px var(--shadow-light);
+    border: 1px solid var(--border-color-main);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.package-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px var(--shadow-medium);
+    border-color: var(--accent-color);
+}
+
+.package-card.featured {
+    background: linear-gradient(145deg, var(--accent-color) 0%, var(--accent-hover) 100%);
+    color: var(--text-color); /* Texto blanco para la tarjeta destacada */
+    transform: scale(1.03);
+    box-shadow: 0 10px 30px var(--shadow-medium);
+    border-color: var(--accent-hover);
+}
+
+.package-card.featured h3,
+.package-card.featured .price,
+.package-card.featured ul li {
+    color: #FFFFFF; /* Asegura que el texto sea blanco en la destacada */
+}
+
+.package-card.featured .material-icons {
+    color: #FFFFFF; /* Color de iconos en la destacada */
+}
+
+
+.package-card h3 {
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.package-card .price {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 25px;
+}
+
+.package-card ul {
+    text-align: left;
+    margin-bottom: 30px;
+    flex-grow: 1; /* Ocupa el espacio disponible */
+    width: 100%; /* Para que los items se alineen bien */
+}
+
+.package-card ul li {
+    font-size: 1em;
+    color: var(--text-color-muted);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.package-card ul li .material-icons {
+    font-size: 1.3em;
+    color: var(--accent-color);
+    margin-top: 2px; /* Alineación del icono */
+}
+
+.package-card button {
+    background-color: var(--accent-color);
+    color: #FFFFFF; /* Texto blanco en botón primario */
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    width: 80%; /* Botón más ancho */
+}
+
+.package-card.featured button {
+    background-color: #FFFFFF; /* Fondo blanco para el botón de la destacada */
+    color: var(--accent-color); /* Texto de acento */
+}
+
+.package-card button:hover {
+    background-color: var(--accent-hover);
+    color: #FFFFFF;
+}
+
+.package-card.featured button:hover {
+    background-color: var(--text-color-muted); /* Color suave para hover en destacada */
+    color: var(--text-color); /* Texto oscuro */
+}
+
 
 /* Sección de Video de Presentación */
 .presentation-video-section {
@@ -525,7 +708,7 @@ h2::after {
 .video-header h2 {
     font-size: 2.5em;
     margin-bottom: 15px;
-    color: var(--text-dark);
+    color: var(--text-color);
 }
 
 .language-selector {
@@ -536,9 +719,9 @@ h2::after {
 }
 
 .lang-button {
-    background-color: var(--card-bg);
-    color: var(--text-dark);
-    border: 1px solid var(--border-color-light);
+    background-color: var(--card-background);
+    color: var(--text-color-muted);
+    border: 1px solid var(--border-color-main);
     padding: 8px 15px;
     border-radius: 5px;
     cursor: pointer;
@@ -577,7 +760,7 @@ h2::after {
 
 .presentation-video-section p {
     font-size: 1.1em;
-    color: var(--text-dark);
+    color: var(--text-color-muted);
     max-width: 800px;
     margin: 0 auto;
     line-height: 1.7;
@@ -591,11 +774,11 @@ h2::after {
     flex-wrap: wrap; /* Permite que los botones se envuelvan */
     gap: 25px; /* Espacio entre botones */
     padding: 60px 20px; /* Padding de la sección */
-    background-color: var(--card-bg); /* Fondo de la sección */
+    background-color: var(--card-background); /* Fondo de la sección */
     margin: 80px auto; /* Margen para centrar y separar */
     border-radius: 12px;
     box-shadow: 0 8px 25px var(--shadow-light);
-    border: 1px solid var(--border-color-light);
+    border: 1px solid var(--border-color-main);
 }
 
 .btn-bottom {
@@ -610,33 +793,33 @@ h2::after {
     border: 2px solid var(--accent-color); /* Borde con acento */
     background-color: var(--accent-color);
     color: #FFFFFF; /* Texto blanco */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 10px var(--shadow-light);
 }
 
 .btn-bottom:hover {
     background-color: var(--accent-hover);
     border-color: var(--accent-hover);
     transform: translateY(-3px); /* Pequeña elevación */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 6px 15px var(--shadow-medium);
 }
 
 
 /* Footer */
 .portfolio-footer {
-    background-color: var(--card-bg);
-    color: var(--text-dark);
+    background-color: var(--card-background);
+    color: var(--text-color-muted);
     text-align: center;
     padding: 30px 0;
     font-size: 0.9em;
     box-shadow: 0 -4px 10px var(--shadow-light);
     margin-top: 50px;
-    border-top: 1px solid var(--border-color-light);
+    border-top: 1px solid var(--border-color-main);
 }
 
 .portfolio-footer .footer-logo {
     font-size: 1.5em; /* Tamaño si fuera texto, pero es una imagen ahora */
     font-weight: 700;
-    color: var(--text-dark);
+    color: var(--text-color);
     margin-bottom: 10px;
 }
 
@@ -655,7 +838,7 @@ h2::after {
 
 .portfolio-footer .social-links a .si {
     font-size: 2em; /* Tamaño del icono */
-    color: var(--text-dark); /* Color inicial */
+    color: var(--text-color-muted); /* Color inicial */
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
@@ -696,7 +879,7 @@ h2::after {
 }
 
 
-/* Estilos para la sección de Contacto en contacto.html */
+/* Estilos para la página de Contacto */
 .contact-details-section {
     background-color: var(--bg-primary);
     padding: 80px 0;
@@ -706,7 +889,7 @@ h2::after {
 .contact-details-section .section-description-centered {
     max-width: 800px;
     margin: 0 auto 50px;
-    color: var(--text-dark);
+    color: var(--text-color-muted);
     font-size: 1.1em;
     line-height: 1.7;
 }
@@ -719,11 +902,11 @@ h2::after {
 }
 
 .contact-item {
-    background-color: var(--card-bg);
+    background-color: var(--card-background);
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 5px 15px var(--shadow-light);
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border-color-main);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -744,13 +927,13 @@ h2::after {
 
 .contact-item h3 {
     font-size: 1.5em;
-    color: var(--text-dark);
+    color: var(--text-color);
     margin-bottom: 10px;
 }
 
 .contact-item p {
     font-size: 1em;
-    color: var(--text-dark);
+    color: var(--text-color-muted);
     margin: 0;
 }
 
@@ -764,7 +947,7 @@ h2::after {
 
 .contact-details-section .social-links-contact-page a .si {
     font-size: 2.5em;
-    color: var(--text-dark);
+    color: var(--text-color);
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
@@ -775,7 +958,7 @@ h2::after {
 
 .cta-contact {
     font-size: 1.2em;
-    color: var(--text-dark);
+    color: var(--text-color);
 }
 
 .cta-contact .btn-primary {
@@ -793,14 +976,14 @@ h2::after {
     font-size: 2.5em;
     text-align: center;
     margin-bottom: 40px;
-    color: var(--text-dark);
+    color: var(--text-color);
     position: relative;
     padding-bottom: 10px;
 }
 
 .schedule-appointment-section .section-description-centered {
     font-size: 1.1em;
-    color: var(--text-dark);
+    color: var(--text-color-muted);
     max-width: 700px;
     margin: 0 auto 50px;
     line-height: 1.7;
@@ -810,10 +993,10 @@ h2::after {
 .appointment-form {
     max-width: 800px;
     margin: 0 auto;
-    background-color: var(--card-bg);
+    background-color: var(--card-background);
     padding: 40px;
     border-radius: 12px;
-    box-shadow: 0 8px 25px var(--shadow-color);
+    box-shadow: 0 8px 25px var(--shadow-medium);
     border: 1px solid var(--border-color);
 }
 
@@ -834,7 +1017,7 @@ h2::after {
 
 .appointment-form label {
     display: block;
-    color: var(--text-dark);
+    color: var(--text-color);
     font-weight: 600;
     margin-bottom: 8px;
     font-size: 0.95em;
@@ -850,7 +1033,7 @@ h2::after {
     border: 1px solid var(--border-color);
     border-radius: 8px; /* Bordes un poco más redondeados */
     background-color: var(--bg-primary); /* Fondo más claro para inputs */
-    color: var(--text-dark);
+    color: var(--text-color);
     font-size: 1em;
     box-sizing: border-box;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
@@ -909,99 +1092,71 @@ h2::after {
 
 .appointment-form .form-note-bottom {
     font-size: 0.9em;
-    color: var(--text-muted);
+    color: var(--text-color-muted);
     text-align: center;
     margin-top: 20px;
 }
 
 /* Responsive para paquetería y citas */
 @media (max-width: 992px) {
-    .design-packages-section h2,
-    .hosting-domain-section h2 {
-        font-size: 2em;
-    }
-    .hosting-domain-section .intro-text {
-        font-size: 1em;
-    }
-    .packages-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    .portfolio-header .hero-header-content {
         gap: 20px;
-    }
-    .package-card {
-        padding: 30px;
-    }
-    .package-card h3 {
-        font-size: 1.8em;
-    }
-    .package-card .price {
-        font-size: 2.2em;
-    }
-    .package-card ul li {
-        font-size: 0.95em;
-    }
-    .schedule-appointment-section h2 {
-        font-size: 2em;
-    }
-    .schedule-appointment-section .section-description-centered {
-        font-size: 1em;
-    }
-    .appointment-form {
-        padding: 30px;
-    }
-    .appointment-form .form-grid {
-        grid-template-columns: 1fr; /* Columna única en tablets */
-        gap: 20px;
-    }
-    .appointment-form .form-group.full-width {
-        grid-column: 1;
-    }
-    .appointment-form .form-buttons {
-        flex-direction: column;
-        gap: 10px;
-    }
-    .appointment-form .btn-primary,
-    .appointment-form .btn-secondary {
-        width: 100%;
-        font-size: 1em;
-    }
-    /* Estilos para la sección de Contacto en contacto.html */
-    .contact-info-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    }
-    .contact-item h3 {
-        font-size: 1.3em;
-    }
-    .contact-item .contact-icon {
-        font-size: 3em;
-    }
-}
-
-@media (max-width: 768px) {
-    .portfolio-header h1 {
-        font-size: 2em;
-    }
-    .portfolio-header p {
-        font-size: 1em;
-    }
-    .hero-header-content {
-        flex-direction: column;
-        text-align: center;
     }
     .hero-text-side {
-        order: 2;
+        flex-basis: 100%;
         text-align: center;
     }
     .hero-image-side {
-        order: 1;
-        margin-bottom: 30px;
+        flex-basis: 100%;
+        margin-bottom: 20px;
     }
-    .main-nav-portfolio ul {
+    .portfolio-header h1 {
+        font-size: 2.5em;
+    }
+    .main-nav-portfolio .container {
+        flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+        justify-content: space-between; /* Espacio entre logo y hamburguesa */
+        padding: 10px 20px;
+    }
+    .nav-logo-wrapper {
+        margin-right: auto; /* Empuja el logo a la izquierda */
+    }
+    .main-nav-portfolio ul.nav-links {
+        display: none; /* Oculta los enlaces en pantallas pequeñas por defecto */
         flex-direction: column;
-        gap: 10px;
-        padding: 10px 0;
+        width: 70%; /* Ancho del menú lateral */
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        right: -70%; /* Oculto fuera de pantalla */
+        background-color: var(--card-background); /* Fondo del menú lateral */
+        box-shadow: -5px 0 15px var(--shadow-dark);
+        padding-top: 80px; /* Espacio desde arriba */
+        transition: right 0.3s ease-in-out;
+        z-index: 99; /* Por debajo del botón de hamburguesa */
     }
-    .main-nav-portfolio a {
-        padding: 5px 0;
+
+    .main-nav-portfolio ul.nav-links.active {
+        right: 0; /* Muestra el menú */
+    }
+
+    .main-nav-portfolio ul.nav-links li {
+        width: 100%;
+        text-align: left;
+        padding: 10px 30px; /* Padding para items de menú */
+    }
+    .main-nav-portfolio ul.nav-links li a {
+        display: block; /* Para que el padding y el click ocupen todo el ancho */
+        padding: 10px 0;
+        border-bottom: 1px solid var(--border-color-main); /* Separador de items */
+    }
+    .main-nav-portfolio ul.nav-links li:last-child a {
+        border-bottom: none; /* Elimina el borde del último item */
+    }
+
+    .hamburger-menu {
+        display: flex; /* Muestra el icono de hamburguesa */
+        z-index: 101; /* Asegura que esté por encima del menú lateral */
     }
     .projects-section h2,
     .value-proposition-section h2,
@@ -1009,27 +1164,31 @@ h2::after {
     .design-packages-section h2,
     .hosting-domain-section h2,
     .presentation-video-section h2,
-    .contact-cta-section h2,
+    .contact-details-section h2, /* Ajuste de h2 */
     .schedule-appointment-section h2 {
-        font-size: 1.8em;
+        font-size: 2em; /* Títulos más pequeños en tablets */
     }
     .project-grid,
     .inclusions-grid,
-    .packages-grid {
-        grid-template-columns: 1fr;
+    .packages-grid,
+    .contact-info-grid {
+        grid-template-columns: 1fr; /* Una columna en tablets/móviles */
         gap: 20px;
     }
     .project-card,
     .value-proposition-section,
     .inclusion-item,
-    .package-card {
+    .package-card,
+    .contact-details-section,
+    .appointment-form,
+    .bottom-cta-buttons { /* Ajuste de padding */
         padding: 25px 20px;
     }
     .package-card.featured {
-        transform: scale(1);
+        transform: scale(1); /* Deshacer el scale en móviles */
     }
     .presentation-video-section p,
-    .contact-cta-section p,
+    .contact-details-section .section-description-centered,
     .schedule-appointment-section .section-description-centered {
         font-size: 1em;
     }
@@ -1042,6 +1201,26 @@ h2::after {
     .whatsapp-float img {
         width: 30px;
         height: 30px;
+    }
+    .bottom-cta-buttons {
+        flex-direction: column; /* Apilar botones */
+        gap: 15px;
+    }
+    .btn-bottom {
+        width: 100%;
+        max-width: 300px; /* Ancho máximo para botón apilado */
+    }
+    .contact-details-section .social-links-contact-page {
+        margin-bottom: 30px;
+    }
+    .contact-details-section .contact-item {
+        padding: 20px;
+    }
+    .appointment-form .form-grid {
+        grid-template-columns: 1fr; /* Una columna en móviles */
+    }
+    .appointment-form .form-group.full-width {
+        grid-column: 1;
     }
 }
 
@@ -1090,10 +1269,8 @@ h2::after {
         width: 100%;
         font-size: 1em;
     }
-    .contact-info-grid {
-        grid-template-columns: 1fr;
-    }
-    .contact-item h3 {
-        font-size: 1.2em;
+    .main-nav-portfolio .nav-links {
+        width: 80%; /* Un poco más ancho en móviles muy pequeños */
+        right: -80%;
     }
 }
