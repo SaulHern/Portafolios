@@ -30,13 +30,18 @@
             <div class="nav-logo-wrapper">
                 <a href="#top" aria-label="Inicio"><img src="images/syntora-logo.png" alt="Logo de Syntora"></a>
             </div>
-            <ul>
+            <button class="hamburger-menu" id="hamburger-menu">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </button>
+            <ul class="nav-links" id="nav-links">
                 <li><a href="#top">Inicio</a></li>
                 <li><a href="#about-me">Sobre Mí</a></li>
                 <li><a href="#projects">Proyectos</a></li>
                 <li><a href="#value-proposition-section">Valor</a></li>
                 <li><a href="paquetes.html">Paquetes</a></li> <li><a href="#presentation-video">Video</a></li>
-                <li><a href="agencia-digital-landing/index.html#contact">Contacto</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
             </ul>
         </div>
     </nav>
@@ -45,10 +50,11 @@
 
         <section id="about-me" class="about-me-section">
             <div class="container">
-                <h2>Sobre Mí</h2>
-                <img src="images/saul-hernandez.jpg" alt="Saul Hernández - Foto de Perfil" class="profile-photo">
-                <p>Soy Saul Hernández, un apasionado desarrollador frontend con un ojo para el diseño y una mente orientada a la funcionalidad. Mi objetivo es construir experiencias web intuitivas, eficientes y visualmente atractivas que no solo cumplan, sino que superen las expectativas de mis clientes. Con Syntora, transformo ideas en soluciones digitales robustas, aplicando las últimas tecnologías y las mejores prácticas de la industria.</p>
-                
+                <h2 class="section-title">Sobre Mí</h2>
+                <div class="about-me-content">
+                    <img src="images/saul-hernandez2.jpg" alt="Saul Hernández - Foto de Perfil" class="profile-photo-small">
+                    <p>Soy Saul Hernández, un apasionado desarrollador frontend con un ojo para el diseño y una mente orientada a la funcionalidad. Mi objetivo es construir experiencias web intuitivas, eficientes y visualmente atractivas que no solo cumplan, sino que superen las expectativas de mis clientes. Con Syntora, transformo ideas en soluciones digitales robustas, aplicando las últimas tecnologías y las mejores prácticas de la industria.</p>
+                </div>
                 <div class="skills-grid">
                     <div class="skill-item">
                         <span class="material-icons">html</span>
@@ -91,6 +97,18 @@
             <h2>Mis Proyectos</h2>
             <div class="project-grid">
 
+                <div class="project-card featured-big">
+                    <div class="project-icon-wrapper">
+                        <span class="material-icons">laptop_mac</span>
+                    </div>
+                    <h3>Landing Page Agencia Digital</h3>
+                    <p>Página de aterrizaje completa y profesional para una agencia digital, con secciones de servicios, premios, testimonios y formulario de contacto. ¡Este es mi proyecto estrella!</p>
+                    <div class="project-links">
+                        <a href="https://saulhern.github.io/Digital-Agency_/" target="_blank" class="btn-primary">Ver Demo</a>
+                        <a href="https://github.com/SaulHern/Digital-Agency_" target="_blank" class="btn-secondary">Código</a>
+                    </div>
+                </div>
+
                 <div class="project-card">
                     <div class="project-icon-wrapper">
                         <span class="material-icons">restaurant_menu</span>
@@ -127,70 +145,12 @@
                     </div>
                 </div>
 
-                <div class="project-card featured-big">
-                    <div class="project-icon-wrapper">
-                        <span class="material-icons">laptop_mac</span>
-                    </div>
-                    <h3>Landing Page Agencia Digital</h3>
-                    <p>Página de aterrizaje completa y profesional para una agencia digital, con secciones de servicios, premios, testimonios y formulario de contacto. ¡Este es mi proyecto estrella!</p>
-                    <div class="project-links">
-                        <a href="https://saulhern.github.io/Digital-Agency_/" target="_blank" class="btn-primary">Ver Demo</a>
-                        <a href="https://github.com/SaulHern/Digital-Agency_" target="_blank" class="btn-secondary">Código</a>
-                    </div>
-                </div>
-
             </div>
         </section>
 
         <section id="value-proposition-section" class="value-proposition-section container">
             <h2>Mi Propuesta de Valor</h2>
             <p>En Syntora, transformo tus ideas en experiencias web funcionales y visualmente impactantes. Mi enfoque es crear soluciones digitales a medida que no solo lucen increíbles, sino que también impulsan tus objetivos de negocio.</p>
-        </section>
-
-        <section id="services-inclusion-section" class="services-inclusion-section container">
-            <h2>¿Qué Incluyen Mis Servicios?</h2>
-            <div class="inclusions-grid">
-                <div class="inclusion-item">
-                    <span class="material-icons">check_circle_outline</span>
-                    <p>Diseño Web Personalizado</p>
-                </div>
-                <div class="inclusion-item">
-                    <span class="material-icons">check_circle_outline</span>
-                    <p>Desarrollo Frontend Responsivo</p>
-                </div>
-                <div class="inclusion-item">
-                    <span class="material-icons">check_circle_outline</span>
-                    <p>Integración de Contenido (textos, imágenes)</p>
-                </div>
-                <div class="inclusion-item">
-                    <span class="material-icons">check_circle_outline</span>
-                    <p>Optimización para Motores de Búsqueda (SEO Básico)</p>
-                </div>
-                <div class="inclusion-item">
-                    <span class="material-icons">check_circle_outline</span>
-                    <p>Formularios de Contacto Funcionales</p>
-                </div>
-                <div class="inclusion-item">
-                    <span class="material-icons">check_circle_outline</span>
-                    <p>Configuración Inicial en GitHub Pages (hosting gratuito)</p>
-                </div>
-                <div class="inclusion-item">
-                    <span class="material-icons">check_circle_outline</span>
-                    <p>Soporte Básico Post-Entrega</p>
-                </div>
-                <div class="inclusion-item">
-                    <span class="material-icons">check_circle_outline</span>
-                    <p>Manejo de API Key</p>
-                </div>
-                <div class="inclusion-item">
-                    <span class="material-icons">check_circle_outline</span>
-                    <p>Manejo de LocalStorage</p>
-                </div>
-                <div class="inclusion-item">
-                    <span class="material-icons">check_circle_outline</span>
-                    <p>Acordeones FAQ</p>
-                </div>
-            </div>
         </section>
 
         <section id="presentation-video" class="presentation-video-section">
@@ -213,9 +173,9 @@
         </section>
 
         <section class="bottom-cta-buttons container">
-            <a href="paquetes.html" class="btn-primary">Ver Paquetes de Diseño Web</a>
-            <a href="contacto.html" class="btn-secondary">Servicios y Contacto</a>
-            <a href="agendar-cita.html" class="btn-primary">Agendar Cita</a>
+            <a href="#top" class="btn-bottom">Inicio</a>
+            <a href="contacto.html" class="btn-bottom">Servicios y Contacto</a>
+            <a href="agendar-cita.html" class="btn-bottom">Agendar Cita</a>
         </section>
 
     </main>
