@@ -56,15 +56,11 @@ document.addEventListener('DOMContentLoaded', () => {
             videoPlayer.load();
 
             // Intentar mantener el tiempo y estado de reproducción
-            videoPlayer.currentTime = currentTime;
-            if (!isPaused) {
-                // Solo intentar reproducir si el video no estaba pausado
-                videoPlayer.play().catch(error => {
-                    console.log('Error al intentar reproducir automáticamente el video:', error);
-                    // Esto puede ocurrir si el navegador bloquea la reproducción automática.
-                    // Podrías mostrar un mensaje para que el usuario haga clic en play.
-                });
-            }
+            videoPlayer.play().catch(error => {
+                console.log('Error al intentar reproducir automáticamente el video:', error);
+                // Esto puede ocurrir si el navegador bloquea la reproducción automática.
+                // Podrías mostrar un mensaje para que el usuario haga clic en play.
+            });
         }
     }
 
@@ -149,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            const whatsappMessage = `¡Hola Saul! Soy ${nombre}. Me contacto desde tu web. Estoy interesado en el paquete/servicio: *${interes}*.\n\nMensaje: ${mensaje || 'Sin mensaje adicional'}\n\nMi email es: ${document.getElementById('email').value || 'No proporcionado'}`;
+            const whatsappMessage = `¡Hola Saul! Soy ${nombre}. Me contacto desde tu web. Estoy interesado en el paquete/servicio: ${interes}.\n\nMensaje: ${mensaje || 'Sin mensaje adicional'}\n\nMi email es: ${document.getElementById('email').value || 'No proporcionado'}`;
 
             window.open(`https://wa.me/525520708423?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
         });
@@ -158,10 +154,27 @@ document.addEventListener('DOMContentLoaded', () => {
     // Lógica de animación para el título (Hola, soy Saul Hernández)
     const animatedHeading = document.getElementById('animated-heading');
     if (animatedHeading) {
-        // La animación se puede hacer con CSS puro usando @keyframes y animation-fill-mode
-        // o con JS para un control más preciso (ej. typing effect).
-        // Para este caso, solo añadiré una clase para activar una animación CSS sencilla si ya existe.
-        // Si necesitas un efecto más complejo (ej. typing), avísame y lo implementamos con JS.
-        animatedHeading.classList.add('fade-in-up'); // Añade una clase para activar animación CSS
+        animatedHeading.classList.add('fade-in-up'); // Se activa la animación CSS
+    }
+
+    // Lógica del menú hamburguesa para móvil
+    const hamburgerMenu = document.getElementById('hamburger-menu');
+    const navLinks = document.getElementById('nav-links');
+
+    if (hamburgerMenu && navLinks) {
+        hamburgerMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active'); // Activa/desactiva el menú
+            hamburgerMenu.classList.toggle('open'); // Activa/desactiva la animación del icono
+        });
+
+        // Opcional: Cerrar el menú si se hace clic en un enlace (para SPAs)
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    hamburgerMenu.classList.remove('open');
+                }
+            });
+        });
     }
 });
