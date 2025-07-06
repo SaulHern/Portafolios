@@ -45,32 +45,34 @@
             <p class="section-description-centered">¡Gracias por tu interés en mis servicios! Por favor, completa este formulario para agendar una consulta gratuita. Me pondré en contacto contigo a la brevedad.</p>
 
             <form id="appointment-form" class="appointment-form">
-                <div class="form-group">
-                    <label for="nombre">Tu Nombre Completo:</label>
-                    <input type="text" id="nombre" name="nombre" required>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="nombre">Tu Nombre Completo:</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Tu Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Tu Teléfono (opcional):</label>
+                        <input type="tel" id="telefono" name="telefono">
+                    </div>
+                    <div class="form-group">
+                        <label for="interes">Estoy interesado en:</label>
+                        <select id="interes" name="interes" required>
+                            <option value="">Selecciona una opción</option>
+                            <option value="paquete-basico">Paquete Básico</option>
+                            <option value="paquete-avanzado">Paquete Avanzado</option>
+                            <option value="paquete-premium">Paquete Premium</option>
+                            <option value="hosting-basico">Hosting y Dominio Básico</option>
+                            <option value="hosting-avanzado">Hosting y Dominio Avanzado</option>
+                            <option value="hosting-premium">Hosting y Dominio Premium</option>
+                            <option value="consulta-general">Consulta General</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="email">Tu Email:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="telefono">Tu Teléfono (opcional):</label>
-                    <input type="tel" id="telefono" name="telefono">
-                </div>
-                <div class="form-group">
-                    <label for="interes">Estoy interesado en:</label>
-                    <select id="interes" name="interes" required>
-                        <option value="">Selecciona una opción</option>
-                        <option value="paquete-basico">Paquete Básico</option>
-                        <option value="paquete-avanzado">Paquete Avanzado</option>
-                        <option value="paquete-premium">Paquete Premium</option>
-                        <option value="hosting-basico">Hosting y Dominio Básico</option>
-                        <option value="hosting-avanzado">Hosting y Dominio Avanzado</option>
-                        <option value="hosting-premium">Hosting y Dominio Premium</option>
-                        <option value="consulta-general">Consulta General</option>
-                    </select>
-                </div>
-                <div class="form-group">
+                <div class="form-group full-width">
                     <label for="mensaje">Describe brevemente tu proyecto o tus dudas:</label>
                     <textarea id="mensaje" name="mensaje" rows="6" placeholder="Cuéntame sobre tus necesidades, lo que buscas en tu web o tus preguntas específicas."></textarea>
                 </div>
@@ -89,7 +91,7 @@
             <div class="footer-logo"><img src="images/syntora-logo.png" alt="Logo de Syntora"></div>
             <p>&copy; 2025 Saul H. Todos los derechos reservados.</p>
             <div class="social-links">
-                <a href="https://github.com/CandyLuL" target="_blank" class="social-icon" aria-label="GitHub de Saul H.">
+                <a href="https://github.com/SaulHern" target="_blank" class="social-icon" aria-label="GitHub de Saul H.">
                     <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/github.svg" alt="GitHub">
                 </a>
             </div>
