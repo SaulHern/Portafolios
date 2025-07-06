@@ -92,9 +92,9 @@ h1, h2, h3 {
 
 /* Barra de Navegación Principal */
 .main-nav-portfolio {
-    background-color: #1A1A1A;
+    background-color: var(--card-bg); /* Fondo de la barra de navegación */
     padding: 15px 0;
-    position: sticky; /* O 'fixed' si quieres que siempre esté pegada arriba del todo */
+    position: sticky;
     top: 0;
     width: 100%;
     z-index: 100;
@@ -103,8 +103,19 @@ h1, h2, h3 {
 
 .main-nav-portfolio .container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between; /* Espacio entre logo y nav */
     align-items: center;
+}
+
+.nav-logo-wrapper img {
+    max-height: 40px; /* Altura del logo en la nav bar */
+    width: auto;
+    vertical-align: middle;
+    transition: transform 0.3s ease;
+}
+
+.nav-logo-wrapper img:hover {
+    transform: scale(1.05);
 }
 
 .main-nav-portfolio ul {
@@ -266,6 +277,78 @@ h1, h2, h3 {
 
 /* --- Nuevas Secciones del Portafolio --- */
 
+/* Sección "Sobre Mí" */
+.about-me-section {
+    background-color: var(--bg-primary);
+    padding: 80px 0;
+    text-align: center;
+}
+
+.about-me-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-me-content h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+}
+
+.about-me-content .profile-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--accent-color);
+    box-shadow: 0 5px 15px var(--shadow-medium);
+    margin-bottom: 30px;
+}
+
+.about-me-content p {
+    font-size: 1.1em;
+    color: var(--text-dark);
+    line-height: 1.7;
+    margin-bottom: 40px;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+    justify-content: center;
+}
+
+.skill-item {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px var(--shadow-light);
+    border: 1px solid var(--border-color-light);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px var(--shadow-medium);
+}
+
+.skill-item .material-icons {
+    font-size: 2.5em;
+    color: var(--accent-color);
+}
+
+.skill-item p {
+    font-weight: 600;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+
 /* Sección de Propuesta de Valor */
 .value-proposition-section {
     background-color: var(--card-bg);
@@ -314,7 +397,7 @@ h1, h2, h3 {
     background-color: var(--card-bg);
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
     display: flex;
     align-items: center;
     gap: 15px;
@@ -458,7 +541,7 @@ h1, h2, h3 {
 
 /* Sección de Video de Presentación */
 .presentation-video-section {
-    background-color: var(--bg-dark);
+    background-color: var(--bg-primary);
     padding: 80px 0;
     text-align: center;
 }
@@ -529,6 +612,36 @@ h1, h2, h3 {
 }
 
 
+/* Sección de Contacto Simplificada (para index.html si se usa) */
+.contact-cta-section {
+    background-color: var(--card-bg);
+    padding: 60px 20px;
+    margin: 80px auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px var(--shadow-light);
+    text-align: center;
+    border: 1px solid var(--border-color-light);
+}
+
+.contact-cta-section h2 {
+    font-size: 2.2em;
+    margin-bottom: 25px;
+    color: var(--text-dark);
+}
+
+.contact-cta-section p {
+    font-size: 1.15em;
+    color: var(--text-dark);
+    max-width: 700px;
+    margin: 0 auto 30px;
+    line-height: 1.8;
+}
+
+.contact-cta-section .btn-primary {
+    padding: 15px 35px;
+    font-size: 1.1em;
+}
+
 /* Footer */
 .portfolio-footer {
     background-color: var(--card-bg);
@@ -536,9 +649,9 @@ h1, h2, h3 {
     text-align: center;
     padding: 30px 0;
     font-size: 0.9em;
-    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 -4px 10px var(--shadow-light);
     margin-top: 50px;
-    border-top: 1px solid var(--border-color);
+    border-top: 1px solid var(--border-color-light);
 }
 
 .portfolio-footer .footer-logo {
@@ -604,7 +717,261 @@ h1, h2, h3 {
 }
 
 
-/* Responsive adjustments */
+/* Estilos para la sección de Contacto en contacto.html */
+.contact-details-section {
+    background-color: var(--bg-primary);
+    padding: 80px 0;
+    text-align: center;
+}
+
+.contact-details-section .section-description-centered {
+    max-width: 800px;
+    margin: 0 auto 50px;
+    color: var(--text-dark);
+    font-size: 1.1em;
+    line-height: 1.7;
+}
+
+.contact-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.contact-item {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px var(--shadow-light);
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px var(--shadow-medium);
+}
+
+.contact-item .contact-icon {
+    font-size: 3.5em;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+.contact-item h3 {
+    font-size: 1.5em;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+}
+
+.contact-item p {
+    font-size: 1em;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+.contact-details-section .social-links-contact-page {
+    margin-top: 40px;
+    margin-bottom: 60px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.contact-details-section .social-links-contact-page a .si {
+    font-size: 2.5em;
+    color: var(--text-dark);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-details-section .social-links-contact-page a:hover .si {
+    color: var(--accent-color);
+    transform: translateY(-5px);
+}
+
+.cta-contact {
+    font-size: 1.2em;
+    color: var(--text-dark);
+}
+
+.cta-contact .btn-primary {
+    margin-top: 20px;
+}
+
+
+/* Estilos para la página de Agendar Cita */
+.schedule-appointment-section {
+    background-color: var(--bg-primary);
+    padding: 80px 0;
+}
+
+.schedule-appointment-section h2 {
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--text-dark);
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.schedule-appointment-section .section-description-centered {
+    font-size: 1.1em;
+    color: var(--text-dark);
+    max-width: 700px;
+    margin: 0 auto 50px;
+    line-height: 1.7;
+    text-align: center;
+}
+
+.appointment-form {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--card-bg);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px var(--shadow-color);
+    border: 1px solid var(--border-color);
+}
+
+.appointment-form .form-grid { /* Layout de 2 columnas para el formulario */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 30px; /* Espacio vertical y horizontal */
+    margin-bottom: 20px;
+}
+
+.appointment-form .form-group {
+    margin-bottom: 0; /* Ya hay gap en el grid */
+}
+
+.appointment-form .form-group.full-width {
+    grid-column: 1 / -1; /* Ocupa todo el ancho en el grid */
+}
+
+.appointment-form label {
+    display: block;
+    color: var(--text-dark);
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 0.95em;
+}
+
+.appointment-form input[type="text"],
+.appointment-form input[type="email"],
+.appointment-form input[type="tel"],
+.appointment-form textarea,
+.appointment-form select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px; /* Bordes un poco más redondeados */
+    background-color: var(--bg-primary); /* Fondo más claro para inputs */
+    color: var(--text-dark);
+    font-size: 1em;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.appointment-form input[type="text"]:focus,
+.appointment-form input[type="email"]:focus,
+.appointment-form input[type="tel"]:focus,
+.appointment-form textarea:focus,
+.appointment-form select:focus {
+    border-color: var(--accent-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2); /* Sombra de enfoque */
+}
+
+.appointment-form textarea {
+    resize: vertical;
+}
+
+.appointment-form select {
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg fill="%23333333" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>'); /* Color de flecha para fondo claro */
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+}
+
+.appointment-form .form-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.appointment-form .btn-primary,
+.appointment-form .btn-secondary {
+    padding: 15px 35px;
+    font-size: 1.1em;
+}
+
+.appointment-form .btn-secondary { /* Estilo específico para el botón secundario */
+    background-color: var(--bg-primary); /* Fondo claro */
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.appointment-form .btn-secondary:hover {
+    background-color: var(--accent-color);
+    color: #FFFFFF;
+}
+
+.appointment-form .form-note-bottom {
+    font-size: 0.9em;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Responsive para paquetería y citas */
+@media (max-width: 992px) {
+    .design-packages-section h2,
+    .hosting-domain-section h2 {
+        font-size: 2em;
+    }
+    .hosting-domain-section .intro-text {
+        font-size: 1em;
+    }
+    .packages-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    .package-card {
+        padding: 30px;
+    }
+    .package-card h3 {
+        font-size: 1.8em;
+    }
+    .package-card .price {
+        font-size: 2.2em;
+    }
+    .package-card ul li {
+        font-size: 0.95em;
+    }
+    .schedule-appointment-section h2 {
+        font-size: 2em;
+    }
+    .schedule-appointment-section .section-description-centered {
+        font-size: 1em;
+    }
+    .appointment-form {
+        padding: 30px;
+    }
+    .appointment-form .form-grid {
+        grid-template-columns: 1fr; /* Columna única en tablets */
+        gap: 20px;
+    }
+    .appointment-form .form-group.full-width {
+        grid-column: 1;
+    }
+}
+
 @media (max-width: 768px) {
     .portfolio-header h1 {
         font-size: 2em;
@@ -612,20 +979,20 @@ h1, h2, h3 {
     .portfolio-header p {
         font-size: 1em;
     }
-    .hero-header-content { /* Ajuste para el nuevo hero en móviles */
+    .hero-header-content {
         flex-direction: column;
         text-align: center;
     }
     .hero-text-side {
-        order: 2; /* Texto debajo de la imagen */
+        order: 2;
         text-align: center;
     }
     .hero-image-side {
-        order: 1; /* Imagen arriba */
+        order: 1;
         margin-bottom: 30px;
     }
     .main-nav-portfolio ul {
-        flex-direction: column; /* Apilar enlaces en móviles */
+        flex-direction: column;
         gap: 10px;
         padding: 10px 0;
     }
@@ -637,25 +1004,30 @@ h1, h2, h3 {
     .services-inclusion-section h2,
     .design-packages-section h2,
     .hosting-domain-section h2,
-    .presentation-video-section h2 { /* Añadido h2 de video */
+    .presentation-video-section h2,
+    .contact-cta-section h2,
+    .schedule-appointment-section h2 {
         font-size: 1.8em;
     }
     .project-grid,
     .inclusions-grid,
     .packages-grid {
-        grid-template-columns: 1fr; /* Una columna en tablets/móviles */
+        grid-template-columns: 1fr;
         gap: 20px;
     }
     .project-card,
     .value-proposition-section,
     .inclusion-item,
-    .package-card {
+    .package-card,
+    .contact-cta-section {
         padding: 25px 20px;
     }
     .package-card.featured {
-        transform: scale(1); /* Deshacer el scale en móviles para que no se salga */
+        transform: scale(1);
     }
-    .presentation-video-section p {
+    .presentation-video-section p,
+    .contact-cta-section p,
+    .schedule-appointment-section .section-description-centered {
         font-size: 1em;
     }
     .whatsapp-float {
@@ -701,5 +1073,18 @@ h1, h2, h3 {
     }
     .presentation-video-section p {
         font-size: 0.9em;
+    }
+    .contact-cta-section .btn-primary {
+        font-size: 1em;
+        padding: 12px 25px;
+    }
+    .appointment-form .form-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .appointment-form .btn-primary,
+    .appointment-form .btn-secondary {
+        width: 100%;
+        font-size: 1em;
     }
 }
