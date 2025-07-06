@@ -56,15 +56,11 @@ document.addEventListener('DOMContentLoaded', () => {
             videoPlayer.load();
 
             // Intentar mantener el tiempo y estado de reproducción
-            videoPlayer.currentTime = currentTime;
-            if (!isPaused) {
-                // Solo intentar reproducir si el video no estaba pausado
-                videoPlayer.play().catch(error => {
-                    console.log('Error al intentar reproducir automáticamente el video:', error);
-                    // Esto puede ocurrir si el navegador bloquea la reproducción automática.
-                    // Podrías mostrar un mensaje para que el usuario haga clic en play.
-                });
-            }
+            videoPlayer.play().catch(error => {
+                console.log('Error al intentar reproducir automáticamente el video:', error);
+                // Esto puede ocurrir si el navegador bloquea la reproducción automática.
+                // Podrías mostrar un mensaje para que el usuario haga clic en play.
+            });
         }
     }
 
@@ -81,28 +77,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Lógica para la Barra de Navegación Fija (Sticky Nav)
     const mainNavPortfolio = document.getElementById('main-nav-portfolio');
-    const headerHeight = document.querySelector('.portfolio-header').offsetHeight; // Altura del header superior
+    // Si tu header no es fixed, necesitas un offset o una altura de referencia
+    const headerOffset = document.querySelector('.portfolio-header').offsetHeight; 
 
     function makeNavSticky() {
-        // La navegación se vuelve "sticky" después de que el header superior ha pasado
-        if (window.scrollY > headerHeight) {
+        if (window.scrollY > headerOffset) {
             mainNavPortfolio.classList.add('sticky-nav');
         } else {
             mainNavPortfolio.classList.remove('sticky-nav');
         }
     }
-
-    // Añadir estilos para .sticky-nav en tu CSS:
-    // .main-nav-portfolio.sticky-nav {
-    //     position: fixed;
-    //     top: 0;
-    //     left: 0;
-    //     width: 100%;
-    //     box-shadow: 0 2px 10px rgba(0,0,0,0.4);
-    //     background-color: rgba(26, 26, 26, 0.95); /* Un poco transparente */
-    //     padding: 10px 0; /* Más compacto */
-    // }
-    // Puedes añadir window.addEventListener('scroll', makeNavSticky); si quieres este efecto.
-    // Para este diseño, la barra ya es sticky por defecto con position: sticky; en el CSS.
-    // La lógica JS es más útil si se quiere un efecto de cambio de tamaño/color al hacer scroll.
+    // Añadir este listener para activar el efecto sticky real
+    window.addEventListener('scroll', makeNavSticky);
 });
