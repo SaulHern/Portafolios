@@ -89,4 +89,34 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     // Añadir este listener para activar el efecto sticky real
     window.addEventListener('scroll', makeNavSticky);
+
+    // Lógica para el formulario de contacto
+    const appointmentForm = document.getElementById('appointment-form');
+    if (appointmentForm) {
+        const sendEmailButton = document.getElementById('send-email');
+        const sendWhatsappButton = document.getElementById('send-whatsapp');
+
+        sendEmailButton.addEventListener('click', () => {
+            const nombre = document.getElementById('nombre').value;
+            const email = document.getElementById('email').value;
+            const telefono = document.getElementById('telefono').value;
+            const interes = document.getElementById('interes').value;
+            const mensaje = document.getElementById('mensaje').value;
+
+            const subject = `Solicitud de Cita - ${nombre}`;
+            const body = `Nombre: ${nombre}\nEmail: ${email}\nTeléfono: ${telefono}\nInteresado en: ${interes}\n\nMensaje:\n${mensaje}`;
+
+            window.location.href = `mailto:albertosaul341@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        });
+
+        sendWhatsappButton.addEventListener('click', () => {
+            const nombre = document.getElementById('nombre').value;
+            const interes = document.getElementById('interes').value;
+            const mensaje = document.getElementById('mensaje').value;
+
+            const whatsappMessage = `¡Hola! Soy ${nombre}. Estoy interesado en el ${interes}.\n\nMi proyecto es: ${mensaje}`;
+
+            window.open(`https://wa.me/525520708423?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
+        });
+    }
 });
